@@ -5,7 +5,7 @@ branch: 04-system-specific-evals
 depth: L2
 status: not-started
 bridge: testing
-prerequisites: [programmatic-checks]
+prerequisites: [programmatic-checks, nondeterminism-and-variance, sandboxing-untrusted-code]
 tags: []
 ---
 # Code generation evals
@@ -13,6 +13,10 @@ tags: []
 Execution-based correctness such as pass@k, test-suite grading, and security of generated code.
 
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Shared concept:** pass@k and pass^k are defined once in [nondeterminism-and-variance](../01-foundations/nondeterminism-and-variance.md#passk-and-passk-owned-here).
+
+**Shared concept:** running untrusted code safely is covered in [sandboxing-untrusted-code](../05-testing-in-engineering/sandboxing-untrusted-code.md).
 
 ## Why it matters
 Functional correctness by unit tests, with unbiased pass@k: generate n>=k samples, count c correct, and compute 1 - C(n-c,k)/C(n,k); the naive 1-(1-p)^k estimate is biased; BLEU is unreliable for functional correctness ([Chen et al., Codex, arXiv 2107.03374](https://arxiv.org/pdf/2107.03374), sec. 2.1; read via local pdftotext). HumanEval is 164 hand-written problems, avg 7.7 tests; the paper built a gVisor sandbox for untrusted code (same, sec. 2.2-2.3). Codex solved 28.8% with one sample, 70.2% with 100 ([abstract](https://arxiv.org/abs/2107.03374)).

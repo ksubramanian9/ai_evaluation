@@ -40,3 +40,8 @@ With a small open model through Hugging Face `generate`, run one prompt with gre
 - Anthropic, context windows: https://platform.claude.com/docs/en/build-with-claude/context-windows
 - OpenAI cookbook, reproducible outputs with seed (archived): https://developers.openai.com/cookbook/examples/reproducible_outputs_with_the_seed_parameter
 - Practitioner: Thinking Machines, "Defeating Nondeterminism in LLM Inference": https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/
+
+## Verification log (2026-11-20)
+Confirmed on Anthropic's official [API migration page](https://platform.claude.com/docs/en/api/migration-2026-10-21): in API version `2026-10-21`, "a request that sends `temperature`, `top_p`, or `top_k` returns a 400 error, even at the parameter's default value", with no model exception. Without them, requests use defaults (temperature 1.0). Models that already accepted only defaults, such as Claude 4.7 and later, sample as before. The page says no other setting replaces temperature. Requests that need a non-default value must stay on version `2023-06-01`. Practical consequence: on this version you cannot lower temperature to make evals repeatable, so use recorded responses, mocks, multiple samples and statistics instead.
+
+This supersedes the mirror-based citation for temperature behavior above; the "not fully deterministic" claim itself still rests only on the SDK mirror.

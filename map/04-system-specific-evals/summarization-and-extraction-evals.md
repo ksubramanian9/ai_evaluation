@@ -5,7 +5,7 @@ branch: 04-system-specific-evals
 depth: L2
 status: not-started
 bridge: none
-prerequisites: [reference-based-metrics, llm-as-judge]
+prerequisites: [reference-based-metrics, llm-as-judge, rag-generation-evals]
 tags: []
 ---
 # Summarization and extraction evals
@@ -13,6 +13,8 @@ tags: []
 Faithfulness, coverage, and field-level accuracy for summarization and structured extraction.
 
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Shared concept:** faithfulness measurement (claim decomposition, groundedness judges) is covered in [rag-generation-evals](rag-generation-evals.md). This node covers what is specific to summarization (coverage, omissions) and to extraction (schema vs value correctness).
 
 ## Why it matters
 Neural summarizers are "highly prone to hallucinate"; ROUGE is weaker than textual-entailment measures at tracking faithfulness (ACL 2020, [Maynez et al., arXiv 2005.00661](https://arxiv.org/abs/2005.00661)). SummEval re-evaluated 14 metrics on 23 models with expert and crowd judgments ([arXiv 2007.12626](https://arxiv.org/abs/2007.12626); findings UNVERIFIED). FRANK: typology of factual errors, benchmark for factuality metrics, factuality graded not binary (NAACL 2021, [arXiv 2104.13346](https://arxiv.org/abs/2104.13346)). G-Eval: CoT + form-filling GPT-4, Spearman 0.514 on summarization, with a flagged preference for LLM text ([arXiv 2303.16634](https://arxiv.org/abs/2303.16634)). Extraction: constrained decoding guarantees schema adherence not value correctness ([OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs) [V]); JSONSchemaBench (10K real schemas) measures efficiency, coverage, quality ([arXiv 2501.10868](https://arxiv.org/abs/2501.10868)).

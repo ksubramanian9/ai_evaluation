@@ -5,7 +5,7 @@ branch: 02-eval-design
 depth: L3
 status: not-started
 bridge: stats
-prerequisites: [metric-selection]
+prerequisites: [metric-selection, statistical-inference]
 tags: []
 ---
 # Validity and reliability
@@ -15,6 +15,8 @@ Whether an eval measures what it claims (construct validity) and gives stable re
 _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../research/02-eval-design.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
 _Source key (reused): [CLAUDE-EVAL] https://platform.claude.com/docs/en/test-and-evaluate/develop-tests ; [OAI-BP] https://developers.openai.com/api/docs/guides/evaluation-best-practices ; [ANTH-AGENT] https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents ; [HELM] https://arxiv.org/abs/2211.09110_
+
+**Shared concept:** confidence intervals, power and paired comparisons are owned by [statistical-inference](../01-foundations/statistical-inference.md) and [confidence-intervals-for-evals](../03-measurement-methods/confidence-intervals-for-evals.md).
 
 ## Why it matters
 445 LLM benchmarks reviewed by 29 experts show recurring patterns weakening construct validity; eight recommendations [Bean et al., NeurIPS 2025 D&B](https://arxiv.org/abs/2511.04703). Benchmarks should be reliable, unbiased, with headroom [Bowman & Dahl](https://arxiv.org/abs/2104.02145). General benchmarks framed as measures of "general" progress have construct validity problems [Raji et al.](https://arxiv.org/abs/2111.15366). Measurement-modeling vocabulary: construct validity/reliability [Jacobs & Wallach](https://arxiv.org/abs/1912.05511). Stability: "evaluations are experiments"; formulas for analysis, model comparison, power planning [Miller](https://arxiv.org/abs/2411.00640) (abstract only).

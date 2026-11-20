@@ -10,15 +10,16 @@ flowchart LR
   n_02_eval_design["02-eval-design<br/>12 nodes"]
   n_03_measurement_methods["03-measurement-methods<br/>12 nodes"]
   n_04_system_specific_evals["04-system-specific-evals<br/>12 nodes"]
-  n_05_testing_in_engineering["05-testing-in-engineering<br/>13 nodes"]
+  n_05_testing_in_engineering["05-testing-in-engineering<br/>14 nodes"]
   n_06_production["06-production<br/>11 nodes"]
   n_07_operating_practice["07-operating-practice<br/>11 nodes"]
   n_01_foundations --> n_02_eval_design
   n_02_eval_design --> n_03_measurement_methods
   n_01_foundations --> n_03_measurement_methods
   n_02_eval_design --> n_04_system_specific_evals
-  n_03_measurement_methods --> n_04_system_specific_evals
   n_01_foundations --> n_04_system_specific_evals
+  n_03_measurement_methods --> n_04_system_specific_evals
+  n_05_testing_in_engineering --> n_04_system_specific_evals
   n_03_measurement_methods --> n_05_testing_in_engineering
   n_01_foundations --> n_05_testing_in_engineering
   n_02_eval_design --> n_05_testing_in_engineering
@@ -103,17 +104,17 @@ flowchart TD
 | Node | Depth | Bridge | Cross-branch prerequisites |
 |---|---|---|---|
 | [Annotation guidelines](02-eval-design/annotation-guidelines.md) | L2 | none | - |
-| [Baselines and thresholds](02-eval-design/baselines-and-thresholds.md) | L2 | testing | - |
+| [Baselines and thresholds](02-eval-design/baselines-and-thresholds.md) | L2 | testing | statistical-inference |
 | [Contamination and leakage in evals](02-eval-design/contamination-and-leakage.md) | L2 | stats | data-splits-and-leakage |
-| [Coverage and slicing](02-eval-design/coverage-and-slicing.md) | L2 | testing | - |
-| [Eval-driven development](02-eval-design/eval-driven-development.md) | L2 | testing | - |
+| [Coverage and slicing](02-eval-design/coverage-and-slicing.md) | L2 | testing | statistical-inference |
+| [Eval-driven development](02-eval-design/eval-driven-development.md) | L2 | testing | statistical-inference |
 | [Golden datasets](02-eval-design/golden-datasets.md) | L2 | none | - |
 | [Metric selection](02-eval-design/metric-selection.md) | L2 | stats | ml-metrics |
 | [Quality dimensions taxonomy](02-eval-design/quality-dimensions-taxonomy.md) | L2 | none | - |
 | [Rubric design](02-eval-design/rubric-design.md) | L2 | none | - |
 | [Synthetic test data generation](02-eval-design/synthetic-data-generation.md) | L2 | none | - |
 | [Task definition and success criteria](02-eval-design/task-definition-and-success-criteria.md) | L2 | none | evaluation-mindset |
-| [Validity and reliability](02-eval-design/validity-and-reliability.md) | L3 | stats | - |
+| [Validity and reliability](02-eval-design/validity-and-reliability.md) | L3 | stats | statistical-inference |
 
 ## 03-measurement-methods
 
@@ -178,13 +179,14 @@ flowchart TD
   n_agent_trajectory_evals --> n_multi_agent_evals
   n_rag_retrieval_evals --> n_rag_end_to_end_evals
   n_rag_generation_evals --> n_rag_end_to_end_evals
+  n_rag_generation_evals --> n_summarization_and_extraction_evals
 ```
 
 | Node | Depth | Bridge | Cross-branch prerequisites |
 |---|---|---|---|
-| [Agent task success](04-system-specific-evals/agent-task-success-evals.md) | L2 | none | task-definition-and-success-criteria |
+| [Agent task success](04-system-specific-evals/agent-task-success-evals.md) | L2 | none | task-definition-and-success-criteria, nondeterminism-and-variance |
 | [Agent trajectory evaluation](04-system-specific-evals/agent-trajectory-evals.md) | L3 | none | llm-as-judge |
-| [Code generation evals](04-system-specific-evals/code-generation-evals.md) | L2 | testing | programmatic-checks |
+| [Code generation evals](04-system-specific-evals/code-generation-evals.md) | L2 | testing | programmatic-checks, nondeterminism-and-variance, sandboxing-untrusted-code |
 | [Conversational / chatbot evaluation](04-system-specific-evals/conversational-evals.md) | L2 | none | llm-as-judge, nondeterminism-and-variance |
 | [Long-context evals](04-system-specific-evals/long-context-evals.md) | L3 | none | llm-basics-for-evaluators |
 | [Multi-agent system evals](04-system-specific-evals/multi-agent-evals.md) | L3 | none | - |
@@ -193,7 +195,7 @@ flowchart TD
 | [RAG generation evaluation](04-system-specific-evals/rag-generation-evals.md) | L2 | none | llm-as-judge |
 | [RAG retrieval evaluation](04-system-specific-evals/rag-retrieval-evals.md) | L2 | stats | metric-selection |
 | [Summarization and extraction evals](04-system-specific-evals/summarization-and-extraction-evals.md) | L2 | none | reference-based-metrics, llm-as-judge |
-| [Tool use and function-calling evals](04-system-specific-evals/tool-use-evals.md) | L2 | testing | programmatic-checks |
+| [Tool use and function-calling evals](04-system-specific-evals/tool-use-evals.md) | L2 | testing | programmatic-checks, nondeterminism-and-variance |
 
 ## 05-testing-in-engineering
 
@@ -212,6 +214,7 @@ flowchart TD
   n_regression_testing["Regression testing"]
   n_robustness_testing["Robustness testing"]
   n_safety_and_harm_evals["Safety and harm evaluation"]
+  n_sandboxing_untrusted_code["Sandboxing untrusted code"]
   n_regression_testing --> n_ci_eval_gates
   n_determinism_control_and_mocking --> n_flaky_test_management
   n_red_teaming --> n_prompt_injection_security_testing
@@ -235,6 +238,7 @@ flowchart TD
 | [Regression testing](05-testing-in-engineering/regression-testing.md) | L2 | testing | golden-datasets, baselines-and-thresholds |
 | [Robustness testing](05-testing-in-engineering/robustness-testing.md) | L2 | testing | coverage-and-slicing |
 | [Safety and harm evaluation](05-testing-in-engineering/safety-and-harm-evals.md) | L3 | none | rubric-design |
+| [Sandboxing untrusted code](05-testing-in-engineering/sandboxing-untrusted-code.md) | L2 | testing | programmatic-checks |
 
 ## 06-production
 
