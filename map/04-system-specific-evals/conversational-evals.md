@@ -5,11 +5,26 @@ branch: 04-system-specific-evals
 depth: L2
 status: not-started
 bridge: none
-prerequisites: [llm-as-judge]
+prerequisites: [llm-as-judge, nondeterminism-and-variance]
 tags: []
 ---
 # Conversational / chatbot evaluation
 
 Multi-turn quality, consistency, and context handling.
 
-<!-- Stub. Fill in when studying: Why it matters / Failure modes / Practice exercise / Mastery check / Sources -->
+_Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Why it matters
+MT-Bench and Chatbot Arena: strong LLM judges agree with humans >80%, but show position, verbosity, self-enhancement bias (NeurIPS 2023 D&B, [arXiv 2306.05685](https://arxiv.org/abs/2306.05685)). Chatbot Arena uses crowdsourced pairwise comparison, 240K+ votes ([arXiv 2403.04132](https://arxiv.org/abs/2403.04132)). MT-Bench-101: 3-tier ability taxonomy, 4,208 turns/1,388 dialogues/13 tasks, 21 LLMs; alignment techniques did not noticeably improve multi-turn ability (ACL 2024, [arXiv 2402.14762](https://arxiv.org/abs/2402.14762)). Underspecified multi-turn: 39% average drop vs single-turn over six tasks, mostly from unreliability ([Laban et al., arXiv 2505.06120](https://arxiv.org/abs/2505.06120)).
+
+## Common failure modes
+Early wrong assumptions then over-reliance; no recovery (Laban et al.); judge biases (Zheng et al.); single-turn tests miss multi-turn degradation.
+
+## Practice exercise
+Take 20 single-turn tasks, shard each into 3-4 turns of progressively revealed info, compare to fully specified; run each 5 times to separate aptitude (best-case) from unreliability (spread). Judge with swapped order to measure position bias.
+
+## Mastery check
+(1) Why does multi-turn unreliability differ from aptitude loss? (2) Mitigate position bias. (3) Pairwise vs absolute scoring trade-offs. (4) Define a consistency check (persona/fact stability across turns).
+
+## Sources
+Zheng et al.; Chatbot Arena; MT-Bench-101; Laban et al.

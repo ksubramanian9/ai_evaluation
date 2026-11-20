@@ -12,4 +12,22 @@ tags: []
 
 Faithfulness/groundedness and answer relevance given retrieved context.
 
-<!-- Stub. Fill in when studying: Why it matters / Failure modes / Practice exercise / Mastery check / Sources -->
+_Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Why it matters
+Faithfulness/groundedness and answer relevance can be scored without gold answers: RAGAS is a "reference-free" framework covering retrieval relevance, faithfulness to context, and generation quality ([arXiv 2309.15217](https://arxiv.org/abs/2309.15217)). ARES trains lightweight judges on synthetic data to score context relevance, answer faithfulness, answer relevance, and uses prediction-powered inference with a few hundred human annotations to correct judge error (NAACL 2024, [arXiv 2311.09476](https://arxiv.org/abs/2311.09476)). FActScore splits text into atomic facts and measures the share supported by a knowledge source; ChatGPT scored ~58% on biographies; automated estimator error <2% (EMNLP 2023, [arXiv 2305.14251](https://arxiv.org/abs/2305.14251)). The "RAG triad" (context relevance, groundedness via claim decomposition, answer relevance) is a practitioner framing ([TruLens docs](https://www.trulens.org/getting_started/core_concepts/rag_triad/), practitioner/library).
+
+## Common failure modes
+- Model answers from parametric memory, correct but ungrounded (UNVERIFIED as a named failure; inferable from groundedness definition above).
+- Models fail to reject when context lacks the answer, and are misled by counterfactual or noisy documents ([RGB, arXiv 2309.01431](https://arxiv.org/abs/2309.01431): noise robustness, negative rejection, information integration, counterfactual robustness; models struggled with the latter three).
+- Judge error uncorrected: ARES motivates PPI for this reason (above).
+- Metric tool lists change names/definitions: RAGAS currently lists Context Precision, Context Recall, Faithfulness, Response Relevancy, Noise Sensitivity [V] ([docs, as of 2026-11-20](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/)).
+
+## Practice exercise
+Build 30 (question, context, answer) triples, 10 deliberately ungrounded, 10 with irrelevant context. Implement a claim-decomposition faithfulness judge (FActScore-style) with any LLM, hand-label, report agreement (Cohen's kappa) and compare to a RAGAS faithfulness run.
+
+## Mastery check
+(1) Distinguish faithfulness from answer relevance with one example each way. (2) Why can a faithful answer be wrong? (3) How does PPI use human labels? (4) Design a negative-rejection test case.
+
+## Sources
+RAGAS; ARES; FActScore; RGB; TruLens (practitioner); RAGAS docs.

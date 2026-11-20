@@ -12,4 +12,19 @@ tags: []
 
 Evaluating coordination, handoffs, and emergent failures.
 
-<!-- Stub. Fill in when studying: Why it matters / Failure modes / Practice exercise / Mastery check / Sources -->
+_Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Why it matters
+MAST, from 1,600+ annotated traces across 7 frameworks, defines 14 failure modes in 3 categories (system design, inter-agent misalignment, task verification), with kappa 0.88, built from 150 traces ([arXiv 2503.13657](https://arxiv.org/abs/2503.13657)). MultiAgentBench scores task completion and collaboration/competition quality via milestone KPIs across star/chain/tree/graph topologies ([arXiv 2503.01935](https://arxiv.org/abs/2503.01935)). Small changes to the lead agent can unpredictably alter subagent behaviour, so evaluate interaction patterns ([Anthropic](https://www.anthropic.com/engineering/multi-agent-research-system)).
+
+## Common failure modes
+The 3 MAST categories above (exact 14 names UNVERIFIED, abstract only); duplicated subagent work and over-spawning (Anthropic); topology-dependent performance (MultiAgentBench).
+
+## Practice exercise
+Run a 2-3 agent pipeline (planner/worker/verifier) on 15 tasks, log traces, annotate failures with MAST categories (fetch full taxonomy from the paper first), and compare against single-agent baseline for cost and success.
+
+## Mastery check
+(1) Single vs multi-agent: what evidence justifies the extra complexity? (2) Which MAST category is hardest to detect automatically? (3) Design a handoff test.
+
+## Sources
+MAST; MultiAgentBench; Anthropic (provider).

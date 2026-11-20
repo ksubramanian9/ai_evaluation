@@ -134,9 +134,11 @@ flowchart TD
   n_public_benchmarks --> n_benchmark_limitations
   n_reference_based_metrics --> n_embedding_similarity_metrics
   n_programmatic_checks --> n_eval_harness_design
+  n_public_benchmarks --> n_eval_harness_design
   n_human_evaluation --> n_inter_rater_agreement
   n_llm_as_judge --> n_judge_bias_and_calibration
   n_inter_rater_agreement --> n_judge_bias_and_calibration
+  n_confidence_intervals_for_evals --> n_judge_bias_and_calibration
   n_human_evaluation --> n_llm_as_judge
   n_llm_as_judge --> n_pairwise_comparison_and_ranking
 ```
@@ -181,9 +183,9 @@ flowchart TD
 | Node | Depth | Bridge | Cross-branch prerequisites |
 |---|---|---|---|
 | [Agent task success](04-system-specific-evals/agent-task-success-evals.md) | L2 | none | task-definition-and-success-criteria |
-| [Agent trajectory evaluation](04-system-specific-evals/agent-trajectory-evals.md) | L3 | none | - |
+| [Agent trajectory evaluation](04-system-specific-evals/agent-trajectory-evals.md) | L3 | none | llm-as-judge |
 | [Code generation evals](04-system-specific-evals/code-generation-evals.md) | L2 | testing | programmatic-checks |
-| [Conversational / chatbot evaluation](04-system-specific-evals/conversational-evals.md) | L2 | none | llm-as-judge |
+| [Conversational / chatbot evaluation](04-system-specific-evals/conversational-evals.md) | L2 | none | llm-as-judge, nondeterminism-and-variance |
 | [Long-context evals](04-system-specific-evals/long-context-evals.md) | L3 | none | llm-basics-for-evaluators |
 | [Multi-agent system evals](04-system-specific-evals/multi-agent-evals.md) | L3 | none | - |
 | [Multimodal evals (extension)](04-system-specific-evals/multimodal-evals.md) | L1 | none | metric-selection |
@@ -296,7 +298,7 @@ flowchart TD
 | Node | Depth | Bridge | Cross-branch prerequisites |
 |---|---|---|---|
 | [Build vs. buy](07-operating-practice/build-vs-buy.md) | L2 | none | - |
-| [Eval cost management](07-operating-practice/eval-cost-management.md) | L2 | none | llm-as-judge |
+| [Eval cost management](07-operating-practice/eval-cost-management.md) | L2 | none | llm-as-judge, confidence-intervals-for-evals |
 | [Eval maturity model](07-operating-practice/eval-maturity-model.md) | L3 | none | - |
 | [Eval reporting and communication](07-operating-practice/eval-reporting-and-communication.md) | L2 | none | confidence-intervals-for-evals |
 | [Eval tooling landscape](07-operating-practice/eval-tooling-landscape.md) | L1 | none | eval-harness-design |

@@ -12,4 +12,27 @@ tags: []
 
 Safe rollout patterns for model and prompt changes.
 
-<!-- Stub. Fill in when studying: Why it matters / Failure modes / Practice exercise / Mastery check / Sources -->
+_Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Why it matters
+- Canarying is "a partial and time-limited deployment of a change in a service and its evaluation"; canary vs control is effectively A/B testing; exposure of a defect is proportional to canary traffic ([SRE Workbook: canarying](https://sre.google/workbook/canarying-releases/)).
+- Shadow testing mirrors a copy of live requests to the new variant while only the production variant's response is returned; responses are discarded or logged for offline comparison ([AWS SageMaker shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html), [vol] vendor docs). It validates operational metrics before promotion.
+
+## Common failure modes
+(from the SRE Workbook)
+- Imperfect isolation between canary and control; miscalibrated thresholds; metric interval longer than canary duration; synthetic load missing state; before/after comparison confounded by time; run one canary at a time; use absolute SLOs as well as relative comparison ([workbook](https://sre.google/workbook/canarying-releases/)).
+- LLM-specific: shadow outputs are not seen by users so quality needs a judge or reference (design); stateful agents with side effects cannot be shadowed safely without stubbing tools (design/inference, UNVERIFIED by source).
+- Shadow support has constraints (e.g. some endpoint types incompatible) ([AWS](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html)).
+
+## Practice exercise
+(design)
+- Build a router that sends 5% of requests to a candidate prompt/model (canary) and mirrors 100% of a replayed log to it (shadow). Compare latency, cost, format-validity rate, and judge score; write an automatic rollback rule (e.g. abort if error rate > baseline + threshold) and test it with an injected regression.
+
+## Mastery check
+1. Shadow vs canary: what does each reveal and not reveal?
+2. Pick 3 canary metrics for a RAG chatbot and thresholds; justify.
+3. Why could hourly metrics invalidate a 30-minute canary?
+
+## Sources
+- [Google SRE Workbook: Canarying releases](https://sre.google/workbook/canarying-releases/)
+- [AWS SageMaker shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html)

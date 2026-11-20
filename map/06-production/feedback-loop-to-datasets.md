@@ -12,4 +12,29 @@ tags: []
 
 Turning production failures into new test cases.
 
-<!-- Stub. Fill in when studying: Why it matters / Failure modes / Practice exercise / Mastery check / Sources -->
+_Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Why it matters
+- Interviews with 18 ML engineers identify Velocity, Validation and Versioning as the variables governing production success and describe continual monitoring of production performance drops as part of the loop ([Shankar et al. 2022](https://arxiv.org/abs/2209.09125)).
+- Evaluation criteria evolve as you look at outputs ("criteria drift"), so datasets must be refreshed from observed failures ([Shankar et al. 2024](https://arxiv.org/abs/2404.12272)).
+- Anthropic's guidance: mirror the real task distribution and include edge cases; more automatically graded questions beat fewer hand-graded ([Anthropic develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests), [vol]). That page's explicit guidance on production data was not seen (only first 100k chars read).
+
+## Common failure modes
+- Hidden feedback loops and entanglement ([Sculley et al.](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html)).
+- Test-set contamination by training on or tuning against mined failures (design; cross-ref golden-datasets).
+- Unrepresentative mining (only thumbs-down) skews dataset; privacy of logged data (see traffic-sampling-and-logging).
+- Labels from an unvalidated judge become the ground truth (Shankar 2024).
+
+## Practice exercise
+(design)
+- From logged traces with a failure flag, mine 50 failures, cluster by error type, write a minimal test case per cluster (input, expected property, scorer), anonymise, add to a versioned dataset with provenance fields, split into dev (for tuning) and a frozen holdout, and confirm the fix flips the case and does not regress the older set.
+
+## Mastery check
+1. How do you keep a mined-failure set from inflating scores after you fix those failures?
+2. What metadata should each promoted case carry (source trace id, date, label author, privacy status)?
+3. How does criteria drift change when you re-label?
+
+## Sources
+- [Shankar et al. 2022 Operationalizing ML](https://arxiv.org/abs/2209.09125)
+- [Shankar et al. 2024 Who validates the validators](https://arxiv.org/abs/2404.12272)
+- [Sculley et al.](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html)

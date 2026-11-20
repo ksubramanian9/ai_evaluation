@@ -12,4 +12,30 @@ tags: []
 
 Detecting shifts in inputs, outputs, and quality over time.
 
-<!-- Stub. Fill in when studying: Why it matters / Failure modes / Practice exercise / Mastery check / Sources -->
+_Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Why it matters
+- Hosted-model behaviour changes: GPT-4 prime/composite accuracy fell from 84% (March 2023) to 51% (June 2023), and the authors recommend continuous monitoring ([Chen, Zaharia, Zou](https://arxiv.org/abs/2307.09009)).
+- For input drift, a two-sample test on pre-trained-classifier-reduced representations performed best across the shifts tested in "Failing Loudly" ([Rabanser et al.](https://arxiv.org/abs/1810.11953)). Domain-discriminating methods help characterise shifts and judge harm.
+- Concept drift is where the input-target relation changes over time; Gama et al. survey adaptation strategies and evaluation ([ACM CSUR 2014 via search](https://eprints.bournemouth.ac.uk/22491/); taxonomy of drift types - sudden/gradual/recurring - not verified, page blocked).
+
+## Common failure modes
+- Detecting statistical shift that is harmless (alert fatigue); Rabanser et al. frame assessing harm as separate from detection ([abstract](https://arxiv.org/abs/1810.11953)).
+- Per-column tests with default thresholds: Evidently docs differ across versions on defaults (Wasserstein/K-S/PSI, threshold 0.1, drift_share 50%) - check your version ([Evidently docs](https://docs.evidentlyai.com/user-guide/customization/options-for-statistical-tests), practitioner/OSS, [vol]).
+- Provider-side silent model changes need output/quality drift checks, not only input checks (Chen et al.).
+- Applying tabular-drift tests to text without embeddings: UNVERIFIED (no primary source found on embedding-drift validity).
+
+## Practice exercise
+(design)
+- Take a text classification dataset with a natural time split (e.g. news by year). Embed, then run (a) per-dimension KS with Bonferroni, (b) classifier two-sample test (domain classifier AUC), (c) MMD. Inject synthetic drift of increasing magnitude and plot detection power vs false-positive rate. Replay a fixed prompt set against a model weekly and track an output metric (design).
+
+## Mastery check
+1. Covariate vs label vs concept shift; which can you detect without labels?
+2. Why does the dimensionality-reduction step matter for two-sample tests?
+3. Design the monitoring for a hosted LLM whose provider may change behaviour silently.
+
+## Sources
+- [Rabanser et al. Failing Loudly](https://arxiv.org/abs/1810.11953)
+- [Chen et al. How is ChatGPT's behavior changing](https://arxiv.org/abs/2307.09009)
+- [Gama et al. survey](https://eprints.bournemouth.ac.uk/22491/)
+- (practitioner/OSS) [Evidently drift options](https://docs.evidentlyai.com/user-guide/customization/options-for-statistical-tests)
