@@ -50,8 +50,10 @@ flowchart TD
   n_data_splits_and_leakage --> n_classical_ml_validation
   n_ml_metrics --> n_classical_ml_validation
   n_ml_metrics --> n_error_analysis
+  n_evaluation_mindset --> n_error_analysis
   n_llm_basics_for_evaluators --> n_nondeterminism_and_variance
   n_statistical_inference --> n_nondeterminism_and_variance
+  n_ml_metrics --> n_statistical_inference
   n_software_testing_fundamentals --> n_test_oracle_problem
 ```
 
