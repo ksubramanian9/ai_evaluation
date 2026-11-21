@@ -14,6 +14,7 @@ Evaluation (statistical quality measurement) and testing (pass/fail engineering 
 | `landscape/` | Volatile items (tools, benchmarks, model names), each with `as-of:` date |
 | `capstone/` | End-to-end project: RAG app, then tool-using agent |
 | `progress.md` | Generated status table |
+| `tools/build_site.py` | Builds the browsable website into `site/` (gitignored); assets in `tools/site/` |
 | `tools/build_views.py` | Validates nodes, regenerates overview and progress, flags stale landscape entries |
 
 ## Node frontmatter
@@ -40,6 +41,8 @@ Nodes start as stubs. When you study one, fill in: why it matters, failure modes
 ## Commands
 
 ```
+pip install -r requirements.txt
+python tools/build_site.py               # build site/, open site/index.html (works from file://)
 python tools/build_views.py              # regenerate views, validate, list stale landscape entries
 python tools/build_views.py --stale-days 60
 ```
