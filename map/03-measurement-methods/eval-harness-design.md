@@ -14,6 +14,15 @@ Components of an evaluation harness: datasets, runners, graders, result storage,
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Build a harness with a dataset, a cached runner, pluggable graders and a results store.
+- Log everything needed to reproduce a score (config hash, git SHA, model, prompt and params).
+- Re-grade stored outputs without calling the model again.
+- Identify hidden setup differences that break comparisons, such as a changed prompt template under the same dataset ID.
+
+**Done bar.** Practiced: a working mini harness (about 150 lines) whose rerun reuses cached outputs, plus a comparison with an Inspect task on the same data. Mastered: written answers to all three mastery-check questions, checked against Biderman et al., the Inspect and lm-eval docs and HELM, plus your harness (or Inspect or lm-eval) used for the capstone or real work with a reproduced score recorded.
+
 ## Why it matters
 - Biderman et al., drawing on three years of building lm-eval, report that results shift with evaluation setup, comparisons are hard to make fair, and undocumented conventions hurt reproducibility ([Biderman et al. 2024](https://arxiv.org/abs/2405.14782)).
 - Inspect (UK AI Security Institute and Meridian Labs) defines an eval as a Task of dataset, solver and scorer ([Inspect docs, as-of 2026-11-20](https://inspect.aisi.org.uk/)).

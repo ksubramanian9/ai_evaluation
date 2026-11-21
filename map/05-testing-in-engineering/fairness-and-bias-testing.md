@@ -2,7 +2,7 @@
 id: fairness-and-bias-testing
 title: "Fairness and bias testing"
 branch: 05-testing-in-engineering
-depth: L3
+depth: L2
 status: not-started
 bridge: stats
 prerequisites: [coverage-and-slicing]
@@ -13,6 +13,15 @@ tags: [fairness, statistics]
 Measuring disparities across groups and slices.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Compute demographic parity difference and equalized-odds difference by group with bootstrap confidence intervals.
+- Run counterfactual name or pronoun-swap pairs on an LLM app and measure the outcome-difference rate.
+- Choose a fairness metric that fits a given application and explain why.
+- Estimate the samples per group needed to detect a given gap, accounting for small subgroups and multiple comparisons.
+
+**Done bar.** Practiced: a MetricFrame by group for a small tabular classifier with demographic parity and equalized-odds differences plus bootstrap CIs, and an outcome-difference rate from 100 counterfactual swap prompts plus 50 BBQ items. Mastered: written answers to all three mastery questions checked against Fairlearn, Hardt et al. and BBQ, plus a fairness test applied once to a real or capstone system with per-group results, CIs and the chosen metric's rationale recorded.
 
 ## Why it matters
 - BBQ (ACL 2022 Findings): hand-built QA sets over nine social dimensions; under-informative contexts elicit stereotyped answers; accuracy up to 3.4 points higher when the correct answer aligns with the bias, >5 for gender in most models ([Parrish et al., arXiv 2110.08193](https://arxiv.org/abs/2110.08193)).

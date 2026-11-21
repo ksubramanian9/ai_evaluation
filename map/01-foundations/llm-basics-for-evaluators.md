@@ -13,6 +13,16 @@ tags: [nondeterminism]
 Tokens, context windows, sampling parameters, and system vs. model behavior as they affect what can be measured.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Explain what counts toward the context window in an agentic request with tools and thinking.
+- Explain how greedy, temperature and top-p decoding differ and why decoding settings change eval results.
+- Recognise why temperature 0 does not give reproducible output, and what the API-version note means for repeatable evals.
+- Identify the fields an eval run must log (model version, sampling params, system prompt, fingerprint) to be reproducible.
+
+**Done bar.** Practiced: a log comparing unique-output counts and lengths for greedy, sampling and beam search, plus the token count at which the padded retrieval question failed. Mastered: written answers to all three mastery-check questions, checked against Holtzman et al., the Hugging Face and Anthropic docs and the verification log, plus explaining to someone else without notes why "temperature 0" is not a reproducibility guarantee.
+
 ## Why it matters
 - Decoding strategy alone can change output quality a lot for the same model. Greedy decoding gets repetitive on long outputs, and sampling trades determinism for diversity ([Holtzman et al. 2020](https://arxiv.org/abs/1904.09751); [HF generation strategies](https://huggingface.co/docs/transformers/generation_strategies)).
 - The context window is everything the model can reference, including its own output: system prompt, tool definitions, tool results and thinking tokens all count. Accuracy and recall degrade as token count grows ("context rot") ([Anthropic context windows](https://platform.claude.com/docs/en/build-with-claude/context-windows)).

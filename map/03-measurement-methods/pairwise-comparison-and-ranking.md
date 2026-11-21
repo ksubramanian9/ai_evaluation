@@ -14,6 +14,15 @@ Head-to-head preference comparison and rating systems such as Elo / Bradley-Terr
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Derive win probability from a rating difference.
+- Fit Bradley-Terry ratings and compute online Elo from pairwise outcomes, with bootstrap CIs.
+- Explain why Elo depends on game order and a Bradley-Terry fit does not.
+- Identify leaderboard confounds: length and style, position bias, private testing and selective disclosure.
+
+**Done bar.** Practiced: Bradley-Terry and Elo ratings for 4 prompt variants on 40 inputs judged in both orders, with bootstrap CIs and the statistically indistinguishable ranks named. Mastered: written answers to all three mastery-check questions, checked against Chiang et al., Zheng et al., Singh et al., Dubois et al. and Wang et al., plus pairwise ranking applied to real or capstone variants with the result recorded.
+
 ## Why it matters
 - Pairwise preference is easier for judges (OpenAI: "LLMs are better at discriminating between options"; pairwise or pass/fail is more reliable than open-ended scores) ([OpenAI guide](https://developers.openai.com/api/docs/guides/evaluation-best-practices)).
 - Chatbot Arena collects crowdsourced pairwise votes (over 240K at paper time) and ranks models with statistical methods; the abstract does not name Bradley-Terry, so confirm in the full paper ([Chiang et al. 2024](https://arxiv.org/abs/2403.04132)).

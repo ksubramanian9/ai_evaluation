@@ -2,7 +2,7 @@
 id: public-benchmarks
 title: "Public benchmarks"
 branch: 03-measurement-methods
-depth: L2
+depth: L1
 status: not-started
 bridge: none
 prerequisites: [metric-selection]
@@ -13,6 +13,15 @@ tags: [statistics]
 What standard benchmarks measure and how to read their results.
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Explain what a standard benchmark (such as MMLU, HELM or SWE-bench) measures and what it does not.
+- Recognise the setup details (prompt format, shots, grader) needed to read a score.
+- Recognise label noise and prompt sensitivity as reasons a small leaderboard gap may not be real.
+- Explain why your own task eval beats a public score for product decisions.
+
+**Done bar.** Practiced: scores with CIs and a per-subject breakdown for two 100-item benchmark slices under varied prompt formats and shot counts, plus notes on label errors found in 20 read items. Mastered: written answers to all three mastery-check questions, checked against Hendrycks et al., Liang et al., Jimenez et al., Gema et al. and Wang et al., plus explaining to someone else without notes what one benchmark measures and why label noise or prompt sensitivity limits it.
 
 ## Why it matters
 - Benchmarks give shared, comparable measurement.

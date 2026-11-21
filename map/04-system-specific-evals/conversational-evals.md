@@ -14,6 +14,15 @@ Multi-turn quality, consistency, and context handling.
 
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Build sharded multi-turn versions of single-turn tasks and compare them with the fully specified version.
+- Separate aptitude (best-case) from unreliability (spread) using repeated runs.
+- Measure judge position bias by swapping response order, and apply a mitigation.
+- Apply a consistency check for persona or fact stability across turns.
+
+**Done bar.** Practiced: 20 tasks sharded into 3-4 turns and run 5 times each, with a table of best-case versus spread for sharded and fully specified versions and a position-bias rate from order-swapped judging. Mastered: written answers to all four mastery questions checked against Zheng et al. and Laban et al., plus a multi-turn eval applied once to a real chatbot or the capstone, with the multi-turn versus single-turn gap recorded.
+
 ## Why it matters
 - MT-Bench and Chatbot Arena: strong LLM judges agree with humans >80%, but show position, verbosity, self-enhancement bias (NeurIPS 2023 D&B, [arXiv 2306.05685](https://arxiv.org/abs/2306.05685)).
 - Chatbot Arena uses crowdsourced pairwise comparison, 240K+ votes ([arXiv 2403.04132](https://arxiv.org/abs/2403.04132)).

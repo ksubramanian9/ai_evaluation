@@ -2,7 +2,7 @@
 id: metamorphic-and-property-testing
 title: "Metamorphic and property-based testing"
 branch: 05-testing-in-engineering
-depth: L3
+depth: L2
 status: not-started
 bridge: testing
 prerequisites: [test-oracle-problem]
@@ -13,6 +13,17 @@ tags: [statistics]
 Testing invariants and relations between outputs when no exact oracle exists.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Owns:** metamorphic relations and invariance testing technique; see also [robustness-testing](robustness-testing.md).
+
+## Learning objectives
+You can:
+- Define metamorphic relations for an LLM task and generate follow-up inputs programmatically.
+- Run metamorphic test pairs, report violation rate per relation and audit violations for relation validity versus model bug.
+- Validate that a relation is truly semantics-preserving and explain what class of bug metamorphic testing cannot catch.
+- Distinguish a property from a metamorphic relation with an example of each.
+
+**Done bar.** Practiced: 5 metamorphic relations for a QA or classification prompt, 200 generated pairs, a per-relation violation rate and a manual audit of 20 violations. Mastered: written answers to all three mastery questions checked against Chen et al. and Cho, Ruberto, Terragni, plus metamorphic tests applied once to a real or capstone system with the violation rates and audit result recorded.
 
 ## Why it matters
 - Metamorphic testing (MT) addresses both test generation and the oracle problem: check relations between outputs of related inputs rather than exact outputs ([Chen et al., ACM CSUR 51(1), 2018](https://research.nottingham.edu.cn/en/publications/metamorphic-testing-a-review-of-challenges-and-opportunities/), bibliographic details via search; ACM page 403).

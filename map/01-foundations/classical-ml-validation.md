@@ -2,7 +2,7 @@
 id: classical-ml-validation
 title: "Classical ML validation"
 branch: 01-foundations
-depth: L2
+depth: L1
 status: not-started
 bridge: stats
 prerequisites: [data-splits-and-leakage, ml-metrics]
@@ -13,6 +13,16 @@ tags: [statistics]
 Cross-validation, baselines, and drift basics: the foundation LLM evaluation builds on.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Explain why reporting the best tuned CV score overstates performance and how nested CV fixes it.
+- Identify which test fits comparing two models on one test set and which fits comparing them across many datasets.
+- Recognise which CV splitter fits time-series, grouped and imbalanced data.
+- Explain how dataset shift makes deployed models fail silently.
+
+**Done bar.** Practiced: a short write-up showing the dummy baseline, plain-CV and nested-CV scores with the optimistic gap, a McNemar result for two models, and the classifier two-sample test detecting the simulated shift. Mastered: written answers to all three mastery-check questions, checked against the sklearn docs, Cawley & Talbot, Dietterich and Demsar, plus explaining nested CV and the tuned-CV-score failure to someone else without notes.
+
 ## Why it matters
 - k-fold CV reports the average over folds and avoids wasting data on a fixed validation set, with a separate test set still held out ([sklearn cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html)).
 - Model selection itself overfits. Selection bias can be as large as the performance differences between algorithms, so selection should happen inside the evaluation loop (nested CV) ([Cawley & Talbot 2010](https://www.jmlr.org/papers/v11/cawley10a.html); abstract level only).

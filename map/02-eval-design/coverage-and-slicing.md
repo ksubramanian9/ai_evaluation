@@ -16,6 +16,15 @@ _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../researc
 
 **Shared concept:** confidence intervals, power and paired comparisons are owned by [statistical-inference](../01-foundations/statistical-inference.md) and [confidence-intervals-for-evals](../03-measurement-methods/confidence-intervals-for-evals.md).
 
+## Learning objectives
+You can:
+- Tag an eval set with metadata attributes and report per-slice scores with bootstrap CIs.
+- Identify the worst slice and judge whether it is large enough to trust.
+- Build a capability x test-type matrix for an app.
+- Add targeted cases and a CheckList-style invariance test for a weak slice.
+
+**Done bar.** Practiced: a per-slice table with bootstrap CIs over 3-4 attributes, the worst slice named, and the new targeted cases plus an invariance test. Mastered: written answers to all three mastery-check questions, checked against CheckList, Mitchell et al. and Miller, plus a sliced report on a real system or the capstone with the result recorded.
+
 ## Why it matters
 - Aggregate accuracy overestimates performance; CheckList uses a capability x test-type matrix, found critical failures in commercial models, and users wrote ~2x tests and found ~3x bugs ([CheckList](https://arxiv.org/abs/2005.04118)).
 - Model cards report disaggregated results across demographic/cultural/phenotypic and intersectional groups ([Mitchell et al.](https://arxiv.org/abs/1810.03993)).

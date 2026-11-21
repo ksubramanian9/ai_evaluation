@@ -24,3 +24,5 @@ Migrated from research/07-operating-practice.md (not individually re-verified; e
 - Langfuse. (type: tool) as-of: 2026-11-20 | https://langfuse.com/docs
 - OpenTelemetry GenAI semantic conventions (moved to `semantic-conventions-genai` repo; stability unverified). (type: standard) as-of: 2026-11-20 | https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-spans.md
 - Hugging Face model-index/eval-results format. (type: standard) as-of: 2026-11-20 | https://huggingface.co/docs/hub/model-cards
+- EU "AI Omnibus" amending the AI Act: proposed 19 Nov 2025, agreed 7 May 2026, in force 27 Jul 2026; regulation number (reported 2026/1744) and OJ date UNVERIFIED. (type: regulation) as-of: 2026-11-20 | https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force
+- EU AI Act Art. 50 transparency: applies 2 Aug 2026; grace period to Dec 2026 for Art. 50(2) marking of generative systems placed on market before then. (type: regulation) as-of: 2026-11-20 | https://digital-strategy.ec.europa.eu/en/factpages/quick-facts-transparency-rules-ai-systems

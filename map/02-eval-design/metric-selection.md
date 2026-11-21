@@ -14,6 +14,15 @@ Choosing metrics that match the dimension and decision being made.
 
 _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../research/02-eval-design.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Choose metrics for an extraction task, a RAG answer and an agent task, and justify each.
+- Measure each candidate metric's rank correlation with human labels.
+- Show how a discontinuous metric can hide or manufacture progress.
+- Compute pass@k and pass^k and pick the one that matches the requirement.
+
+**Done bar.** Practiced: ROUGE-L, embedding-cosine and LLM-judge scores on 100 summaries, rank correlations against 30 hand labels, and a note on which metric you would use for which decision. Mastered: written answers to all three mastery-check questions, checked against Schaeffer et al., Anthropic, OpenAI and Zheng et al., plus a metric choice for a real system or the capstone with its agreement with human labels recorded.
+
 ## Why it matters
 - Metric choice can manufacture conclusions: apparent "emergent abilities" can arise from nonlinear/discontinuous metrics and vanish with continuous ones ([Schaeffer et al.](https://arxiv.org/abs/2304.15004)).
 - Anthropic maps task to grader: exact match (classification), embedding cosine similarity (consistency), ROUGE-L (summarization), LLM Likert/binary graders (tone, PHI detection); recommends a different model as grader than generator ([Anthropic, develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)).

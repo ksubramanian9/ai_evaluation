@@ -14,6 +14,15 @@ Designing and running human rating studies, including cost and quality control.
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Design a rating study with rubric anchors, rater qualification and randomized order.
+- Measure rating time and cost per item and revise the rubric after a pilot.
+- Decide when human evaluation is worth its cost compared with an LLM judge.
+- Estimate how many items a study needs to detect a target difference.
+
+**Done bar.** Practiced: a 3-criterion rubric with anchors, two raters' scores on 40 outputs, time and cost per item, and the rubric edits made after the first 10 items. Mastered: written answers to all three mastery-check questions, checked against OpenAI, Anthropic, Clark et al., van der Lee et al. and Card et al., plus a human rating study run for the capstone or real work with its cost and agreement recorded.
+
 ## Why it matters
 - Human judgment is the reference that automatic metrics and LLM judges are validated against.
 - OpenAI's guide says human labels are the ground truth for calibrating judges and that expert review is costly but needed for calibration ([OpenAI eval best practices, as-of 2026-11-20](https://developers.openai.com/api/docs/guides/evaluation-best-practices)).

@@ -2,7 +2,7 @@
 id: confidence-intervals-for-evals
 title: "Confidence intervals for eval results"
 branch: 03-measurement-methods
-depth: L2
+depth: L3
 status: not-started
 bridge: stats
 prerequisites: [statistical-inference, nondeterminism-and-variance]
@@ -13,6 +13,15 @@ tags: [statistics, nondeterminism]
 Reporting uncertainty on eval scores, bootstrapping, and when differences are real.
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Compute Wald, Wilson and bootstrap CIs and a paired bootstrap on a difference.
+- Recognise when CLT intervals break down on small item counts.
+- Run a power calculation for a target difference.
+- Choose an interval method and reporting design for an eval, and critique reports that ignore pairing, clustering or multiple comparisons.
+
+**Done bar.** Practiced: a notebook on two prompts' 200-item results with Wald, Wilson and bootstrap CIs, a paired bootstrap on the difference, the 30-item subsample showing which interval breaks, and a power calculation for a 3-point difference. Mastered: written answers to all three mastery-check questions, checked against Miller, Card et al., Dror et al. and Bowyer et al., plus a critique of a real eval report or leaderboard claim that finds missing or wrong uncertainty reporting and states the trade-off between item count and detectable effect.
 
 ## Why it matters
 - Miller argues evals are experiments: questions are samples from a super-population; he supplies formulas for analysis, two-model comparison and planning ([Miller 2024](https://arxiv.org/abs/2411.00640)).

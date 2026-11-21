@@ -2,7 +2,7 @@
 id: nondeterminism-and-variance
 title: "Non-determinism and variance"
 branch: 01-foundations
-depth: L2
+depth: L3
 status: not-started
 bridge: stats
 prerequisites: [llm-basics-for-evaluators, statistical-inference]
@@ -13,6 +13,16 @@ tags: [nondeterminism, statistics]
 Run-to-run variance in LLM outputs and how to budget samples to see through it.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Measure run-to-run variance and answer instability for an LLM at temperature 0 and above.
+- Decompose eval variance into question sampling and generation sampling, and choose K resamples for a target CI width.
+- Compute pass@k with the unbiased estimator and pass^k from per-task success rates, and choose between them for a use case.
+- Design a repeat-and-compare protocol for near-equal systems, and critique single-run comparisons and rerun-until-pass practice.
+
+**Done bar.** Practiced: a table for 50 questions x 10 runs at temperature 0 and 0.7 with per-run accuracy, between-run SD, unstable-answer fraction and exact-match agreement, plus the chosen K with its variance-decomposition reasoning. Mastered: written answers to all three mastery-check questions and the pass@k check, verified against Atil et al., Miller, Chen et al. and tau-bench, plus a design or critique of a real model comparison that states the trade-off between repeat cost and the smallest difference it can detect.
+
 ## Why it matters
 - Across 5 LLMs, 8 tasks and 10 runs, accuracy varied by up to 15% across natural runs and the best-to-worst gap reached 70%. No model was consistently repeatable even at "deterministic" settings. The authors propose TARr@N and TARa@N metrics ([Atil et al. 2024](https://arxiv.org/abs/2408.04667)).
 - In ChatGPT code generation, the share of tasks with zero equal outputs across requests was 75.76% (CodeContests), 51.00% (APPS) and 47.56% (HumanEval). Temperature 0 reduces but does not remove nondeterminism ([Ouyang et al.](https://arxiv.org/abs/2308.02828)).

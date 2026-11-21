@@ -2,7 +2,7 @@
 id: responsible-ai-ethics
 title: "Responsible AI and ethics"
 branch: 07-operating-practice
-depth: L2
+depth: L1
 status: not-started
 bridge: none
 prerequisites: [fairness-and-bias-testing]
@@ -13,6 +13,16 @@ tags: [fairness, safety]
 Ethical considerations that shape what you choose to evaluate.
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Shared concept:** harm measurement is owned by [safety-and-harm-evals](../05-testing-in-engineering/safety-and-harm-evals.md); this node covers what to evaluate and why.
+
+## Learning objectives
+You can:
+- Explain how ethical principles (e.g. OECD) decide what gets evaluated, and recognise the principle-to-metric gap.
+- Identify uncovered harms using a risk taxonomy (Weidinger et al.) as a coverage check, including who bears them.
+- Recognise when evaluation procedures themselves need ethics safeguards (consent, compensation, exposure of crowdworkers and red-teamers).
+
+**Done bar.** Practiced: a written mini impact assessment for the capstone listing stakeholders, mapped Weidinger risk areas, the risks deliberately not evaluated with reasons, and one eval or monitor per accepted risk. Mastered: written answers to all three mastery questions checked against the OECD principles, Weidinger et al. and NIST AI 600-1, and an explanation, without notes, of the principle-to-metric gap and one way it fails to someone else.
 
 ## Why it matters
 - Ethical commitments decide what gets evaluated. OECD AI Principles (2019, updated May 2024): inclusive growth/well-being; human rights and democratic values incl. fairness and privacy; transparency and explainability; robustness, security and safety; accountability ([OECD.AI](https://oecd.ai/en/ai-principles)).

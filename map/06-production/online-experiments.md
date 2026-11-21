@@ -14,6 +14,17 @@ Experiment design and analysis for AI features, including non-determinism and no
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+**Shared concept:** online metric definitions and signal biases are owned by [online-metrics-and-user-feedback](online-metrics-and-user-feedback.md); this node covers causal analysis of those metrics through controlled experiments.
+
+## Learning objectives
+You can:
+- Explain why daily peeking at p<0.05 inflates false positives, and apply a fix (fixed horizon or always-valid p-values/CIs).
+- Run a chi-square sample ratio mismatch check and decide what to do with a result when SRM fires.
+- Apply CUPED with a pre-period metric and measure the variance reduction it gives.
+- Design an experiment for an LLM feature that accounts for per-request nondeterminism (user-level randomisation), interference between variants and novelty effects.
+
+**Done bar.** Practiced: a simulation write-up showing false-positive rate over 2,000 A/A runs for fixed-horizon vs daily peeking, measured CUPED variance reduction, and an SRM check that flags a 52/48 split. Mastered: written answers to all three mastery questions checked against Kohavi et al., Johari et al. and the CUPED page, and one real or capstone A/B test designed and analysed with SRM check and interval recorded.
+
 ## Why it matters
 - Controlled experiments are the standard design for establishing causal effect on user-observable behaviour; the Kohavi guide covers surprising results, ingredients, and technical/organisational limits ([Kohavi et al. 2009](https://link.springer.com/article/10.1007/s10618-008-0114-1)).
 - Peeking breaks standard p-values; always-valid p-values/CIs stay valid under continuous monitoring and were deployed on a commercial platform ([Johari et al.](https://arxiv.org/abs/1512.04922)).

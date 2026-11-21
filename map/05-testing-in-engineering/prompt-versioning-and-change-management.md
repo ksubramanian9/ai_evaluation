@@ -14,6 +14,15 @@ Treating prompts and configs as versioned artifacts with review and rollback.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Build a release manifest that versions the prompt together with model ID, parameters and eval run ID.
+- Apply promote and rollback steps that require an eval pass and repoint an alias.
+- Explain what can stop a rollback taking effect immediately, such as cached prompts or undated model aliases.
+- Attribute a quality drop to a prompt change versus a silent model change.
+
+**Done bar.** Practiced: prompts stored as files with a manifest, a promote script gated on an eval pass and a rollback script, plus a simulated bad release rolled back with the time recorded. Mastered: written answers to all three mastery questions checked against the MLflow, Langfuse and Anthropic deprecation docs, plus versioning applied once to a real or capstone prompt with a promotion or rollback recorded.
+
 ## Why it matters
 - Model and prompt versions drift independently; provider lifecycle (Active/Legacy/Deprecated/Retired) forces change ([Anthropic deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)).
 - Behavior of a named service changed within 3 months ([Chen 2023](https://arxiv.org/abs/2307.09009)).

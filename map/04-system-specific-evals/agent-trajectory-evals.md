@@ -14,6 +14,15 @@ Evaluating intermediate steps, planning, tool choice, and efficiency, not only t
 
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Define milestones for an agent task and compute a progress-rate-like metric alongside step-count and redundant-call ratios.
+- Label trajectory steps (useful, redundant, wrong tool) and test whether trajectory metrics predict outcome failures.
+- Decide when trajectory grading is warranted versus outcome-only grading, weighing rigid-step penalties against what success rate hides.
+- Critique the use of an agent or LLM judge on long traces, naming its reliability risks.
+
+**Done bar.** Practiced: per-step labels on the agent-task-success transcripts, a milestone progress rate, step-count and redundant-call ratios, and a written finding on whether those metrics predicted outcome failures. Mastered: written answers to all four mastery questions checked against AgentBoard, Agent-as-a-Judge and the Anthropic posts, plus a trajectory rubric you designed for a real agent that states which valid alternate paths it deliberately does not penalize and why.
+
 ## Why it matters
 - Success rate alone "reveals little about where an agent succeeds or fails along the way"; AgentBoard adds a fine-grained progress rate ([arXiv 2401.13178](https://arxiv.org/abs/2401.13178); computation details UNVERIFIED).
 - Agent-as-a-Judge gives intermediate feedback on the process; on DevAI (55 tasks, 365 requirements) it is reported to outperform LLM-as-a-judge and approach human reliability (abstract only; no numbers read) ([arXiv 2410.10934](https://arxiv.org/abs/2410.10934)).

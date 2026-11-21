@@ -2,7 +2,7 @@
 id: benchmark-limitations
 title: "Benchmark limitations and saturation"
 branch: 03-measurement-methods
-depth: L3
+depth: L2
 status: not-started
 bridge: none
 prerequisites: [public-benchmarks, contamination-and-leakage]
@@ -13,6 +13,17 @@ tags: [statistics]
 Saturation, contamination, and the gap between benchmark score and real-world performance.
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Shared concept:** contamination and leakage detection and avoidance is owned by [contamination-and-leakage](../02-eval-design/contamination-and-leakage.md); this node covers what contamination does to benchmark validity.
+
+## Learning objectives
+You can:
+- Distinguish contamination, overfitting and saturation, and run a test for each.
+- Audit a benchmark's items for label errors and public answer keys.
+- Score a benchmark against BetterBench-style criteria.
+- Interpret what fresh-set results such as GSM1k show and do not show.
+
+**Done bar.** Practiced: a one-page audit verdict on one benchmark covering 50 read items, the answer-key check, the item-vs-paraphrase perplexity comparison and the BetterBench subset scores. Mastered: written answers to all three mastery-check questions, checked against Raji et al., Reuel et al., Zhang et al., Gema et al. and Singh et al., plus an audit of a benchmark used in a real decision or the capstone with the verdict recorded.
 
 ## Why it matters
 - Raji et al. argue that treating a few influential benchmarks as proxies for "general" ability is a construct-validity problem ([Raji et al. 2021](https://arxiv.org/abs/2111.15366)).

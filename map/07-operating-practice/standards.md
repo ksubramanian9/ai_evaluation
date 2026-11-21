@@ -2,7 +2,7 @@
 id: standards
 title: "Standards"
 branch: 07-operating-practice
-depth: L2
+depth: L1
 status: not-started
 bridge: none
 prerequisites: [risk-and-governance-frameworks]
@@ -13,6 +13,14 @@ tags: [safety]
 ISO/IEC and other AI standards relevant to evaluation (to verify from primary sources).
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Distinguish management-system standards (42001, 42006) from guidance (23894, 25058) and quality models (25059).
+- Identify which standard to consult for impact assessment, quality evaluation and testing of AI systems.
+- Explain what a 42001 certificate does and does not tell a customer about eval quality, and recognise that only harmonised standards carry presumption of conformity under EU law.
+
+**Done bar.** Practiced: a catalogue table of SC 42 standards (number, title, year, status, price, eval evidence) plus notes from the free preview/scope pages of 25058 and 42119-2 recording what could not be verified without purchase. Mastered: written answers to all three mastery questions checked against the ISO catalogue pages, and an explanation, without notes, of the management-system vs tested-system distinction to someone else.
 
 ## Why it matters
 - ISO/IEC 42001:2023, Edition 1, published 2023-12, stage 60.60; requirements for establishing, implementing, maintaining and continually improving an AI management system (AIMS); no amendments listed ([ISO via committee.iso.org](https://committee.iso.org/standard/42001)). Certification voluntary ([ISO explainer](https://www.iso.org/insights/iso-42001-explained), via search summary). Annex A control count (38 controls/9 objectives) from a third-party paper only: UNVERIFIED. Standard text paywalled; content NOT verified.

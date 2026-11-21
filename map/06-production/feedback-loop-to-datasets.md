@@ -14,6 +14,15 @@ Turning production failures into new test cases.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Mine failures from logged traces, cluster them by error type and write a minimal test case per cluster (input, expected property, scorer).
+- Add promoted cases to a versioned dataset with provenance metadata (source trace id, date, label author, privacy status) and anonymise them.
+- Split mined cases into a dev set for tuning and a frozen holdout so fixed failures do not inflate scores.
+- Apply a check that labels come from a validated source, not an unvalidated judge, and re-label when criteria drift.
+
+**Done bar.** Practiced: a versioned dataset of test cases from 50 mined failures, with provenance fields, a dev/holdout split, and a record showing the fix flips the case without regressing the older set. Mastered: written answers to all three mastery questions checked against Shankar et al. 2022/2024 and Sculley et al., and the loop run once on capstone or real-work traces with the promoted cases and holdout result recorded.
+
 ## Why it matters
 - Interviews with 18 ML engineers identify Velocity, Validation and Versioning as the variables governing production success and describe continual monitoring of production performance drops as part of the loop ([Shankar et al. 2022](https://arxiv.org/abs/2209.09125)).
 - Evaluation criteria evolve as you look at outputs ("criteria drift"), so datasets must be refreshed from observed failures ([Shankar et al. 2024](https://arxiv.org/abs/2404.12272)).

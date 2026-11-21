@@ -2,7 +2,7 @@
 id: reference-based-metrics
 title: "Reference-based text metrics"
 branch: 03-measurement-methods
-depth: L2
+depth: L1
 status: not-started
 bridge: stats
 prerequisites: [ml-metrics]
@@ -13,6 +13,15 @@ tags: [statistics]
 BLEU, ROUGE, and related overlap metrics: what they capture and why they correlate weakly with quality.
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Explain what BLEU and ROUGE measure and why they remain cheap, deterministic baselines.
+- Explain why a BLEU report must include its configuration signature.
+- Recognise outputs where overlap scores invert relative to real quality.
+- Identify when overlap metrics are still a reasonable choice.
+
+**Done bar.** Practiced: a table of sacreBLEU (with its signature) and ROUGE-1/2/L for 30 items plus 10 paraphrases and 10 fluent-but-wrong outputs, with the inversions marked. Mastered: written answers to all three mastery-check questions, checked against Post and Liu et al., plus explaining to someone else without notes why BLEU scores from different papers cannot be compared, with one inversion example.
 
 ## Why it matters
 - BLEU (Papineni et al., ACL 2002) and ROUGE (Lin, 2004) are the canonical overlap metrics for MT and summarization; cheap, deterministic, still used as baselines.

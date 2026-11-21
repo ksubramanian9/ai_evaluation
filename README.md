@@ -27,7 +27,7 @@ Evaluation (statistical quality measurement) and testing (pass/fail engineering 
 id: slug            # matches filename
 title: "..."
 branch: 01-foundations
-depth: L1           # L1 awareness, L2 working, L3 expert
+depth: L1           # target depth for you: L1 explain, L2 apply, L3 design and critique (not difficulty)
 status: not-started # not-started | learning | practiced | mastered
 bridge: stats       # stats = ML/statistics gap, testing = test-engineering gap, none
 prerequisites: [other-node-id]
@@ -42,6 +42,8 @@ Nodes are filled from sourced research (`research/`); fill remaining gaps as you
 # Title
 One-line description
 _Provenance banner_
+**Shared concept:** / **Owns:** line (optional; names the owner node)
+## Learning objectives    (2-4 abilities matched to depth, then a **Done bar.** for practiced and mastered)
 ## Why it matters          (bullets, each claim with an inline link)
 ## Common failure modes    (bullets)
 ## Practice exercise (N h) (prose or numbered steps, realistic estimate)

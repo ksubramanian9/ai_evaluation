@@ -14,6 +14,15 @@ Presenting results, uncertainty, and tradeoffs to decision-makers.
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Compute a paired difference with a 95% CI (bootstrap and analytic) and apply clustered standard errors when items share a source.
+- Run a power calculation for the item count needed to detect a stated gap.
+- Write a decision memo that reports effect size with interval, slices, cost, known gaps and residual risk, including a "limits of this evaluation" section.
+- Identify reporting failures in someone else's result: point estimates without intervals, unpaired comparisons, aggregate-only numbers, and benchmark scores read as capability.
+
+**Done bar.** Practiced: a one-page decision memo comparing two prompt versions on 200 items, with paired CI (bootstrap and analytic), a power calculation for a 3-point gap, slices, cost, known gaps and residual risk. Mastered: written answers to all three mastery questions checked against Miller and BetterBench, and one real or capstone eval result reported to a decision-maker in this format with the decision recorded.
+
 ## Why it matters
 - Miller, "Adding Error Bars to Evals" (arXiv 2411.00640, 1 Nov 2024): evals are experiments; gives formulas for error bars, clustered standard errors, paired differences, power analysis, with reporting recommendations ([arXiv](https://arxiv.org/abs/2411.00640)).
 - BetterBench: most benchmarks do not report statistical significance ([arXiv 2411.12990](https://arxiv.org/abs/2411.12990)).

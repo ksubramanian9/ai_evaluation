@@ -2,7 +2,7 @@
 id: red-teaming
 title: "Red teaming"
 branch: 05-testing-in-engineering
-depth: L3
+depth: L2
 status: not-started
 bridge: testing
 prerequisites: [robustness-testing]
@@ -13,6 +13,17 @@ tags: [safety, security, llm-judge]
 Structured adversarial probing, manual and automated, to find failures before users do.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Shared concept:** harm measurement is owned by [safety-and-harm-evals](safety-and-harm-evals.md); this node covers adversarial discovery of failures.
+
+## Learning objectives
+You can:
+- Run tool-driven, hand-written multi-turn and LM-generated attacks against a chatbot with a stated policy.
+- Compute attack success rate with a confidence interval using a validated judge.
+- Compare human, LM-generated and tool-driven red teaming on cost, diversity and realism.
+- Apply scope, threat model and stopping criteria to a red-team exercise and convert findings into regression tests.
+
+**Done bar.** Practiced: garak runs with 2 probe families plus 30 hand-written multi-turn and 30 LM-generated attacks against a policy-bound chatbot, a rubric-judged ASR with CI, and a regression file holding every successful attack. Mastered: written answers to all three mastery questions checked against Ganguli et al., Perez et al. and HarmBench, plus a scoped red-team exercise run once on a real or capstone system with findings and ASR recorded.
 
 ## Why it matters
 - Anthropic's study: 38,961 red-team attacks released; 2.7B/13B/52B models and four model types; RLHF models got harder to red-team with scale, others flat ([Ganguli et al., arXiv 2209.07858](https://arxiv.org/abs/2209.07858)).

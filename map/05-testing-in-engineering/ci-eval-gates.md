@@ -2,7 +2,7 @@
 id: ci-eval-gates
 title: "CI/CD eval gates"
 branch: 05-testing-in-engineering
-depth: L2
+depth: L3
 status: not-started
 bridge: testing
 prerequisites: [regression-testing, eval-harness-design]
@@ -13,6 +13,15 @@ tags: [statistics, cost]
 Running evals in the pipeline and blocking releases on thresholds.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Build a CI workflow that runs an eval suite on prompt changes, publishes a report and fails on a threshold.
+- Justify a gate threshold from measured baseline variance instead of an arbitrary number.
+- Design a tiered gate that decides which checks block merge, which warn and which run nightly, trading cost and time against coverage.
+- Critique a gate for flakiness, stale caches and data leakage in logs, and prevent a flaky gate from being bypassed.
+
+**Done bar.** Practiced: a GitHub Actions workflow running a 50-case suite (cached deterministic checks plus 10 live LLM-graded cases) that publishes JUnit output and fails below baseline minus 2 SE, with fast PR and nightly tiers. Mastered: written answers to all three mastery questions checked against the promptfoo CI/CD docs and the ML Test Score, plus a review of a real gate (yours or a team's) that finds a flaw this node covers and states the cost-versus-coverage trade-off of the fix.
 
 ## Why it matters
 - The ML Test Score rubric (28 tests/monitoring items from production systems, IEEE Big Data 2017) is the foundational "is this ML system production-ready" checklist ([Breck et al.](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)).

@@ -13,6 +13,16 @@ tags: [nondeterminism]
 Test pyramid, oracles, coverage, regression, and test design techniques that carry over to AI systems.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Separate an LLM app into layers that can be tested deterministically and layers that cannot.
+- Build unit tests, contract tests with a mocked model, and live-model tests run N times against a pass-rate threshold.
+- Explain why end-to-end tests become flaky and how LLM nondeterminism makes it worse.
+- Design a regression test for a prompt change.
+
+**Done bar.** Practiced: unit, mocked-contract and live-model tests for one LLM function, plus a drawing of the resulting pyramid annotated with cost and latency per layer. Mastered: written answers to all three mastery-check questions, checked against Vocke and Breck et al., plus the layered test structure applied to a real codebase or the capstone with what moved to deterministic tests recorded.
+
 ## Why it matters
 - The test pyramid (credited to Mike Cohn) says many small fast unit tests, fewer coarse tests, very few end-to-end tests. The inverted "ice-cream cone" is slow and flaky, and tests should check observable behavior, not implementation ([Vocke on martinfowler.com, practitioner](https://martinfowler.com/articles/practical-test-pyramid.html)).
 - Google's ML Test Score is a rubric of 28 tests for ML production readiness ([Breck et al. 2017](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)). One reproduction says the score is the minimum across four sections; that is secondary, so confirm in the paper.

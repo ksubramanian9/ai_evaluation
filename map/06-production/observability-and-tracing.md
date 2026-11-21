@@ -2,7 +2,7 @@
 id: observability-and-tracing
 title: "Observability and tracing"
 branch: 06-production
-depth: L2
+depth: L3
 status: not-started
 bridge: testing
 prerequisites: [eval-harness-design]
@@ -13,6 +13,15 @@ tags: [privacy, rag, agents]
 Capturing traces of prompts, retrievals, tool calls, and outputs for debugging and evaluation.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Instrument a RAG or tool-calling app with OTel GenAI spans (`chat`, `retrieval`, `execute_tool`) and export them to a backend.
+- Use span data to localise a wrong answer to retrieval vs generation and find the slowest and most token-expensive requests.
+- Explain which GenAI attributes are Opt-In, the default content-capture mode, and why conventions in Development status call for pinned instrumentation versions.
+- Design a tracing scheme that trades off eval usefulness (content captured, all steps present, error traces kept) against privacy and PII exposure.
+
+**Done bar.** Practiced: an instrumented script with exported traces for 20 queries, a span-analysis script that finds the slowest request, the most token-expensive request and the injected bad retrieval, and a note comparing trace content across capture modes. Mastered: written answers to all three mastery questions checked against the OTel GenAI spans spec, plus a tracing design (or critique of an existing one) for a capstone or real system that states the content-capture and sampling trade-off it makes and why.
 
 ## Why it matters
 - OpenTelemetry has GenAI semantic conventions that standardise spans for model calls, retrieval, tool execution and agents. Well-known `gen_ai.operation.name` values include `chat`, `embeddings`, `retrieval`, `execute_tool`, `invoke_agent`, `plan`, `search_memory` ([OTel GenAI spans](https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-spans.md)). A shared schema lets eval tooling and backends consume traces from any instrumented stack. (as of release; volatile)

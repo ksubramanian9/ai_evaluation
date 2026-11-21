@@ -16,6 +16,15 @@ _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../
 
 **Shared concept:** faithfulness measurement (claim decomposition, groundedness judges) is covered in [rag-generation-evals](rag-generation-evals.md). This node covers what is specific to summarization (coverage, omissions) and to extraction (schema vs value correctness).
 
+## Learning objectives
+You can:
+- Compute per-field exact and normalized match, list-field precision/recall, and null handling for structured extraction.
+- Compare ROUGE with an entailment or claim-check faithfulness score against human labels for summaries.
+- Distinguish schema validity from value correctness, and per-field from record-level accuracy.
+- Apply a coverage (omission) check alongside faithfulness and handle refusals or truncated outputs in the pipeline.
+
+**Done bar.** Practiced: per-field and list-field metrics for 30 invoices or emails, plus ROUGE, a faithfulness score and human faithfulness and coverage labels for 20 summaries, with the correlations reported. Mastered: written answers to all four mastery questions checked against Maynez et al., FRANK, G-Eval and the Structured Outputs guide, plus a summarization or extraction eval applied once in real work or the capstone with field-level and faithfulness results recorded.
+
 ## Why it matters
 - Neural summarizers are "highly prone to hallucinate"; ROUGE is weaker than textual-entailment measures at tracking faithfulness (ACL 2020, [Maynez et al., arXiv 2005.00661](https://arxiv.org/abs/2005.00661)).
 - SummEval re-evaluated 14 metrics on 23 models with expert and crowd judgments ([arXiv 2007.12626](https://arxiv.org/abs/2007.12626); findings UNVERIFIED).

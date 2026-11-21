@@ -14,6 +14,15 @@ Correctness, faithfulness, helpfulness, safety, tone, and latency as separate di
 
 _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../research/02-eval-design.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Build a dimension x scenario matrix for an app and compute its coverage percentage.
+- Select the relevant dimensions and justify the ones marked not relevant.
+- Separate retrieval quality from generation faithfulness when evaluating RAG.
+- Identify dimensions that trade off and dimensions that need no model or human judge.
+
+**Done bar.** Practiced: a filled dimension x scenario matrix with a justification per cell and your HELM-style coverage %. Mastered: written answers to all three mastery-check questions, checked against HELM, Anthropic and RAGAs, plus the matrix applied to a real system or the capstone with the gaps it exposed recorded.
+
 ## Why it matters
 - HELM maps use cases (scenarios) and desiderata (metrics) and measures seven metric categories: accuracy, calibration, robustness, fairness, bias, toxicity, efficiency; 30 models x 42 scenarios, coverage of core scenarios raised from 17.9% to 96.0% ([HELM](https://arxiv.org/abs/2211.09110)).
 - Anthropic lists example dimensions: task fidelity, consistency, relevance/coherence, tone/style, privacy, context utilization, latency, price ([Anthropic, develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)).

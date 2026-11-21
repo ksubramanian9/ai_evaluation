@@ -2,7 +2,7 @@
 id: production-evals-with-judges
 title: "Production evals with judges"
 branch: 06-production
-depth: L2
+depth: L3
 status: not-started
 bridge: none
 prerequisites: [llm-as-judge, traffic-sampling-and-logging]
@@ -13,6 +13,17 @@ tags: [llm-judge, cost, statistics]
 Scoring live traffic with automated graders at acceptable cost.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Shared concept:** judge design and validation is owned by [llm-as-judge](../03-measurement-methods/llm-as-judge.md), with bias and calibration in [judge-bias-and-calibration](../03-measurement-methods/judge-bias-and-calibration.md); this node covers sampling, cost and operating judges on live traffic.
+
+## Learning objectives
+You can:
+- Validate a production judge against human labels (Cohen's kappa) and probe it for position and verbosity bias.
+- Run a judge on a sampled fraction of live traffic and report the score with a bootstrap CI.
+- Choose a sampling rate under a cost budget and work out what it implies for detectable effect size.
+- Design a judging setup that can tell a judge-caused score change (judge model change, missing context, criteria drift) from an app-caused one, and critique a setup that cannot.
+
+**Done bar.** Practiced: a judge report on ~200 logged Q&A pairs with kappa against 60 human labels, a 10%-sample score with bootstrap CI, and swap-order and verbose-rewrite bias measurements. Mastered: written answers to all three mastery questions checked against Zheng et al. and Shankar et al., plus a production judging design (or critique of an existing one) that makes an explicit trade-off between sampling rate, cost and detectable effect size, and names how judge drift is caught.
 
 ## Why it matters
 - Strong LLM judges reach over 80% agreement with humans, the same as human-human agreement, on MT-Bench and Chatbot Arena, which makes scalable scoring of live traffic possible ([Zheng et al. 2023](https://arxiv.org/abs/2306.05685)).

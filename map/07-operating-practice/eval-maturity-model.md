@@ -2,10 +2,10 @@
 id: eval-maturity-model
 title: "Eval maturity model"
 branch: 07-operating-practice
-depth: L3
+depth: L2
 status: not-started
 bridge: none
-prerequisites: [team-roles-and-process]
+prerequisites: [team-roles-and-process, model-and-system-documentation, eval-tooling-landscape]
 tags: [human-labels, llm-judge]
 ---
 # Eval maturity model
@@ -13,6 +13,14 @@ tags: [human-labels, llm-judge]
 Stages of organizational evaluation capability and how to progress.
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Build a 4-5 level maturity rubric across dimensions (datasets, metric validity, judge calibration, CI gates, monitoring, ownership, documentation, reporting with uncertainty), each level anchored to a verifiable artifact.
+- Apply the rubric to score a real system and name the next-level step with the highest risk reduction.
+- Explain why the rubric is a synthesis rather than an established model, and adjust required levels per risk tier rather than treating them as universal.
+
+**Done bar.** Practiced: a written maturity rubric with each level tied to an artifact and a cited source, plus a scored capstone and its chosen next step. Mastered: written answers to all three mastery questions checked against Google Cloud MLOps levels and NIST AI 100-1, and the rubric applied to a second (real-work) system with the score and next step recorded.
 
 ## Why it matters
 - No authoritative, widely adopted "LLM eval maturity model" was found in primary sources (UNVERIFIED that none exists; limited search). Treat this node as a synthesized model, labeled as such.

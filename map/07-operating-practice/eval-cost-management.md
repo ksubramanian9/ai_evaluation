@@ -14,6 +14,15 @@ Controlling judge, human, and compute cost with sampling and tiering.
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Instrument an eval run to record tokens and cost per item and per judge call, including human grading time.
+- Apply batch processing, prompt caching and a judge cascade (cheap judge first, escalate low-confidence items) and measure the cost and wall-time effect of each.
+- Build a tiered eval schedule (per-commit, nightly, release) with item counts sized by power analysis.
+- Run an agreement check against a human gold set before adopting a cheaper judge.
+
+**Done bar.** Practiced: a comparison table for 300 items across sync, batch, cached-prefix and cascade runs, with cost, wall time and agreement against a 50-item human gold set. Mastered: written answers to all three mastery questions checked against the Anthropic batch/caching docs, FrugalGPT and Miller, and a tiered schedule or cost cut applied to a capstone or real eval suite with before/after spend and agreement recorded.
+
 ## Why it matters
 - Provider batch discounts: Anthropic Message Batches API cuts cost 50%, most batches finish in under 1 hour, and the page lists large-scale evaluations as a use case; 29-day retention, not ZDR-eligible ([Anthropic docs](https://platform.claude.com/docs/en/build-with-claude/batch-processing)). OpenAI Batch API: 50% discount, 24-hour window, lists running evaluations ([OpenAI docs](https://developers.openai.com/api/docs/guides/batch)). As-of 2026-11-20, volatile.
 - Prompt caching (Anthropic): 5-minute cache write 1.25x, 1-hour write 2x, read 0.1x of base input (0.05x for Opus 5.5/Sonnet 5.5; 0.025x for some models); multipliers stack with batch discount; minimum cacheable prompt 512-4096 tokens by model ([Anthropic docs](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)). As-of 2026-11-20, volatile. Useful when a long rubric or few-shot judge prompt is repeated.

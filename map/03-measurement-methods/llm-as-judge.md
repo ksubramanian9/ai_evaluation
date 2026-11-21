@@ -2,7 +2,7 @@
 id: llm-as-judge
 title: "LLM-as-judge"
 branch: 03-measurement-methods
-depth: L2
+depth: L3
 status: not-started
 bridge: none
 prerequisites: [rubric-design, human-evaluation]
@@ -13,6 +13,17 @@ tags: [llm-judge, human-labels]
 Using a model to grade outputs: prompt design, scoring formats, and when it is appropriate.
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Owns:** judge design and validation; see also [judge-bias-and-calibration](judge-bias-and-calibration.md), [production-evals-with-judges](../06-production/production-evals-with-judges.md).
+
+## Learning objectives
+You can:
+- Write a judge prompt with a rubric, a reasoning step and a strict output format.
+- Validate a judge against human labels with kappa and a confusion matrix, and iterate the rubric.
+- Compare binary, Likert and pairwise judging formats and choose one for a task.
+- Critique a judge setup (unvalidated, same model family as the generator, uncontrolled versioning) and decide whether it is fit for regression gating.
+
+**Done bar.** Practiced: the judge prompt, kappa and confusion matrices for two judge models on 50 labeled outputs, and one rubric iteration with its effect on agreement. Mastered: written answers to all three mastery-check questions, checked against Zheng et al., Liu et al., Kim et al., Shankar et al. and the Anthropic and OpenAI guides, plus a design or critique of a real judge that decides whether it can gate releases and states the trade-off between cost, bias and agreement.
 
 ## Why it matters
 - Strong LLM judges can approximate human preference at scale.

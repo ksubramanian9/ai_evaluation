@@ -2,7 +2,7 @@
 id: agent-task-success-evals
 title: "Agent task success"
 branch: 04-system-specific-evals
-depth: L2
+depth: L3
 status: not-started
 bridge: none
 prerequisites: [task-definition-and-success-criteria, nondeterminism-and-variance]
@@ -15,6 +15,15 @@ Outcome-based evaluation of whether an agent completed the task.
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
 **Shared concept:** pass@k and pass^k are defined once in [nondeterminism-and-variance](../01-foundations/nondeterminism-and-variance.md#passk-and-passk-owned-here).
+
+## Learning objectives
+You can:
+- Build a state-based grader that checks final environment state rather than the agent's claims of success.
+- Compute and choose between pass@k and pass^k for an agent suite run over multiple trials.
+- Diagnose a near-0% task as a broken task or grader bug versus a real capability gap by reading transcripts.
+- Design a capability versus regression split for an agent suite and justify the trade-off in task selection and saturation.
+
+**Done bar.** Practiced: a 20-task SQLite agent suite with a state-based grader, pass@1, pass@5 and pass^5 from 5 trials each, and notes from 5 hand-inspected transcripts listing any grader bugs found. Mastered: written answers to all four mastery questions checked against the Anthropic agent-evals doc and tau-bench, plus a critique of an existing agent eval (yours or a published one) that names a flaw this node covers (claim-based grading, shared state, single-run reporting) and the trade-off in fixing it.
 
 ## Why it matters
 - Outcome-based grading, environment-state checked: Anthropic defines outcome as final environment state (e.g. reservation exists in DB), recommends grading outcome rather than rigid step sequences, 20-50 tasks from real failures to start, and distinguishes pass@k from pass^k ([Anthropic Engineering, "Demystifying evals for AI agents"](https://www.anthropic.com/research/demystifying-evals-for-ai-agents), provider engineering doc).

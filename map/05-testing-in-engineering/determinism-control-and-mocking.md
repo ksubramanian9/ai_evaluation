@@ -14,6 +14,15 @@ Seeds, temperature, recorded responses, and mocks to make tests repeatable.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Measure output variability by repeating one prompt and counting unique outputs and the first divergence token.
+- Explain why batch size and server load change outputs even at temperature 0.
+- Apply VCR-style record modes so a test replays responses with zero network calls and fails in CI when a cassette is missing.
+- Choose between a recorded response, a live call and a mock for a given test, and key cassette invalidation on prompt hash and model ID.
+
+**Done bar.** Practiced: 50 repeats of one prompt with unique-output count and first divergence token, plus a VCR.py-wrapped test showing zero network calls on replay and a CI test that fails on a missing cassette (record mode none). Mastered: written answers to all three mastery questions checked against Atil et al., Thinking Machines and the VCR.py docs, plus recorded-response testing applied once to a real or capstone suite with the invalidation rule and result recorded.
+
 ## Why it matters
 - "Deterministic" settings do not give repeatable results: across 5 LLMs x 8 tasks x 10 runs, accuracy varied up to 15% between runs and best-to-worst gap reached 70%; no model was consistently repeatable ([Atil et al., arXiv 2408.04667](https://arxiv.org/abs/2408.04667)).
 - Cause per Thinking Machines: kernels are not batch-invariant, so server load changes batch size and thus numerics; Qwen3-235B at temperature 0 gave 80 unique completions in 1000 samples, diverging at token 103; batch-invariant kernels made all 1000 identical, at a speed cost ([Thinking Machines, 2025](https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/); company research blog, treat as primary-from-practitioner-lab).

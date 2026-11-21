@@ -14,6 +14,15 @@ Attributing failures to retrieval vs. generation and evaluating the whole pipeli
 
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Attribute RAG failures to retrieval miss, ranking, unfaithful generation, irrelevant generation or data gap in an attribution table.
+- Use gold-context injection to bound generator error separately from retrieval error.
+- Explain why hallucination rate should be reported separately from accuracy.
+- Critique a RAG eval where component metrics and end-to-end results disagree, and design the tests that would locate the cause.
+
+**Done bar.** Practiced: a confusion-style attribution table over the shared 50-question set, plus one gold-context injection run with the bounded generator error written down. Mastered: written answers to all three mastery questions checked against CRAG and the RAG evaluation survey, plus a critique of a real RAG system's eval that traces a component/end-to-end disagreement to its cause and states the trade-off of the fix you propose.
+
 ## Why it matters
 - RAG's "hybrid structure and reliance on dynamic knowledge sources" makes evaluation hard; the survey proposes a unified process (Auepora) to organize targets and benchmarks ([arXiv 2405.07437](https://arxiv.org/abs/2405.07437)).
 - CRAG (4,409 QA pairs, mock web/KG APIs, 5 domains) reports straightforward RAG lifts accuracy only 34% to 44%, industry systems answer 63% without hallucination, and accuracy falls for dynamic facts, tail entities, complex queries ([arXiv 2406.04744](https://arxiv.org/abs/2406.04744)).

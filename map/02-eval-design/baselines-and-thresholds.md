@@ -16,6 +16,15 @@ _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../researc
 
 **Shared concept:** confidence intervals, power and paired comparisons are owned by [statistical-inference](../01-foundations/statistical-inference.md) and [confidence-intervals-for-evals](../03-measurement-methods/confidence-intervals-for-evals.md).
 
+## Learning objectives
+You can:
+- Compute trivial baselines (majority, stratified, keyword rule) and human-vs-human agreement for a golden set.
+- Set an acceptance threshold justified by baselines, CI, n and business cost.
+- Implement the threshold as a gate script that fails below it.
+- Explain why human agreement caps the achievable score.
+
+**Done bar.** Practiced: a baseline table, the prompt v1 score with its CI, a written threshold justification, and a gate script that exits non-zero below the threshold. Mastered: written answers to all three mastery-check questions, checked against the DummyClassifier docs, Anthropic, Bowman & Dahl and Miller, plus a threshold set for a real system or the capstone with the gate result recorded.
+
 ## Why it matters
 - Trivial baselines show whether a model learns anything: scikit-learn DummyClassifier (most_frequent, prior, stratified, uniform, constant) is "a simple baseline to compare against" ([scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html)).
 - Thresholds should be achievable, based on industry benchmarks, prior experiments, research, or expert knowledge; example: <0.1% toxic of 10,000 trials ([Anthropic, develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)).

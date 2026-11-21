@@ -14,6 +14,17 @@ Input/output filters and live monitors, and how to evaluate them.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+**Shared concept:** harm measurement is owned by [safety-and-harm-evals](../05-testing-in-engineering/safety-and-harm-evals.md); this node covers evaluating live input/output filters and monitors.
+
+## Learning objectives
+You can:
+- Evaluate a guardrail on both attack recall and benign false-positive (over-refusal) rate, with per-category confusion and latency.
+- Sweep a guard's decision threshold, plot a precision-recall curve and choose a threshold for a stated cost ratio.
+- Explain what input rails catch that output rails cannot, and the reverse, and check for taxonomy mismatch between guard and policy.
+- Build a live monitor for a guardrail (block rate over time, sampled review) to detect drift.
+
+**Done bar.** Practiced: a report for a guard model on 100 harmful and 300 benign-but-edgy prompts with recall, false-positive rate, per-category confusion, latency, a PR curve and a chosen threshold with its cost ratio. Mastered: written answers to all three mastery questions checked against the Llama Guard and Constitutional Classifiers papers, and one guardrail evaluated in a capstone or real pipeline with both error rates and the monitoring plan recorded.
+
 ## Why it matters
 - Llama Guard: an LLM-based classifier for both prompts and responses with a customisable risk taxonomy; reported matching or exceeding moderation baselines on OpenAI Mod and ToxicChat ([arXiv 2312.06674](https://arxiv.org/abs/2312.06674)). (as of release; volatile)
 - NeMo Guardrails: programmable, user-defined, LLM-independent rails (EMNLP 2023 demo) ([arXiv 2310.10501](https://arxiv.org/abs/2310.10501)).

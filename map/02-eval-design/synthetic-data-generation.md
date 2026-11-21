@@ -14,6 +14,14 @@ Generating test cases with models, and the diversity and realism risks that come
 
 _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../research/02-eval-design.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Generate test cases from seed cases with an LLM and dedupe them by embedding similarity.
+- Measure validity rate by human review and compare the slice distribution with real traffic.
+- Identify the risks when the same model generates the cases and answers or judges them.
+
+**Done bar.** Practiced: 100 generated cases, the dedupe result, a 30-item validity review with reasons for invalid items, and a slice-distribution comparison against real traffic, reported as validity rate and diversity. Mastered: written answers to all three mastery-check questions, checked against Perez et al., Wang et al., Liu et al. and Zheng et al., plus synthetic cases used in a real eval or the capstone with their validity rate recorded.
+
 ## Why it matters
 - Model-written evals can be cheap and good: 154 datasets, crowdworkers agreed with 90-100% of labels, and they surfaced inverse scaling and sycophancy ([Perez et al.](https://arxiv.org/abs/2212.09251)).
 - Self-Instruct pipeline: generate, filter invalid/near-duplicate, finetune ([Wang et al.](https://arxiv.org/abs/2212.10560)).

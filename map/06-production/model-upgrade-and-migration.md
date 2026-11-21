@@ -14,6 +14,17 @@ Evaluating provider model changes and deprecations before switching.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+**Shared concept:** quality shifts over time, including silent provider-side changes, is owned by [drift-detection](drift-detection.md); this node covers planned model switches driven by deprecation or upgrade.
+
+## Learning objectives
+You can:
+- Compare an old and new model on golden cases with repeats, using per-slice pass rates with paired bootstrap CIs to decide "not worse" under nondeterminism.
+- Test the non-quality surface of a migration: parameters, token limits, latency, cost, formatting, and whether the judge model is also deprecated.
+- Audit which keys and services still call a deprecated model, and plan testing well before the retirement date.
+- Write a go/no-go memo with a rollback plan via shadow then canary, including how to handle a replacement that is better overall but worse on one slice.
+
+**Done bar.** Practiced: a go/no-go memo for ~100 golden cases (old vs new, 3 repeats) with per-slice paired bootstrap CIs, latency, cost, discordant-case review and a shadow-then-canary rollback plan. Mastered: written answers to all three mastery questions checked against the Anthropic and OpenAI deprecation pages, and one real or capstone model switch evaluated this way with the decision and outcome recorded.
+
 ## Why it matters
 - Anthropic: models move Active -> Legacy -> Deprecated -> Retired; at least 60 days' notice before retirement of public models; retired requests fail; test replacements well before retirement ([Anthropic deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)). Example: `claude-sonnet-4-5-20250929` deprecated 2026-09-30, retires 2026-11-30, replacement `claude-sonnet-5-5` (same page). (volatile; as of 2026-11-20)
 - OpenAI: notice of at least 6 months for GA models (about 2 weeks for previews); advises running representative requests against the replacement and comparing outputs, latency, cost ([OpenAI deprecations](https://developers.openai.com/api/docs/deprecations)). Example: `gpt-5` family shutdown 2026-12-11 (same page). (as of release; volatile)

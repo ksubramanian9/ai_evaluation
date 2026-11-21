@@ -16,6 +16,15 @@ _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../researc
 
 **Shared concept:** confidence intervals, power and paired comparisons are owned by [statistical-inference](../01-foundations/statistical-inference.md) and [confidence-intervals-for-evals](../03-measurement-methods/confidence-intervals-for-evals.md).
 
+## Learning objectives
+You can:
+- Run a red-green loop: write failing cases before editing a prompt, then iterate until they pass.
+- Log pass rate with a CI for each prompt version.
+- Use a hidden holdout to tell prompt overfitting from real improvement.
+- Decide when to promote a case to the regression suite.
+
+**Done bar.** Practiced: a version log of pass rates with CIs starting from 20 failing cases, plus the dev-vs-holdout comparison at the end. Mastered: written answers to all three mastery-check questions, checked against the OpenAI and Anthropic guides, plus one real prompt or feature change (capstone or work) developed eval-first with its holdout result recorded.
+
 ## Why it matters
 - OpenAI: "Adopt eval-driven development: Evaluate early and often" because outputs vary; anti-patterns include vibe-based evals ([OpenAI, evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices)).
 - Anthropic: write evals for planned capabilities before agents can do them, iterate to the bar; promote saturated capability evals to regression suites; read transcripts ([Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)).

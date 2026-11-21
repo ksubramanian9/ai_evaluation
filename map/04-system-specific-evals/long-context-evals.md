@@ -2,7 +2,7 @@
 id: long-context-evals
 title: "Long-context evals"
 branch: 04-system-specific-evals
-depth: L3
+depth: L2
 status: not-started
 bridge: none
 prerequisites: [llm-basics-for-evaluators]
@@ -13,6 +13,15 @@ tags: [rag, cost]
 Testing retrieval and reasoning over long inputs.
 
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Run a context-length by needle-depth sweep and plot the result as a heatmap.
+- Compare a lexical needle with a low-overlap (paraphrased) needle to show why plain needle-in-a-haystack is insufficient.
+- Separate retrieval failures from reasoning or aggregation failures in long-context results.
+- Plan a cost-aware length sweep for a given model and budget.
+
+**Done bar.** Practiced: a 3x5 length-by-depth grid with lexical and paraphrased needles, 3 seeds, two heatmaps and a written comparison. Mastered: written answers to all four mastery questions checked against RULER, HELMET and NoLiMa, plus one long-context test run on a real system's actual context sizes, with effective versus claimed context length recorded.
 
 ## Why it matters
 - Needle-in-a-haystack sweeps context length x needle depth ([Kamradt repo](https://github.com/gkamradt/needle-in-a-haystack), practitioner).

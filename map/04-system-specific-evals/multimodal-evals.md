@@ -14,6 +14,14 @@ Extension node: vision, speech, and mixed-modality evaluation.
 
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Explain how a polling-based object-hallucination probe (POPE-style) works and why it reports a yes-rate.
+- Recognise why knowledge benchmarks like MMMU are poor tests of hallucination.
+- Identify prompt-style sensitivity and frequent-object bias as multimodal eval failure modes.
+
+**Done bar.** Practiced: 50 POPE-style yes/no probes on 25 images with accuracy, precision, recall and yes-rate computed for one VLM. Mastered: written answers to all three mastery questions checked against POPE and MMMU, plus explaining object-hallucination probing and one failure mode to someone else without notes.
+
 ## Why it matters
 - MMMU: ~11.5K college-level questions, 6 disciplines/30 subjects/183 subfields, GPT-4V ~56% at release (CVPR 2024, [arXiv 2311.16502](https://arxiv.org/abs/2311.16502)).
 - MathVista: 6,141 examples, GPT-4V 49.9%, 10.4 points below human ([arXiv 2310.02255](https://arxiv.org/abs/2310.02255)).

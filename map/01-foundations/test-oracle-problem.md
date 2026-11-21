@@ -13,6 +13,16 @@ tags: [nondeterminism, llm-judge]
 How to decide pass/fail when the expected output is not unique or not known.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Build reference, property/metamorphic and LLM-judge oracles for the same task.
+- Measure each oracle's agreement and false-pass and false-fail rates against hand labels.
+- Write metamorphic relations for a task and spot one that is not truly invariant.
+- Test an LLM judge for position bias by swapping pair order.
+
+**Done bar.** Practiced: a table for 50 outputs comparing the three oracles' agreement, false-pass and false-fail rates against your hand labels, plus the swapped-order position-bias result. Mastered: written answers to all three mastery-check questions, checked against Barr et al., Segura et al., Ribeiro et al., Zheng et al. and Shankar et al., plus an oracle chosen for a real task or the capstone with its measured error rates recorded.
+
 ## Why it matters
 - The canonical survey defines an oracle as something that distinguishes correct from incorrect behavior of the system under test, and surveys automation via modelling, specifications, contract-driven development and metamorphic testing ([Barr et al., IEEE TSE 2015](https://discovery-pp.ucl.ac.uk/id/eprint/1471263); abstract level only).
 - Metamorphic testing has its own survey with open challenges ([Segura et al., IEEE TSE 2016](https://eprints.whiterose.ac.uk/110335/); abstract level only).

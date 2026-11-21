@@ -13,6 +13,18 @@ tags: [statistics]
 Train/validation/test discipline and the common ways leakage invalidates results.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+**Shared concept:** contamination and leakage detection and avoidance is owned by [contamination-and-leakage](../02-eval-design/contamination-and-leakage.md); this node covers classical train/validation/test split discipline.
+
+## Learning objectives
+You can:
+- Build preprocessing and feature selection inside a `Pipeline` so they are fit only after the split.
+- Choose and apply a splitter (`GroupKFold`, `TimeSeriesSplit`) that matches the group or temporal structure of the data.
+- Diagnose a leak from an implausible result, such as above-chance accuracy on random labels.
+- Classify a leak by type using the Kapoor & Narayanan taxonomy.
+
+**Done bar.** Practiced: the random-label notebook showing leaky and fixed accuracy, a `KFold` vs `GroupKFold` comparison on the repeated-patient data, and one written line per leak naming its Kapoor taxonomy category. Mastered: written answers to all three mastery-check questions, checked against the sklearn docs and Kapoor & Narayanan, plus one split design applied to a real dataset or the capstone (for example grouping by user) with the before/after score recorded.
+
 ## Why it matters
 - Leakage is information unavailable at prediction time being used to build the model. It gives optimistic estimates and worse real-world performance ([sklearn common pitfalls](https://scikit-learn.org/stable/common_pitfalls.html)).
 - Scale: a survey found leakage errors in 17 fields affecting 329 papers, with an 8-type taxonomy. In one civil-war-prediction case, the claimed ML advantage over logistic regression vanished once leakage was fixed ([Kapoor & Narayanan](https://arxiv.org/abs/2207.07048)).

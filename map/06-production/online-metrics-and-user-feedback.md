@@ -14,6 +14,17 @@ Implicit and explicit signals such as thumbs, edits, and abandonment, and their 
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+**Owns:** online metric definitions and signal biases; see also [online-experiments](online-experiments.md), [feedback-loop-to-datasets](feedback-loop-to-datasets.md).
+
+## Learning objectives
+You can:
+- Compute naive CTR per position and an inverse-propensity-weighted estimate, and state what propensity weighting assumes.
+- Define implicit signals for an LLM app (regenerate rate, edit distance, abandonment) and compute them on a logged sample.
+- Validate an implicit or explicit signal by correlating it with a human-labelled quality set before trusting it.
+- Identify biases in thumbs and click feedback (position/presentation, self-selection, tone/length) and hidden feedback loops, and name a design change for each.
+
+**Done bar.** Practiced: a notebook comparing naive and IPW click estimates, plus a table of 3 implicit LLM signals with their correlation to a small human-labelled set. Mastered: written answers to all three mastery questions checked against Joachims et al. and Sculley et al., and one signal from a capstone or real system validated against labelled data with the correlation and decision to trust or drop it recorded.
+
 ## Why it matters
 - Implicit feedback like clicks is biased by position: raw clicks train suboptimal rankers, and propensity-weighted counterfactual estimation corrects this ([Joachims, Swaminathan, Schnabel](https://arxiv.org/abs/1608.04468)). Earlier work by Joachims et al. reported that clicks are biased by presentation and that relative preferences are more reliable than absolute click values ([Joachims et al. 2005 PDF](https://www.cs.cornell.edu/people/tj/publications/joachims_etal_05a.pdf)) - UNVERIFIED in detail: PDF text was not machine-readable in my fetch; the claim is from the paper's known thesis, confirm before citing.
 - Offline metrics may not match online outcomes; Kohavi et al. present controlled experiments as the way to establish causal impact on user-observable behaviour ([Kohavi et al. 2009](https://link.springer.com/article/10.1007/s10618-008-0114-1), abstract via search).

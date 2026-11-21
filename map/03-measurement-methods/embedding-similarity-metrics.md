@@ -2,7 +2,7 @@
 id: embedding-similarity-metrics
 title: "Embedding-based similarity"
 branch: 03-measurement-methods
-depth: L2
+depth: L1
 status: not-started
 bridge: stats
 prerequisites: [reference-based-metrics]
@@ -13,6 +13,15 @@ tags: [statistics]
 Semantic similarity scoring and its blind spots.
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Explain how BERTScore and sentence-embedding cosine score similarity differently from n-gram overlap.
+- Explain why raw cosine values are hard to interpret and depend on the embedding model.
+- Recognise pair types (negations, entity or number swaps) where cosine similarity may fail.
+- Explain how a similarity threshold would be calibrated against human labels.
+
+**Done bar.** Practiced: a plot of cosine by class for the 40 pairs, the separating threshold, BERTScore on the same pairs, and the list of classes that fail. Mastered: written answers to all three mastery-check questions, checked against Zhang et al., Reimers & Gurevych and Ethayarajh, plus explaining to someone else without notes why a high cosine does not mean the same meaning, using the negation case.
 
 ## Why it matters
 - BERTScore matches candidate and reference tokens using contextual BERT embeddings rather than exact n-grams. It was tested on 363 MT and captioning systems and reported better correlation with human judgments than existing metrics ([Zhang et al. 2020](https://arxiv.org/abs/1904.09675)).

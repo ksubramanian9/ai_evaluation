@@ -13,6 +13,16 @@ tags: [nondeterminism, statistics]
 Confidence intervals, significance tests, effect sizes, and power for comparing systems.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Compute naive, bootstrap and paired-difference CIs for per-question eval results.
+- Run McNemar on discordant pairs and a power calculation for a target difference.
+- Recognise when clustered standard errors are needed and compute them.
+- Judge whether a reported gap on a given number of items supports a conclusion.
+
+**Done bar.** Practiced: a notebook on two models' per-question results (about 500 questions) showing the naive CI, bootstrap CI, paired-difference CI, McNemar result and the N needed to detect a 2-point difference. Mastered: written answers to all four mastery-check questions, checked against Miller, Dror et al., Card et al. and the SciPy and statsmodels docs, plus one real comparison (capstone or work) reported with a paired CI and the conclusion recorded.
+
 ## Why it matters
 - Miller's recommendations: CLT standard errors; clustered standard errors when questions are grouped (up to a 3x adjustment in his example); variance reduction by resampling answers and using next-token probabilities; paired-difference inference when comparing models; and power analysis, which for his illustrative parameters suggests new evals need roughly 1,000+ questions ([Miller 2024](https://arxiv.org/abs/2411.00640)).
 - Significance testing in NLP is often skipped or misused. Dror et al. give a protocol for choosing a test ([Dror et al., ACL 2018](https://aclanthology.org/P18-1128/)).

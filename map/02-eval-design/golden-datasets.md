@@ -2,7 +2,7 @@
 id: golden-datasets
 title: "Golden datasets"
 branch: 02-eval-design
-depth: L2
+depth: L3
 status: not-started
 bridge: none
 prerequisites: [task-definition-and-success-criteria]
@@ -13,6 +13,15 @@ tags: [human-labels]
 Building and maintaining curated reference sets of inputs and expected behavior.
 
 _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../research/02-eval-design.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Build a golden set from real failures with inputs, expected behavior, graders and negative cases.
+- Measure independent-labeler agreement and fix ambiguous items.
+- Detect broken items and saturation, and decide when a set graduates to a regression suite.
+- Design a golden set's composition (sources, balance, edge cases) and critique one that is one-sided or does not mirror production traffic.
+
+**Done bar.** Practiced: a versioned file of 30 cases (10 negative) with expected behavior and graders, a changelog, and an agreement report listing the items you fixed. Mastered: written answers to all three mastery-check questions, checked against Anthropic, OpenAI and Bowman & Dahl, plus a critique of a real or public golden set that finds a flaw this node covers (one-sided, broken items, saturation, unrepresentative of traffic) and states the trade-off of your fix.
 
 ## Why it matters
 - Start small: "20-50 simple tasks drawn from real failures"; good task = two domain experts reach the same verdict; use reference solutions; balance should/shouldn't-happen cases ([Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)).

@@ -2,7 +2,7 @@
 id: build-vs-buy
 title: "Build vs. buy"
 branch: 07-operating-practice
-depth: L2
+depth: L1
 status: not-started
 bridge: none
 prerequisites: [eval-tooling-landscape]
@@ -13,6 +13,14 @@ tags: [cost]
 Criteria for choosing between in-house harnesses and vendor platforms.
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Explain the main criteria for build vs buy (data sensitivity and residency, exportability, judge transparency, CI fit, cost model, team capacity, vendor viability) and recognise that they are a synthesis, not a sourced framework.
+- Identify which parts of eval infrastructure should stay in-house (gold datasets, rubrics, thresholds).
+- Recognise constraints that rule options out, such as data-retention terms and the need to export dated records for regulatory evidence.
+
+**Done bar.** Practiced: a one-page decision record for the capstone with weighted criteria, three options, doc evidence per criterion, an exit plan and a review date. Mastered: written answers to all three mastery questions checked against the tool docs and Annex IV/Art. 72 pages, and an explanation, without notes, of the build-vs-buy criteria and the lock-in failure mode to someone else.
 
 ## Why it matters
 - No primary-source decision framework was found; this node rests on documented tool properties and practitioner advice. Facts: open-source, self-hostable options exist (Inspect, promptfoo, Langfuse per their docs above; licenses not stated on the pages read: UNVERIFIED, check repos). Batch API and `ZDR not eligible` data retention (29 days for Anthropic batch) are constraints for vendor/data-handling decisions ([Anthropic docs](https://platform.claude.com/docs/en/build-with-claude/batch-processing)).

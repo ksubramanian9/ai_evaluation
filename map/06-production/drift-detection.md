@@ -5,7 +5,7 @@ branch: 06-production
 depth: L2
 status: not-started
 bridge: stats
-prerequisites: [classical-ml-validation, traffic-sampling-and-logging]
+prerequisites: [statistical-inference, traffic-sampling-and-logging]
 tags: [statistics]
 ---
 # Drift detection
@@ -13,6 +13,17 @@ tags: [statistics]
 Detecting shifts in inputs, outputs, and quality over time.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Owns:** quality shifts over time, including silent provider-side model changes; see also [model-upgrade-and-migration](model-upgrade-and-migration.md), [runtime-guardrails](runtime-guardrails.md).
+
+## Learning objectives
+You can:
+- Distinguish covariate, label and concept shift, and state which can be detected without labels.
+- Run per-dimension KS with Bonferroni, a domain-classifier two-sample test and MMD on embedded text, and compare their detection power against false-positive rate.
+- Build an output/quality drift check (a fixed prompt set replayed against a hosted model on a schedule) to catch provider-side changes that input checks miss.
+- Separate detecting a statistical shift from judging whether it is harmful, and set thresholds that avoid alert fatigue.
+
+**Done bar.** Practiced: a plot of detection power vs false-positive rate for KS, classifier and MMD tests under injected drift of increasing magnitude, plus a weekly replay log of one output metric. Mastered: written answers to all three mastery questions checked against Rabanser et al. and Chen et al., and a drift monitor (input and output/quality) running on a capstone or real system with at least one alert or quiet period recorded and interpreted.
 
 ## Why it matters
 - Hosted-model behaviour changes: GPT-4 prime/composite accuracy fell from 84% (March 2023) to 51% (June 2023), and the authors recommend continuous monitoring ([Chen, Zaharia, Zou](https://arxiv.org/abs/2307.09009)).

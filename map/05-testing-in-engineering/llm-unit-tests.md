@@ -14,6 +14,15 @@ Narrow, fast assertions on prompts and components.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Build a fast offline unit-test suite for one prompt that mixes exact-label, edge-case, format and LLM-graded assertions.
+- Choose between deterministic checks and LLM grading for each assertion and explain the split.
+- Find and fix a test that passes on a wrong answer (false pass).
+- Explain why a high pass rate on a small number of cases is weak evidence.
+
+**Done bar.** Practiced: 30 pytest cases for one prompt (15 exact-label, 5 edge, 5 format, 5 LLM-graded) running offline from recorded responses in under 5 s, with a note on which tests caught a deliberately seeded prompt bug. Mastered: written answers to all three mastery questions checked against CheckList and the Anthropic develop-tests docs, plus a unit-test suite applied once to a real or capstone component with the bugs it caught recorded.
+
 ## Why it matters
 - Held-out accuracy "often overestimates" model performance; CheckList borrows behavioral testing from software engineering, with a capability x test-type matrix and a test generator; practitioners using it wrote 2x the tests and found ~3x the bugs of those without ([Ribeiro et al., ACL 2020](https://arxiv.org/abs/2005.04118)).
 - Anthropic's guidance: success criteria should be specific, measurable, achievable, relevant; evals should mirror the real task distribution incl. edge cases; automate grading; "more questions with slightly lower signal automated grading" beats fewer hand-graded ([Anthropic docs: develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests), as-of 2026-11-20).

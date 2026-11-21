@@ -2,7 +2,7 @@
 id: task-definition-and-success-criteria
 title: "Task definition and success criteria"
 branch: 02-eval-design
-depth: L2
+depth: L3
 status: not-started
 bridge: none
 prerequisites: [evaluation-mindset]
@@ -13,6 +13,15 @@ tags: [statistics]
 Turning a vague quality goal into an explicit, testable definition of success.
 
 _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../research/02-eval-design.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Rewrite vague goals as specific, measurable, achievable, relevant criteria, each with a measurement method and threshold.
+- Separate construct-level criteria from directly observable ones and state the assumption that links them.
+- Run a grade-and-revise cycle and log criteria drift.
+- Design a multidimensional criteria set and critique one whose operationalization diverges from the intended construct.
+
+**Done bar.** Practiced: 4-6 criteria for one app, each with a method and threshold, grades on 20 outputs, and a log of what changed when you revised the criteria. Mastered: written answers to all three mastery-check questions, checked against Anthropic, Shankar et al., Jacobs & Wallach and Liao & Xiao, plus a critique of a real criteria set that finds a construct/operationalization mismatch or an unrealistic target and states the trade-off of your rewrite.
 
 ## Why it matters
 - Anthropic's docs say to define success criteria before building evals; good criteria are specific, measurable, achievable, relevant, and most use cases need multidimensional criteria (example: F1 >= 0.85, 99.5% non-toxic, 95% of responses < 200ms) ([Anthropic, develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)).

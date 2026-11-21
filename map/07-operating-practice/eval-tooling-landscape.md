@@ -14,6 +14,14 @@ Categories of evaluation and observability tooling (specific tools live in lands
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Recognise the categories of eval tooling (harnesses, declarative eval/red-team CLIs, observability platforms, instrumentation standards, provider-native features, benchmark hubs) and place a tool you meet into one.
+- Explain what a tool does not do, which features replace human review and which only organise it.
+- Identify lock-in risks such as proprietary trace/dataset formats and unvalidated built-in metrics.
+
+**Done bar.** Practiced: a written comparison of the same 20-item eval in two tools covering setup time, dataset and scorer definition, log exportability, CI integration, judge configuration, cost visibility and migration needs. Mastered: written answers to all three mastery questions checked against the tool docs listed, and an explanation, without notes, of the tooling categories and the "tool before eval questions" failure mode to someone else.
+
 ## Why it matters
 - Categories (derived from docs read): (1) eval frameworks/harnesses with datasets, solvers, scorers, logs, agents, sandboxing, e.g. Inspect, developed by UK AI Security Institute and Meridian Labs ([Inspect](https://inspect.aisi.org.uk/)); (2) declarative eval + red-team CLIs, e.g. promptfoo (evals, red teaming, CI/CD) ([promptfoo](https://www.promptfoo.dev/docs/intro/)); (3) observability + evals + datasets + prompt management platforms, e.g. Langfuse (open source, tracing based on OpenTelemetry, LLM-as-judge, annotation queues, datasets) ([Langfuse](https://langfuse.com/docs)); (4) instrumentation standards: OpenTelemetry GenAI semantic conventions, now in a separate repo `semantic-conventions-genai` (Apache-2.0; spans, metrics, events; stability level not stated in README) ([OTel repo](https://github.com/open-telemetry/semantic-conventions-genai)); (5) cloud/provider-native eval features (not researched); (6) benchmark/leaderboard hubs (HF model-index) ([HF docs](https://huggingface.co/docs/hub/model-cards)).
 - Practitioner advice: start with existing tools such as spreadsheets and custom data viewers before specialized products; avoid generic frameworks in place of problem-specific evals ([hamel.dev, practitioner](https://hamel.dev/blog/posts/evals/)).

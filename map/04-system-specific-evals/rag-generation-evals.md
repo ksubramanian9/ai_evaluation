@@ -2,7 +2,7 @@
 id: rag-generation-evals
 title: "RAG generation evaluation"
 branch: 04-system-specific-evals
-depth: L2
+depth: L3
 status: not-started
 bridge: none
 prerequisites: [llm-as-judge]
@@ -15,6 +15,15 @@ Faithfulness/groundedness and answer relevance given retrieved context.
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
 **Shared concept:** this node owns faithfulness/groundedness measurement. [summarization-and-extraction-evals](summarization-and-extraction-evals.md) reuses it.
+
+## Learning objectives
+You can:
+- Distinguish faithfulness from answer relevance with an example each way, and explain why a faithful answer can still be wrong.
+- Build a claim-decomposition faithfulness judge and measure its agreement with hand labels using Cohen's kappa.
+- Explain how prediction-powered inference uses a small set of human labels to correct judge error.
+- Design negative-rejection and counterfactual-context test cases and choose between reference-free metrics given their trade-offs.
+
+**Done bar.** Practiced: 30 (question, context, answer) triples with 10 ungrounded and 10 irrelevant-context cases, a claim-decomposition judge, hand labels, Cohen's kappa, and a comparison with a RAGAS faithfulness run. Mastered: written answers to all four mastery questions checked against RAGAS, ARES, FActScore and RGB, plus a faithfulness eval you designed or reviewed for a real system that makes an explicit trade-off (for example judge cost versus human-label correction) and names a flaw this node covers.
 
 ## Why it matters
 - Faithfulness/groundedness and answer relevance can be scored without gold answers: RAGAS is a "reference-free" framework covering retrieval relevance, faithfulness to context, and generation quality ([arXiv 2309.15217](https://arxiv.org/abs/2309.15217)).

@@ -14,6 +14,15 @@ Model cards, system cards, and eval documentation practices.
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Write a system card that covers intended and out-of-scope use, components and versions, eval datasets with provenance, metrics with CIs, disaggregated slices, known failures, red-team findings and a monitoring plan.
+- Write an eval section with enough detail for a third party to reproduce it (test-set provenance, prompt template, sampling settings, judge model and version).
+- Compare model cards, datasheets, system cards and Annex IV technical files by audience, scope and update trigger.
+- Check a card against Annex IV 2(g) and NIST MEASURE 2.1 and list the missing fields.
+
+**Done bar.** Practiced: a system card for the capstone app with all listed sections, plus a gap list from checking it against Annex IV 2(g) and MEASURE 2.1. Mastered: written answers to all three mastery questions checked against Mitchell et al., Gebru et al. and NIST AI 100-1, and the card versioned alongside one real or capstone system change with what was updated recorded.
+
 ## Why it matters
 - Model Cards (Mitchell et al., FAT* 2019, arXiv v1 5 Oct 2018, v2 14 Jan 2019): short documents accompanying models that report benchmarked evaluation, intended use contexts, evaluation procedures; call for results disaggregated by cultural, demographic or phenotypic groups and intersections ([arXiv 1810.03993](https://arxiv.org/abs/1810.03993)).
 - Datasheets for Datasets (Gebru et al.): documentation of motivation, composition, collection process, recommended uses; v1 Mar 2018, CACM Dec 2021 (v8 1 Dec 2021) ([arXiv 1803.09010](https://arxiv.org/abs/1803.09010)).

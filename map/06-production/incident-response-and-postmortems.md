@@ -2,7 +2,7 @@
 id: incident-response-and-postmortems
 title: "Incident response and postmortems"
 branch: 06-production
-depth: L2
+depth: L1
 status: not-started
 bridge: testing
 prerequisites: [observability-and-tracing]
@@ -13,6 +13,14 @@ tags: [safety, nondeterminism]
 Handling AI failures in production and learning from them.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Explain what makes a postmortem blameless and recognise the triggers that should call for one.
+- Identify the incident roles (command, operations, communication, planning) and the common response failures such as freelancing.
+- Recognise the AI-specific gaps in incident handling: no deterministic repro, missing traces, and action items that never become regression tests.
+
+**Done bar.** Practiced: a written blameless postmortem for one AI Incident Database case with timeline, impact, contributing factors, detection gap, mitigation and 3 action items (at least one eval case and one monitor/guardrail), plus notes from a tabletop drill. Mastered: written answers to all three mastery questions checked against the SRE book chapters and McGregor, and an explanation, without notes, of blameless postmortems and the "cannot reproduce" failure mode to someone else.
 
 ## Why it matters
 - Google SRE: blameless postmortems assume everyone had good intentions and fix systems; triggers should be defined in advance (user-visible degradation over a threshold, data loss, on-call intervention such as rollback, long resolution, monitoring failure); good postmortems record impact, mitigation, root causes, follow-ups ([SRE book: postmortem culture](https://sre.google/sre-book/postmortem-culture/)).

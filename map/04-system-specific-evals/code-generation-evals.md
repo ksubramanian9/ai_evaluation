@@ -16,7 +16,16 @@ _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../
 
 **Shared concept:** pass@k and pass^k are defined once in [nondeterminism-and-variance](../01-foundations/nondeterminism-and-variance.md#passk-and-passk-owned-here).
 
-**Shared concept:** running untrusted code safely is covered in [sandboxing-untrusted-code](../05-testing-in-engineering/sandboxing-untrusted-code.md).
+**Shared concept:** running untrusted code safely is covered in [sandboxing-untrusted-code](../03-measurement-methods/sandboxing-untrusted-code.md).
+
+## Learning objectives
+You can:
+- Compute unbiased pass@k from n samples with c correct and explain why 1-(1-p)^k is biased.
+- Apply extra edge-case tests to an existing benchmark and measure how pass@k and rankings change.
+- Run a static security analyzer on generated code and report a security pass rate separately from functional correctness.
+- Run model-generated code inside an isolated sandbox rather than on the host.
+
+**Done bar.** Practiced: pass@1 and pass@5 for 20 HumanEval problems (n=10, temp 0.8) computed with the unbiased estimator, recomputed after adding 5 edge-case tests per problem, plus a Bandit security pass rate, all run in Docker. Mastered: written answers to all four mastery questions checked against the Codex and EvalPlus papers, plus one code-generation eval run outside the exercise (capstone or real work) with pass@k, test-adequacy notes and the result recorded.
 
 ## Why it matters
 - Functional correctness by unit tests, with unbiased pass@k: generate n>=k samples, count c correct, and compute 1 - C(n-c,k)/C(n,k); the naive 1-(1-p)^k estimate is biased; BLEU is unreliable for functional correctness ([Chen et al., Codex, arXiv 2107.03374](https://arxiv.org/pdf/2107.03374), sec. 2.1; read via local pdftotext).

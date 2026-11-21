@@ -2,7 +2,7 @@
 id: safety-and-harm-evals
 title: "Safety and harm evaluation"
 branch: 05-testing-in-engineering
-depth: L3
+depth: L2
 status: not-started
 bridge: none
 prerequisites: [red-teaming, rubric-design]
@@ -13,6 +13,17 @@ tags: [safety, llm-judge, statistics]
 Evaluating for harmful, toxic, or policy-violating output.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+**Owns:** harm measurement; see also [red-teaming](red-teaming.md), [runtime-guardrails](../06-production/runtime-guardrails.md), [responsible-ai-ethics](../07-operating-practice/responsible-ai-ethics.md).
+
+## Learning objectives
+You can:
+- Build paired harmful and benign-but-similar prompt sets for a stated policy.
+- Compute harmful-compliance and over-refusal rates with confidence intervals and plot the trade-off between them.
+- Compute an upper bound on harm rate when zero failures are observed.
+- Check an automated safety grader's agreement with your policy against hand labels.
+
+**Done bar.** Practiced: a 4-category policy with 40 harmful and 40 benign-but-similar prompts per category, graded by rubric plus Llama Guard or an LLM judge, 50 hand labels for judge agreement, and harmful-compliance and over-refusal rates with CIs plotted across two system prompts. Mastered: written answers to all three mastery questions checked against XSTest, Llama Guard and the Anthropic develop-tests docs, plus a two-sided safety eval applied once to a real or capstone system with both rates and the grader agreement recorded.
 
 ## Why it matters
 - Two-sided: harmful compliance and over-refusal. XSTest (NAACL 2024): 250 safe prompts across ten types that should not be refused plus 200 unsafe contrast prompts; finds exaggerated-safety failures ([Röttger et al., arXiv 2308.01263](https://arxiv.org/abs/2308.01263)).

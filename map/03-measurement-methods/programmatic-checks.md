@@ -14,6 +14,15 @@ Exact match, regex, schema validation, and code execution as cheap deterministic
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Build parse, schema and business-rule graders for structured output.
+- Find schema-valid outputs that are still wrong.
+- Run generated code against tests in a subprocess with a timeout.
+- Write an IFEval-style verifier and explain how the number of samples changes a functional-correctness score.
+
+**Done bar.** Practiced: pass rates of the three graders on about 50 JSON prompts, notes on the 10 inspected schema-valid outputs, and results for 20 HumanEval-style problems run in a timed subprocess. Mastered: written answers to all four mastery-check questions, checked against Anthropic, Chen et al., Zhou et al. and the OpenAI Structured Outputs docs, plus programmatic graders used in the capstone or a real eval with what they caught recorded.
+
 ## Why it matters
 - Deterministic graders are cheap and reproducible.
 - Anthropic's eval docs list exact match (after normalizing whitespace/case), cosine similarity and ROUGE-L as code-based graders, and say to design questions so they allow automated grading (multiple choice, string match, code-graded, LLM-graded) ([Anthropic docs](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)).

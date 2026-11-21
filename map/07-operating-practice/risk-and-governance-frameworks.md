@@ -2,10 +2,10 @@
 id: risk-and-governance-frameworks
 title: "Risk and governance frameworks"
 branch: 07-operating-practice
-depth: L2
+depth: L1
 status: not-started
 bridge: none
-prerequisites: [safety-and-harm-evals]
+prerequisites: [responsible-ai-ethics]
 tags: [safety]
 ---
 # Risk and governance frameworks
@@ -13,6 +13,14 @@ tags: [safety]
 NIST AI RMF and similar frameworks (details to verify from primary sources).
 
 _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../research/07-operating-practice.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Explain the four NIST AI RMF functions (GOVERN, MAP, MEASURE, MANAGE) and where evaluation evidence fits in them.
+- Identify eval-relevant subcategories (e.g. MEASURE 2.1, 2.3, 2.13, MANAGE 4.1) and the GAI risks in AI 600-1 that apply to an app.
+- Explain why the RMF is voluntary and not a certification, and why AI 600-1 says lab benchmarks do not establish deployment validity.
+
+**Done bar.** Practiced: a one-page crosswalk for a small LLM app mapping its top 5 AI 600-1 risks to a MAP/MEASURE/MANAGE subcategory and a concrete eval or monitor (test set, metric, threshold, owner), with gaps marked. Mastered: written answers to all three mastery questions checked against NIST AI 100-1 and AI 600-1, and an explanation, without notes, of MEASURE 2.13 ("evaluating the evaluation") and the checklist-compliance failure mode to someone else.
 
 ## Why it matters
 - NIST AI RMF 1.0 (NIST AI 100-1, January 2023) is "intended to be voluntary, rights-preserving, non-sector-specific, and use-case agnostic" ([AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf), Part 1 intro). Four functions: GOVERN, MAP, MEASURE, MANAGE ([AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf), Part 2 Core).

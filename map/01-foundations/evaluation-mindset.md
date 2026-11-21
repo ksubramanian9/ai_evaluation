@@ -13,6 +13,16 @@ tags: [nondeterminism, statistics]
 Why evaluating AI differs from verifying deterministic software: no single right output, distributions instead of points.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Explain why an eval score is an estimate with error, not a fact.
+- Recognise when a benchmark's name implies a construct it does not measure.
+- Identify configuration choices (seeds, prompts, decoding, hardware and software) that move a score without changing the model.
+- Explain why success criteria get revised after reading outputs.
+
+**Done bar.** Practiced: a table of per-run accuracy over 5 sampled runs with the spread and a standard-error-based 95% CI, plus the paragraph on which 2-point differences you would trust. Mastered: written answers to all three mastery-check questions, checked against Miller, Raji et al., Hochlehnert et al. and Shankar et al., plus explaining to someone else without notes why "model A scored 71.2, model B 70.5" is not a finding.
+
 ## Why it matters
 - LLM evals are experiments: the questions are a sample from a larger population, so a score is an estimate with error, not a fact ([Miller 2024](https://arxiv.org/abs/2411.00640)).
 - Headline benchmarks are proxies. A high score is read as progress on broad goals the benchmark may not measure (construct validity) ([Raji et al. 2021](https://arxiv.org/abs/2111.15366)).

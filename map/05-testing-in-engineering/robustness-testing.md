@@ -14,6 +14,17 @@ Behavior under paraphrase, typos, adversarial and out-of-distribution inputs.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+**Shared concept:** metamorphic relations and invariance testing technique are owned by [metamorphic-and-property-testing](metamorphic-and-property-testing.md); this node covers perturbation test sets that use those relations.
+
+## Learning objectives
+You can:
+- Apply perturbation families (typos, case and whitespace, paraphrase, distractor sentence) to a golden set.
+- Report accuracy per perturbation family with confidence intervals and the fraction of cases whose output flips.
+- Check that a perturbation preserves the label before counting a flip as a failure.
+- Choose perturbations that match your real user population rather than unrealistic noise.
+
+**Done bar.** Practiced: 100 golden cases under 4 perturbation families with per-family accuracy and CI, a flip rate, and notes from a manual audit of LLM-paraphrased cases. Mastered: written answers to all three mastery questions checked against PromptRobust and HELM, plus a perturbation set applied once to a real or capstone system with flip rates recorded.
+
 ## Why it matters
 - PromptRobust/PromptBench: 4,788 adversarial prompts over 8 tasks and 13 datasets at character, word, sentence, and semantic levels; "contemporary LLMs are not robust to adversarial prompts" ([Zhu et al., arXiv 2306.04528](https://arxiv.org/abs/2306.04528)).
 - CheckList includes perturbation-style invariance tests ([Ribeiro](https://arxiv.org/abs/2005.04118); type names UNVERIFIED from abstract).

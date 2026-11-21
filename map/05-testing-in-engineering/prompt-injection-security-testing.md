@@ -14,6 +14,15 @@ Testing for injection, data exfiltration, and tool abuse.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Build direct and indirect prompt-injection test cases for a tool-using agent and measure attacker goal achieved from the tool-call log, not the text.
+- Report attack success rate alongside utility on benign tasks before and after mitigations.
+- Map OWASP LLM01, LLM06 and LLM07 items to concrete tests.
+- Critique a security test plan or defense, explaining why no finite test set can show a defense has passed and weighing security against utility.
+
+**Done bar.** Practiced: a toy email-summarizer agent with 10 planted injection emails, ASR measured from the tool-call log before and after two mitigations, and utility on 20 benign tasks. Mastered: written answers to all three mastery questions checked against OWASP, Greshake et al. and AgentDojo, plus a security review of a real agent (yours or a team's) that finds a gap this node covers (indirect injection, refusal-only metrics, untested screens, over-privileged tools) and states the utility trade-off of the fix.
+
 ## Why it matters
 - OWASP Top 10 for LLM Applications 2025 lists LLM01 Prompt Injection first, plus LLM02 Sensitive Information Disclosure, LLM05 Improper Output Handling, LLM06 Excessive Agency, LLM07 System Prompt Leakage ([OWASP GenAI](https://genai.owasp.org/llm-top-10/)).
 - Indirect injection: retrieved data can carry instructions; demonstrated on Bing Chat and code-completion engines, with data theft, worming, and API-call control; "effective mitigations are currently lacking" as of the paper ([Greshake et al., arXiv 2302.12173](https://arxiv.org/abs/2302.12173)).

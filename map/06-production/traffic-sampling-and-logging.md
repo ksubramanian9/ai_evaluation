@@ -14,6 +14,15 @@ Which production traffic to log and sample, including privacy constraints.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Choose between head and tail sampling (or a combination) given a requirement such as "keep every failure", and state what tail sampling costs to operate.
+- Implement stratified sampling that keeps rare failures and compute unbiased metric estimates with inverse-probability weights.
+- Apply a PII scrubbing pass and measure its misses by manual inspection rather than assuming it is complete.
+- Write a prompt-retention policy justified against data minimisation and storage limitation.
+
+**Done bar.** Practiced: a comparison of uniform vs stratified-with-weights samples on 5k logs, showing bias/variance of a known metric over 200 repeats, plus a count of Presidio misses in 50 inspected samples. Mastered: written answers to all three mastery questions checked against the OTel sampling page, GDPR Art. 5 and Presidio docs, and a sampling rule and retention policy applied to a capstone or real system with the resulting volumes recorded.
+
 ## Why it matters
 - Head sampling decides early (e.g. consistent probability by trace ID); simple and cheap but cannot keep "every error trace". Tail sampling decides on the whole trace (errors, latency, attributes) but is stateful and harder to operate; the docs say it is "almost always necessary" for larger systems and suggest combining both for very high volume ([OTel sampling](https://opentelemetry.io/docs/concepts/sampling/)).
 - Eval cost: online LLM judging costs about $0.01-0.10 per assessment (Langfuse estimate) so you must sample ([Langfuse docs](https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge), practitioner/vendor; as of release; volatile).

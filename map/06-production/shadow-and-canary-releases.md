@@ -14,6 +14,15 @@ Safe rollout patterns for model and prompt changes.
 
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Explain what shadow testing and canarying each reveal and fail to reveal, including why shadow outputs need a judge or reference.
+- Build a router that canaries a fraction of traffic to a candidate and mirrors replayed traffic to it in shadow.
+- Choose canary metrics and thresholds (latency, cost, format validity, judge score, absolute SLOs) and match the metric interval to the canary duration.
+- Write and test an automatic rollback rule against an injected regression.
+
+**Done bar.** Practiced: a working canary/shadow router with a comparison of latency, cost, format-validity rate and judge score, plus a rollback rule shown to fire on an injected regression. Mastered: written answers to all three mastery questions checked against the SRE Workbook and AWS shadow-test docs, and one real or capstone prompt/model change rolled out via shadow or canary with the metrics and go/rollback decision recorded.
+
 ## Why it matters
 - Canarying is "a partial and time-limited deployment of a change in a service and its evaluation"; canary vs control is effectively A/B testing; exposure of a defect is proportional to canary traffic ([SRE Workbook: canarying](https://sre.google/workbook/canarying-releases/)).
 - Shadow testing mirrors a copy of live requests to the new variant while only the production variant's response is returned; responses are discarded or logged for offline comparison ([AWS SageMaker shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html), (as of release; volatile) vendor docs). It validates operational metrics before promotion.

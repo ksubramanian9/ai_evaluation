@@ -14,6 +14,15 @@ Recall@k, MRR, nDCG, and context relevance for the retrieval step.
 
 _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../../research/04-system-specific-evals.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+## Learning objectives
+You can:
+- Compute recall@k, MRR and nDCG@k by hand and cross-check them against a library evaluator.
+- Compare BM25 with an embedding retriever and bootstrap a confidence interval on the difference.
+- Construct an example where MRR and nDCG rank two systems differently.
+- Explain how unjudged documents and binary relevance labels bias a retrieval comparison.
+
+**Done bar.** Practiced: hand-written recall@k, MRR and nDCG@k on ~100 questions over a BEIR subset, BM25 versus one embedding model, a cross-check with InformationRetrievalEvaluator, and a bootstrap CI on the difference. Mastered: written answers to all four mastery questions checked against BEIR and Järvelin & Kekäläinen, plus retrieval metrics applied once to a real or capstone retriever with the result and CI recorded.
+
 ## Why it matters
 - Retrieval is a separable component; RAG evaluation surveys treat retrieval (relevance) and generation (accuracy, faithfulness) as distinct evaluation targets ([Yu et al. survey, arXiv 2405.07437](https://arxiv.org/abs/2405.07437)).
 - nDCG extends precision/recall to graded relevance and applies a rank discount so later results count less ([Järvelin & Kekäläinen, ACM TOIS 20(4) 2002, DOI 10.1145/582415.582418](https://dl.acm.org/doi/10.1145/582415.582418); abstract confirmed via search summary, page itself returned 403).

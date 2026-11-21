@@ -2,7 +2,7 @@
 id: calibration-and-uncertainty
 title: "Calibration and uncertainty"
 branch: 01-foundations
-depth: L2
+depth: L1
 status: not-started
 bridge: stats
 prerequisites: [ml-metrics]
@@ -13,6 +13,16 @@ tags: [nondeterminism, statistics]
 Whether confidence matches correctness; uncertainty estimation basics.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Explain what calibration means and recognise a model that ranks well but is poorly calibrated.
+- Explain why Brier score and log loss are not pure calibration measures.
+- Recognise when sigmoid or isotonic calibration fits, and why the calibrator must be fit on data independent of training.
+- Explain why LLM calibration on multiple-choice questions may not transfer to new tasks or open-ended generation.
+
+**Done bar.** Practiced: reliability diagrams, Brier score and 10- and 20-bin ECE for the random forest and logistic regression, with a before/after table of AUC and ECE for sigmoid and isotonic calibration. Mastered: written answers to all four mastery-check questions, checked against Guo et al., Kadavath et al. and the sklearn calibration page, plus explaining calibration and the Brier-score pitfall to someone else without notes.
+
 ## Why it matters
 - Modern neural networks are poorly calibrated, unlike those of a decade earlier. Depth, width, weight decay and batch norm all affect it, and temperature scaling (a one-parameter Platt variant) is a surprisingly effective fix ([Guo et al. 2017](https://arxiv.org/abs/1706.04599)).
 - For LLMs, larger models are well calibrated on multiple-choice and true/false questions with the right format, and P(True) self-evaluation works encouragingly. P(IK) generalizes partially but is poorly calibrated on new tasks ([Kadavath et al. 2022](https://arxiv.org/abs/2207.05221)).

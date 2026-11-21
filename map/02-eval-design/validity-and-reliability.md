@@ -16,6 +16,15 @@ _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../researc
 
 **Shared concept:** confidence intervals, power and paired comparisons are owned by [statistical-inference](../01-foundations/statistical-inference.md) and [confidence-intervals-for-evals](../03-measurement-methods/confidence-intervals-for-evals.md).
 
+## Learning objectives
+You can:
+- Compute run-to-run and paraphrase variance, SE or bootstrap CIs, and a paired difference between two prompt versions.
+- State the minimum detectable effect for an eval's n.
+- Distinguish construct validity from reliability and list threats to validity for an eval.
+- Critique a benchmark using Bean et al.'s recommendations and weigh which threats matter most.
+
+**Done bar.** Practiced: a write-up with CIs from 5 runs x 3 prompt paraphrases, the paired difference, the minimum detectable effect for your n, and the construct with 3 threats to validity. Mastered: written answers to all three mastery-check questions, checked against Bean et al., Bowman & Dahl, Raji et al., Jacobs & Wallach and Miller, plus a critique of a benchmark you use that applies one Bean et al. recommendation and states the trade-off of fixing it.
+
 ## Why it matters
 - 445 LLM benchmarks reviewed by 29 experts show recurring patterns weakening construct validity; eight recommendations ([Bean et al., NeurIPS 2025 D&B](https://arxiv.org/abs/2511.04703)).
 - Benchmarks should be reliable, unbiased, with headroom ([Bowman & Dahl](https://arxiv.org/abs/2104.02145)).

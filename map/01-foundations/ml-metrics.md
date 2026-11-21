@@ -13,6 +13,16 @@ tags: [statistics]
 Accuracy, precision/recall/F1, AUC, regression error, and ranking metrics; when each misleads.
 
 _Researched 2026-11-20 from the sources below; full notes in [research/01-foundations.md](../../research/01-foundations.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Check numeric claims against the papers before relying on them._
+
+## Learning objectives
+You can:
+- Compute precision, recall and F-beta by hand from a confusion matrix and prevalence, and justify the beta for the task.
+- Choose between accuracy, balanced accuracy, ROC-AUC and average precision for imbalanced data.
+- Choose a metric whose cost model matches the decision (mean, median or quantile).
+- Tune a decision threshold and report how each metric moves.
+
+**Done bar.** Practiced: a notebook on the ~2%-positive dataset with accuracy, balanced accuracy, ROC-AUC, average precision and F1 at default and tuned thresholds, ROC and PR plots, the 98%-accuracy constant-negative result, and a note on which metric moves least with prevalence. Mastered: written answers to all three mastery-check questions, checked against the sklearn docs and Saito & Rehmsmeier, plus choosing and justifying the metric for one real or capstone classifier or grader with the result recorded.
+
 ## Why it matters
 - The metric encodes the cost model. scikit-learn documents matching scoring rules: squared error for the mean, absolute error for the median, pinball loss for quantiles ([sklearn model evaluation](https://scikit-learn.org/stable/modules/model_evaluation.html)).
 - On imbalanced data accuracy can beat chance purely because of the imbalance, while balanced accuracy falls to 1/n_classes in that case (same page).

@@ -2,7 +2,7 @@
 id: regression-testing
 title: "Regression testing"
 branch: 05-testing-in-engineering
-depth: L2
+depth: L3
 status: not-started
 bridge: testing
 prerequisites: [golden-datasets, baselines-and-thresholds]
@@ -13,6 +13,15 @@ tags: [statistics, nondeterminism]
 Detecting quality drops after prompt, model, or code changes.
 
 _Researched 2026-11-20; full notes in [research/05-testing-in-engineering.md](../../research/05-testing-in-engineering.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+
+## Learning objectives
+You can:
+- Compute a per-case flip table, per-slice deltas and a paired bootstrap CI between two models or prompt versions.
+- Explain why paired per-case comparison beats comparing two aggregate numbers.
+- Compute how many repeats are needed to detect a given change from your own measured variance.
+- Design a written ship/no-ship rule that trades an overall gain against a critical-slice regression.
+
+**Done bar.** Practiced: the unit-test suite plus a ~100-case golden set run on two models or prompt versions x5 repeats, with a flip table, per-slice deltas, a paired bootstrap CI and a written ship/no-ship decision. Mastered: written answers to all three mastery questions checked against Chen, Zaharia, Zou and Atil et al., plus a ship/no-ship rule you designed or a regression report you reviewed that makes an explicit overall-versus-slice trade-off or finds a flaw this node covers (aggregate-only, no noise estimate, stale golden set).
 
 ## Why it matters
 - Provider models change under you: GPT-4 prime-vs-composite accuracy fell 84% to 51% between March and June 2023 versions; GPT-3.5 moved the other way on some tasks; instruction-following declined, and authors call for "continuous monitoring" ([Chen, Zaharia, Zou, arXiv 2307.09009](https://arxiv.org/abs/2307.09009)).

@@ -21,7 +21,7 @@ DEPTHS = ["L1", "L2", "L3"]
 BRIDGES = ["stats", "testing", "none"]
 TAGS = ["nondeterminism", "statistics", "human-labels", "llm-judge", "rag", "agents",
         "safety", "security", "fairness", "privacy", "cost"]
-REQUIRED_HEADINGS = ["## Why it matters", "## Common failure modes", "## Practice exercise",
+REQUIRED_HEADINGS = ["## Learning objectives", "## Why it matters", "## Common failure modes", "## Practice exercise",
                      "## Mastery check", "## Sources"]
 
 

@@ -385,3 +385,28 @@ Effort: **S** < 1 h, **M** 1–4 h, **L** > 4 h. Priority reflects value to *lea
 **Landscape:** 55 entries. 0 with `(type:)`. 28 without a URL. `01-foundations` is empty.
 
 **Candidates:** 7 real items (01 only). The other 6 files are pointer-only.
+
+---
+
+## 7. Follow-up status (updated 2026-11-21)
+
+| # | Recommendation | Status |
+|---|---|---|
+| 1 | Learning objectives and done bar | **Done.** Every node has a `## Learning objectives` section matched to its depth and a **Done bar** for practiced and mastered. The validator now requires the section. |
+| 2 | Capstone spec | **Done.** 13 steps, each with a deliverable, an acceptance criterion and the nodes it exercises. Decisions: this repo as the document set, Claude Sonnet 5.5 as generator and Opus 5.5 as judge, local runs with a GitHub Actions gate. Every node is either exercised or listed as theory-only. |
+| 3 | Candidates out of research files | **Done.** |
+| 4 | Link defects | **Done.** The Evidently page is still dead and marked as such. |
+| 5 | Clickable citations | **Done.** The site generator now also autolinks plain URLs. |
+| 6 | Prerequisite fixes and backward edge | **Done.** `drift-detection` now requires `statistical-inference`. `eval-maturity-model` also requires documentation and tooling. `risk-and-governance-frameworks` now requires `responsible-ai-ethics`. `sandboxing-untrusted-code` moved to 03, which removes the backward edge. |
+| 7 | One house style | **Done.** |
+| 8 | Recalibrate depth | **Done.** Depth is redefined as the learner's target depth (see `CONTEXT.md`); the mix is now L1 16, L2 49, L3 18. Under this definition a prerequisite may have a higher depth than its dependent node, so the B2 "inversions" are no longer defects. |
+| 9 | Tag vocabulary | **Done.** 82 of 83 nodes are tagged; `multimodal-evals` has no fitting tag. |
+| 10 | Landscape clean-up and volatile content out of nodes | **Done** for the landscape format and `regulatory-compliance`: dated status moved to the landscape file, and the verification log to the research notes. Model names cited as historical results stay in nodes. |
+| 11 | Overlap owners | **Done.** Owns and Shared concept lines cover the 7 overlap clusters. |
+| 12 | Extended validation and CI | **Done.** |
+| 13 | New nodes for coverage gaps | Open. The candidates are in `_candidates.md`. |
+| 14 | Full-text verification pass | Open. |
+| 15 | Thicken thin nodes | Open. The done-bar work showed these are weakest: `sandboxing-untrusted-code`, `inter-rater-agreement`, `reference-based-metrics`, `multi-agent-evals`, `rag-end-to-end-evals`, `build-vs-buy`, `standards`. |
+| 16 | Practitioner list | **Done.** See `docs/practitioner-sources.md`. |
+| 17 | Study plan | Open. Now unblocked, since every exercise has a time estimate. |
+| 18 | README | **Done.** |

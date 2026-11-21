@@ -1,7 +1,7 @@
 ---
 id: sandboxing-untrusted-code
 title: "Sandboxing untrusted code"
-branch: 05-testing-in-engineering
+branch: 03-measurement-methods
 depth: L2
 status: not-started
 bridge: testing
@@ -13,6 +13,15 @@ tags: [security, safety]
 Isolating execution of model-generated code and tool calls during evals so a bad output cannot damage the host.
 
 _Added 2026-11-20 to close a gap flagged by the system-specific-evals research (no node covered isolation). Thinly sourced: only the Codex paper has been read. Extend with the research skill before studying._
+
+## Learning objectives
+You can:
+- Run model-generated code in a container with no network, CPU, memory and time limits, and a read-only filesystem.
+- Test isolation by running hostile programs and recording what the sandbox blocks.
+- Reset state between trials so earlier runs cannot change later results.
+- Choose which limits matter for grading correctness and which for safety.
+
+**Done bar.** Practiced: a run log for 20 generated programs inside the sandbox, plus a record of what was blocked when a program tried to read a host file, open a socket and fork-bomb. Mastered: written answers to all three mastery-check questions, checked against Chen et al., Anthropic and the container, gVisor and microVM documentation this node still needs, plus the sandbox used for a real or capstone code or agent eval with its configuration recorded.
 
 ## Why it matters
 - Execution-based grading of generated code runs untrusted code. The Codex paper built a gVisor-based sandbox for this reason ([Chen et al., sec. 2.2-2.3](https://arxiv.org/abs/2107.03374), read from the PDF during research).

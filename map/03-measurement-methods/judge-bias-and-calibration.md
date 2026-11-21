@@ -14,6 +14,17 @@ Position, verbosity, and self-preference bias; validating a judge against human 
 
 _Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
+**Shared concept:** judge design and validation is owned by [llm-as-judge](llm-as-judge.md); this node covers judge bias and calibration (position, length and self-preference bias, and validating a judge against human labels).
+
+## Learning objectives
+You can:
+- Quantify position bias from swapped-order runs as a flip rate.
+- Measure length bias by padding answers, and explain how regression-based length control works.
+- Apply balanced-position aggregation and report what it changes.
+- Design a judge calibration set (size, label source, metric, pass threshold), trading labeling cost against confidence in the judge.
+
+**Done bar.** Practiced: a write-up on 30 pairs with the swapped-order flip rate, the win-rate change from padding, an optional self-vs-other result, and rankings before and after balanced-position aggregation. Mastered: written answers to all three mastery-check questions, checked against Wang et al., Panickssery et al., Wataoka et al., Dubois et al., Thakur et al. and Zheng et al., plus a calibration-set design or a critique of a real judge setup that finds an uncontrolled bias and states the trade-off of the mitigation.
+
 ## Why it matters
 - Each bias can shift rankings.
 - Reordering responses changed outcomes; Vicuna-13B beat ChatGPT on 66 of 80 queries under one ordering with ChatGPT as evaluator. Proposed calibration: multiple evidence, balanced position (aggregate across orders), human-in-the-loop for hard cases ([Wang et al. 2023](https://arxiv.org/abs/2305.17926)).

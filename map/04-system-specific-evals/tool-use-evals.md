@@ -16,6 +16,15 @@ _Researched 2026-11-20; full notes in [research/04-system-specific-evals.md](../
 
 **Shared concept:** pass@k and pass^k are defined once in [nondeterminism-and-variance](../01-foundations/nondeterminism-and-variance.md#passk-and-passk-owned-here).
 
+## Learning objectives
+You can:
+- Build a code checker for tool calls covering name match, JSON-schema validation, normalized argument equality and executable result match.
+- Write should-not-call test cases and measure relevance detection.
+- Choose between AST and execution grading for a tool-calling eval and explain why schema validity is not enough.
+- Compute pass^k from per-task success rates over repeated trials.
+
+**Done bar.** Practiced: 5 tool schemas and 40 prompts (10 no-tool, 10 parallel) graded by a code checker against a mock, with per-category accuracy and 5-trial pass^k reported. Mastered: written answers to all four mastery questions checked against BFCL and tau-bench, plus a tool-call eval applied once to a real agent or the capstone with per-category results and pass^k recorded.
+
 ## Why it matters
 - Tool calls can be checked programmatically.
 - BFCL uses AST matching (function name, required params, no hallucinated params, strict types) and executable evaluation, with categories simple/multiple/parallel/parallel-multiple and relevance detection (no call when none fits) ([Gorilla BFCL blog, snapshot Aug 2024; later V2/V3 added live data and multi-turn](https://gorilla.cs.berkeley.edu/blogs/8_berkeley_function_calling_leaderboard.html)).
