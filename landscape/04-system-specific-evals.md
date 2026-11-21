@@ -28,3 +28,18 @@ Migrated from research/04-system-specific-evals.md (not individually re-verified
 - Chatbot Arena (vote counts, 240K at paper time). (type: benchmark) as-of: 2026-11-20 | https://arxiv.org/abs/2306.05685
 - MAST dataset. (type: benchmark) as-of: 2026-11-20 | https://arxiv.org/abs/2503.13657
 - MultiAgentBench. (type: benchmark) as-of: 2026-11-20 | https://arxiv.org/abs/2503.01935
+- Anthropic thinking controls: manual `budget_tokens` (min 1,024, target not cap) deprecated on 4.6 and rejected on 4.7+; adaptive thinking with `output_config.effort`; default effort differs by model (type: docs) as-of: 2026-11-21 | https://platform.claude.com/docs/en/build-with-claude/extended-thinking
+- OpenAI reasoning effort values are model-dependent (none/minimal/low/medium/high/xhigh/max); raw reasoning tokens hidden, billed as output; optional summaries (type: docs) as-of: 2026-11-21 | https://developers.openai.com/api/docs/guides/reasoning
+- MathArena (post-release math competitions; v3 Jan 2026: 50+ models, 7 competitions, 162 problems) (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2505.23281
+- tau2-bench (dual-control telecom domain with user simulator) (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2506.07982
+- SimulatorArena (909 human-LLM conversations for validating user simulators) (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2510.05444
+- Sim2Real user-simulation study and User-Sim Index (451 participants on tau-bench; best simulator USI 76.0 vs 92.7 human at paper time) (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2603.11245
+- MGSM (250 GSM8K problems hand-translated into 10 languages). (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2210.03057
+- Global-MMLU (42 languages; culturally sensitive vs agnostic subsets). (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2412.03304
+- INCLUDE (197,243 QA pairs, 44 languages, local exam sources). (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2411.19799
+- TyDi QA (11 languages, collected natively without translation). (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2003.05002
+- Multilingual jailbreak data (Deng et al., code and data repo). (type: benchmark) as-of: 2026-11-21 | https://github.com/DAMO-NLP-SG/multilingual-safety-for-LLMs
+- RAG diagnosis frameworks: RAGChecker (claim-level retriever/generator metrics), RAGAS, ARES. (type: tool) as-of: 2026-11-21 | https://arxiv.org/abs/2408.08067
+- RAG benchmarks: CRAG (4,409 QA, truthfulness scoring), RGB (noise, rejection, integration, counterfactual). (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2406.04744
+- Who&When failure-attribution dataset (failure logs from 127 LLM multi-agent systems; best agent-level 53.5%, step-level 14.2% at paper time). (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2505.00212
+- MAST paper at arXiv v3 (26 Oct 2025); MAST-Data 1,642 traces from 7 frameworks. MultiAgentBench revised to v2 on 2026-11-18. (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/html/2503.13657

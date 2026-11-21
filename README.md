@@ -14,6 +14,7 @@ Evaluation (statistical quality measurement) and testing (pass/fail engineering 
 | `landscape/` | Volatile items (tools, benchmarks, model names), each with `as-of:` date |
 | `capstone/` | End-to-end project: RAG app, then tool-using agent |
 | `progress.md` | Generated status table |
+| `study-plan.md` | Generated week-by-week study plan (exercise hours + reading allowance by depth; skips mastered nodes) |
 | `tools/build_site.py` | Builds the browsable website into `site/` (gitignored); assets in `tools/site/` |
 | `tools/build_views.py` | Validates nodes, regenerates overview and progress, flags stale landscape entries |
 | `research/` | Sourced notes the nodes were written from |
@@ -34,7 +35,7 @@ prerequisites: [other-node-id]
 tags: [nondeterminism] # cross-cutting, from the vocabulary below
 ```
 
-Tags come from a controlled vocabulary (1-3 per node): `nondeterminism`, `statistics`, `human-labels`, `llm-judge`, `rag`, `agents`, `safety`, `security`, `fairness`, `privacy`, `cost`. The validator rejects anything else.
+Tags come from a controlled vocabulary (0-3 per node; leave a node untagged when no tag fits, as with `multimodal-evals`): `nondeterminism`, `statistics`, `human-labels`, `llm-judge`, `rag`, `agents`, `safety`, `security`, `fairness`, `privacy`, `cost`. The validator rejects anything else.
 
 Nodes are filled from sourced research (`research/`); fill remaining gaps as you study a node and update its `status`. Every node body uses the same layout:
 
@@ -76,6 +77,7 @@ pip install -r requirements.txt
 python tools/build_site.py               # build site/, open site/index.html (works from file://)
 python tools/build_views.py              # regenerate views, validate, list stale landscape entries
 python tools/build_views.py --stale-days 60
+python tools/build_views.py --hours-per-week 8   # regenerate study-plan.md at a different weekly budget (default 6)
 ```
 
 CI (`.github/workflows/validate.yml`) runs both builds on every push and pull request; `pages.yml` publishes the site from `main`.

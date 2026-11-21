@@ -1,6 +1,6 @@
 """Build the static website from the Markdown map.
 
-Usage (from repo root):  python tools/build_site.py [--out site] [--stale-days 90]
+Usage (from repo root):  python tools/build_site.py [--out site] [--stale-days 90] [--hours-per-week 6]
 
 Output is plain static HTML with relative links and no runtime fetches, so it
 works from file:// and on any static host (e.g. GitHub Pages).
@@ -86,18 +86,7 @@ def branch_num(b):
 
 # ---------------------------------------------------------------- data
 
-def layers(nodes):
-    memo = {}
-
-    def depth(i):
-        if i not in memo:
-            ps = nodes[i]["prerequisites"]
-            memo[i] = 0 if not ps else 1 + max(depth(p) for p in ps)
-        return memo[i]
-
-    for i in nodes:
-        depth(i)
-    return memo
+layers = bv.layers
 
 
 def load_candidates():
@@ -189,6 +178,7 @@ def sidebar(nodes, root, current_node=None, current_branch=None):
     parts = ['<nav class="side" aria-label="Map navigation">']
     parts.append(f'<a class="side-top" href="{root}nodes.html">All nodes</a>'
                  f'<a class="side-top" href="{root}path.html">Learning path</a>'
+                 f'<a class="side-top" href="{root}study-plan.html">Study plan</a>'
                  f'<a class="side-top" href="{root}graph.html">Prerequisite graph</a>')
     parts.append('<div class="side-h">Branches</div>')
     for b, ns in br.items():
@@ -307,7 +297,7 @@ def summarize(node_md):
 
 # ---------------------------------------------------------------- build
 
-def build(out, stale_days):
+def build(out, stale_days, hours_per_week=6.0):
     nodes = bv.load()
     errs = bv.validate(nodes)
     if errs:
@@ -449,6 +439,21 @@ def build(out, stale_days):
 <div class="filterable">{filter_bar(nodes)}{"".join(parts)}</div>"""
     (out / "path.html").write_text(page("Learning path", body, nodes, wide=True), encoding="utf-8")
 
+    # study plan
+    sp = bv.study_plan(nodes, hours_per_week)
+    wparts = []
+    for wi, w in enumerate(sp["weeks"], 1):
+        rows = "".join(
+            f'<tr><td><a href="nodes/{it["node"]["id"]}.html">{esc(it["node"]["title"])}</a></td>'
+            f'<td>{esc(branch_num(it["node"]["branch"]))} {esc(branch_label(it["node"]["branch"]))}</td>'
+            f'<td>{esc(it["node"]["depth"])}</td><td>{bv.fmt_h(it["hours"])}</td><td>{badge("status", it["node"]["status"])}</td></tr>' for it in w)
+        done = [s_ for s_ in sp["steps"] if s_["week"] == wi]
+        note = ('<p class="muted">Capstone steps doable after this week: ' + "; ".join(f'step {s_["n"]} ({esc(s_["title"])})' for s_ in done) + "</p>") if done else ""
+        wparts.append(f'<section id="week-{wi}"><h2>Week {wi} <span class="muted">{bv.fmt_h(sum(i["hours"] for i in w))} h</span></h2>'
+                      f'<table><thead><tr><th>Node</th><th>Branch</th><th>Depth</th><th>Hours</th><th>Status</th></tr></thead><tbody>{rows}</tbody></table>{note}</section>')
+    body = f"""<h1>Study plan</h1><p class="lede"><b>{bv.fmt_h(sp["total"])} hours over {len(sp["weeks"])} weeks</b> at {bv.fmt_h(hours_per_week)} h/week ({sp["skipped"]} mastered nodes skipped). Nodes follow the learning path and never come before their prerequisites. Hours = practice exercise (upper bound of its range) + reading allowance (L1 1 h, L2 2 h, L3 3 h). A node never splits across weeks. Rebuild with <code>--hours-per-week N</code> to change the budget.</p>{"".join(wparts)}"""
+    (out / "study-plan.html").write_text(page("Study plan", body, nodes, wide=True), encoding="utf-8")
+
     # graph
     gdata = {"nodes": [{"id": n["id"], "t": n["title"], "b": branch_num(n["branch"]), "l": n["layer"], "s": n["status"]}
                        for n in sorted(nodes.values(), key=lambda n: (n["layer"], n["branch"], n["title"]))],
@@ -492,7 +497,7 @@ def build(out, stale_days):
     (out / "capstone.html").write_text(page("Capstone", f'<article class="prose">{linker.rewrite(h, "")}</article>', nodes), encoding="utf-8")
     ab, _ = render((ROOT / "README.md").read_text(encoding="utf-8"))
     (out / "about.html").write_text(page("About", f'<article class="prose">{linker.rewrite(ab, "")}</article>', nodes), encoding="utf-8")
-    for t, u, x in (("Learning path", "path.html", "stages order"), ("Prerequisite graph", "graph.html", "dependencies"),
+    for t, u, x in (("Learning path", "path.html", "stages order"), ("Study plan", "study-plan.html", "weeks hours schedule"), ("Prerequisite graph", "graph.html", "dependencies"),
                     ("Capstone", "capstone.html", "RAG agent project"), ("Landscape", "landscape.html", "tools benchmarks models")):
         index_items.append({"t": t, "u": u, "b": "Page", "g": "", "x": x, "k": "Page"})
 
@@ -529,11 +534,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="site")
     ap.add_argument("--stale-days", type=int, default=90)
+    ap.add_argument("--hours-per-week", type=float, default=6.0)
     a = ap.parse_args()
     out = pathlib.Path(a.out)
     if not out.is_absolute():
         out = ROOT / out
-    build(out, a.stale_days)
+    build(out, a.stale_days, a.hours_per_week)
 
 
 if __name__ == "__main__":

@@ -18,3 +18,7 @@ Migrated from research/06-production.md (not individually re-verified; entries f
 - NeMo Guardrails (guardrail toolkit) (type: tool) as-of: 2026-11-20 | https://arxiv.org/abs/2310.10501
 - Constitutional Classifiers (guardrail classifiers) (type: model) as-of: 2026-11-20 | https://arxiv.org/abs/2501.18837
 - AWS SageMaker shadow tests (type: tool) as-of: 2026-11-20 | https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html
+- EDPB Guidelines 01/2025 on Pseudonymisation: adopted for public consultation 16 Jan 2025, consultation closed 14 Mar 2025; final version UNVERIFIED. (type: regulation) as-of: 2026-11-21 | https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2025/guidelines-012025-pseudonymisation_en
+- EDPB Opinion 28/2024 on AI models (anonymity, legitimate interest), adopted 17 Dec 2024. (type: regulation) as-of: 2026-11-21 | https://edpb.europa.eu/system/files/2024-12/edpb_opinion_202428_ai-models_en.pdf
+- OpenAI API data controls: abuse-monitoring logs kept up to 30 days by default; API data not used for training by default since 2023-03-01; Zero Data Retention needs prior approval. (type: docs) as-of: 2026-11-21 | https://developers.openai.com/api/docs/guides/your-data
+- Microsoft Presidio docs moved to presidio.dataprivacystack.org. (type: tool) as-of: 2026-11-21 | https://presidio.dataprivacystack.org/

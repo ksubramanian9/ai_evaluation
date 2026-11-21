@@ -12,7 +12,7 @@ tags: [llm-judge, nondeterminism]
 
 Position, verbosity, and self-preference bias; validating a judge against human labels.
 
-_Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
+_Researched 2026-11-20; full notes in [research/03-measurement-methods.md](../../research/03-measurement-methods.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Verified in full text on 2026-11-21: Wang et al., Panickssery et al., Wataoka et al., Dubois et al., Thakur et al. (v6) and Zheng et al. (arXiv HTML), and the OpenAI evaluation best-practices page. Supplemented 2026-11-21: [research/supplements/2026-11-21-judge-bias-and-calibration.md](../../research/supplements/2026-11-21-judge-bias-and-calibration.md). Exercises and mastery checks are proposed designs, not sourced claims._
 
 **Shared concept:** judge design and validation is owned by [llm-as-judge](llm-as-judge.md); this node covers judge bias and calibration (position, length and self-preference bias, and validating a judge against human labels).
 
@@ -27,13 +27,13 @@ You can:
 
 ## Why it matters
 - Each bias can shift rankings.
-- Reordering responses changed outcomes; Vicuna-13B beat ChatGPT on 66 of 80 queries under one ordering with ChatGPT as evaluator. Proposed calibration: multiple evidence, balanced position (aggregate across orders), human-in-the-loop for hard cases ([Wang et al. 2023](https://arxiv.org/abs/2305.17926)).
+- Reordering responses changed outcomes; with ChatGPT as evaluator, Vicuna-13B beat ChatGPT on 66 of 80 queries when placed second, but won only 2.5% when placed first (Table 2). Proposed calibration: multiple evidence, balanced position (aggregate across orders), and human-in-the-loop for cases flagged by a balanced position diversity entropy score (sections 3.1-3.3); MEC plus BPC raised alignment with humans by 9.8% (GPT-4) and 14.3% (ChatGPT) accuracy (section 4) ([Wang et al. 2023](https://arxiv.org/abs/2305.17926)).
 
 ## Common failure modes
-- Self-preference: evaluators score their own outputs higher; strength correlates linearly with self-recognition ability ([Panickssery et al. 2024](https://arxiv.org/abs/2404.13076)). Alternative account: GPT-4 prefers lower-perplexity (more familiar) text whether or not self-generated ([Wataoka et al. 2024](https://arxiv.org/abs/2410.21819)).
-- Length bias: AlpacaEval favored longer outputs. A regression-based length control raised Spearman correlation with Chatbot Arena from 0.94 to 0.98 ([Dubois et al. 2024](https://arxiv.org/abs/2404.04475)).
-- High percent agreement can hide very different scores, so use chance-corrected metrics ([Thakur et al.](https://arxiv.org/abs/2406.12624)).
-- Verbosity and position bias are named in [Zheng et al.](https://arxiv.org/abs/2306.05685); OpenAI advises controlling for response length ([OpenAI guide](https://developers.openai.com/api/docs/guides/evaluation-best-practices)).
+- Self-preference: evaluators (GPT-3.5, GPT-4, Llama-2-7b-chat) score their own outputs higher; after fine-tuning, self-preference strength correlates linearly with self-recognition ability, which the authors treat as evidence for, not proof of, a causal link (sections 3, 5.2) ([Panickssery et al. 2024](https://arxiv.org/abs/2404.13076)). Alternative account: GPT-4 shows significant self-preference bias under a fairness-based metric (section 4.1), and LLMs rate lower-perplexity text higher than human evaluators do, whether or not it is self-generated (section 5) ([Wataoka et al. 2024](https://arxiv.org/abs/2410.21819)).
+- Length bias: AlpacaEval favored longer outputs; prompting gpt4_1106_preview to be concise or verbose moved its win rate from 22.9% to 64.3%, versus 41.9% to 51.6% after length control (section 4.1). The length control is a GLM on model identity, length difference and instruction difficulty, evaluated at zero length difference (section 3); it raised Spearman correlation with Chatbot Arena from 0.94 to 0.98 (section 4.2) ([Dubois et al. 2024](https://arxiv.org/abs/2404.04475)).
+- High percent agreement can hide very different scores (judges above 90% agreement can still differ by more than 10 points, section 4.1), so report percent agreement together with Scott's pi; the current version replaced Cohen's kappa with Scott's pi (section 3 footnote 2, section 6) ([Thakur et al.](https://arxiv.org/abs/2406.12624)).
+- Verbosity and position bias are named in Zheng et al.: GPT-4 was consistent under swapped order in 65.0% of cases, Claude-v1 in 23.8% (section 3.3, Table 2); they propose counting a win only if it holds in both orders (section 3.4) ([Zheng et al.](https://arxiv.org/abs/2306.05685)). OpenAI advises: "Control for response lengths as LLMs bias towards longer responses in general" ([OpenAI guide](https://developers.openai.com/api/docs/guides/evaluation-best-practices)).
 
 ## Practice exercise (3 h)
 Build 30 pairs. Run the judge in both orders and report the flip rate. Pad one answer in each pair with filler and measure win-rate change. Add a self-vs-other condition if you have two model families. Apply balanced-position aggregation and report what changes.

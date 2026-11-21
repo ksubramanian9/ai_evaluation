@@ -19,3 +19,5 @@ Migrated from research/02-eval-design.md (not individually re-verified; entries 
 - Eval docs moved: docs.anthropic.com -> platform.claude.com; platform.openai.com -> developers.openai.com. (type: docs) as-of: 2026-11-20 | URL not recorded
 - NIST AI RMF under revision (White House AI Action Plan); GenAI Profile NIST-AI-600-1 (2024-07-26). (type: standard) as-of: 2026-11-20 | https://www.nist.gov/itl/ai-risk-management-framework
 - scikit-learn cohen_kappa_score `replace_undefined_by` added in 1.9 (per docs page). (type: docs) as-of: 2026-11-20 | https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html
+- MMLU-Redux (5,700 re-annotated MMLU questions; MMLU error estimate 6.49% at paper time). (type: benchmark) as-of: 2026-11-21 | https://arxiv.org/abs/2406.04127
+- Hugging Face Datasets `load_dataset(revision=...)` pins a dataset tag, branch or commit (docs v5.2.0). (type: docs) as-of: 2026-11-21 | https://huggingface.co/docs/datasets/en/loading
