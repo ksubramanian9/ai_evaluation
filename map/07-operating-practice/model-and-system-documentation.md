@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: none
 prerequisites: [eval-reporting-and-communication]
-tags: []
+tags: [fairness, statistics]
 ---
 # Model and system documentation
 
@@ -28,7 +28,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Card written once and not versioned with the model/prompt/system change.
 - Card documents the model but not the system (retrieval, tools, guardrails), where the actual risk sits (inference; AI 600-1 stresses value chain and component integration risk).
 
-## Practice exercise
+## Practice exercise (3 h)
 Write a system card for your capstone app with: intended/out-of-scope use, components and versions, eval datasets (provenance, size, date), metrics with CIs, disaggregated slices, known failures, red-team findings, monitoring plan. Then check it against Annex IV 2(g) and MEASURE 2.1 and list missing fields.
 
 ## Mastery check
@@ -37,8 +37,12 @@ Write a system card for your capstone app with: intended/out-of-scope use, compo
 3. Compare model card, datasheet, system card, Annex IV file: audience, scope, update trigger.
 
 ## Sources
-- https://arxiv.org/abs/1810.03993 ; https://arxiv.org/abs/1803.09010
-- https://huggingface.co/docs/hub/model-cards
-- https://www.anthropic.com/system-cards
-- https://arxiv.org/abs/2411.12990 ; https://arxiv.org/abs/2511.04703
-- https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai
+- [Mitchell et al., Model Cards, arXiv 1810.03993](https://arxiv.org/abs/1810.03993)
+- [Gebru et al., Datasheets for Datasets, arXiv 1803.09010](https://arxiv.org/abs/1803.09010)
+- [Hugging Face model cards](https://huggingface.co/docs/hub/model-cards)
+- [Anthropic system cards](https://www.anthropic.com/system-cards)
+- [OpenAI, GPT-4 technical report, arXiv 2303.08774](https://arxiv.org/abs/2303.08774)
+- [NIST AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf); [NIST AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
+- [BetterBench, arXiv 2411.12990](https://arxiv.org/abs/2411.12990)
+- [Construct validity review, arXiv 2511.04703](https://arxiv.org/abs/2511.04703)
+- [Commission, GPAI Code of Practice](https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai)

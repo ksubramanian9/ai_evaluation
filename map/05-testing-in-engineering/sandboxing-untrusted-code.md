@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: testing
 prerequisites: [programmatic-checks]
-tags: [safety]
+tags: [security, safety]
 ---
 # Sandboxing untrusted code
 
@@ -20,7 +20,7 @@ _Added 2026-11-20 to close a gap flagged by the system-specific-evals research (
 
 ## Common failure modes
 - Running model code directly on the host or inside your CI runner.
-- Sharing state between trials, so earlier runs change later results (Anthropic lists shared state as an agent-eval failure: [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)).
+- Sharing state between trials, so earlier runs change later results (Anthropic lists shared state as an agent-eval failure: [Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)).
 - UNVERIFIED: network egress, resource limits and timeouts are not sourced here. Research them (container, microVM and gVisor documentation) before relying on this node.
 
 ## Practice exercise (2 h)
@@ -32,5 +32,5 @@ Run 20 generated programs from [code-generation-evals](../04-system-specific-eva
 3. Which limits (time, memory, network, filesystem) matter for grading correctness versus safety?
 
 ## Sources
-- Chen et al., "Evaluating Large Language Models Trained on Code": https://arxiv.org/abs/2107.03374
-- Anthropic, "Demystifying evals for AI agents": https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+- [Chen et al., "Evaluating Large Language Models Trained on Code", arXiv 2107.03374](https://arxiv.org/abs/2107.03374)
+- [Anthropic, "Demystifying evals for AI agents"](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)

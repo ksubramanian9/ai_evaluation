@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: none
 prerequisites: [traffic-sampling-and-logging, golden-datasets]
-tags: []
+tags: [human-labels, privacy]
 ---
 # Feedback loop into datasets
 
@@ -17,7 +17,7 @@ _Researched 2026-11-20; full notes in [research/06-production.md](../../research
 ## Why it matters
 - Interviews with 18 ML engineers identify Velocity, Validation and Versioning as the variables governing production success and describe continual monitoring of production performance drops as part of the loop ([Shankar et al. 2022](https://arxiv.org/abs/2209.09125)).
 - Evaluation criteria evolve as you look at outputs ("criteria drift"), so datasets must be refreshed from observed failures ([Shankar et al. 2024](https://arxiv.org/abs/2404.12272)).
-- Anthropic's guidance: mirror the real task distribution and include edge cases; more automatically graded questions beat fewer hand-graded ([Anthropic develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests), [vol]). That page's explicit guidance on production data was not seen (only first 100k chars read).
+- Anthropic's guidance: mirror the real task distribution and include edge cases; more automatically graded questions beat fewer hand-graded ([Anthropic develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests); as of release; volatile). That page's explicit guidance on production data was not seen (only first 100k chars read).
 
 ## Common failure modes
 - Hidden feedback loops and entanglement ([Sculley et al.](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html)).
@@ -25,7 +25,7 @@ _Researched 2026-11-20; full notes in [research/06-production.md](../../research
 - Unrepresentative mining (only thumbs-down) skews dataset; privacy of logged data (see traffic-sampling-and-logging).
 - Labels from an unvalidated judge become the ground truth (Shankar 2024).
 
-## Practice exercise
+## Practice exercise (3 h)
 (design)
 - From logged traces with a failure flag, mine 50 failures, cluster by error type, write a minimal test case per cluster (input, expected property, scorer), anonymise, add to a versioned dataset with provenance fields, split into dev (for tuning) and a frozen holdout, and confirm the fix flips the case and does not regress the older set.
 

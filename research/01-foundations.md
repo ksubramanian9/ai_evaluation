@@ -123,7 +123,7 @@ Researched 2026-11-20. Method: each cited page was fetched; claims below paraphr
 **Why it matters**
 - k-fold CV reports the average over folds and avoids wasting data on a fixed validation set, with a test set still held out ([sklearn CV](https://scikit-learn.org/stable/modules/cross_validation.html)).
 - Model selection itself overfits: selection bias can be comparable to the performance differences between algorithms; models should be evaluated with selection inside the loop (nested CV) ([Cawley & Talbot 2010](https://www.jmlr.org/papers/v11/cawley10a.html); abstract level only).
-- Comparing classifiers: Dietterich compared five approximate tests; McNemar has low type I error and suits single-run algorithms, 5x2cv is slightly more powerful when 10 runs are affordable ([Dietterich 1998, via search result](https://web.engr.oregonstate.edu/~tgd/publications/dietterich-approximate-statistical-tests-nc1998.pdf); I only read a secondary abstract summary). For many datasets, Demsar recommends Wilcoxon signed-ranks (two classifiers) and Friedman + post-hoc (more) ([Demsar 2006](https://www.jmlr.org/papers/v7/demsar06a.html)).
+- Comparing classifiers: Dietterich compared five approximate tests; McNemar has low type I error and suits single-run algorithms, 5x2cv is slightly more powerful when 10 runs are affordable ([Dietterich 1998, via search result](https://doi.org/10.1162/089976698300017197); I only read a secondary abstract summary). For many datasets, Demsar recommends Wilcoxon signed-ranks (two classifiers) and Friedman + post-hoc (more) ([Demsar 2006](https://www.jmlr.org/papers/v7/demsar06a.html)).
 - Drift: ML systems fail silently under dataset shift; two-sample tests on classifier-reduced features performed best among methods tested ([Rabanser et al. 2019](https://arxiv.org/abs/1810.11953)).
 - Baselines: UNVERIFIED (no primary source fetched for "always compare to a trivial baseline"). Candidate: sklearn `DummyClassifier` docs.
 
@@ -144,7 +144,7 @@ Researched 2026-11-20. Method: each cited page was fetched; claims below paraphr
 **Primary sources**
 - scikit-learn CV: https://scikit-learn.org/stable/modules/cross_validation.html ; common pitfalls: https://scikit-learn.org/stable/common_pitfalls.html
 - Cawley & Talbot, JMLR 2010: https://www.jmlr.org/papers/v11/cawley10a.html
-- Dietterich, Neural Computation 1998: https://web.engr.oregonstate.edu/~tgd/publications/dietterich-approximate-statistical-tests-nc1998.pdf
+- Dietterich, Neural Computation 1998: https://doi.org/10.1162/089976698300017197
 - Demsar, JMLR 2006: https://www.jmlr.org/papers/v7/demsar06a.html
 - Rabanser et al., "Failing Loudly", NeurIPS 2019: https://arxiv.org/abs/1810.11953
 

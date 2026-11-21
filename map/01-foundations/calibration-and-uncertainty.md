@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: stats
 prerequisites: [ml-metrics]
-tags: [nondeterminism]
+tags: [nondeterminism, statistics]
 ---
 # Calibration and uncertainty
 
@@ -36,6 +36,6 @@ Train a random forest and a logistic regression on a binary dataset. Plot reliab
 4. Why might an LLM's calibration on multiple choice not transfer to open-ended generation?
 
 ## Sources
-- Guo et al., "On Calibration of Modern Neural Networks" (ICML 2017): https://arxiv.org/abs/1706.04599
-- Kadavath et al., "Language Models (Mostly) Know What They Know": https://arxiv.org/abs/2207.05221
-- scikit-learn, probability calibration: https://scikit-learn.org/stable/modules/calibration.html
+- [Guo et al., "On Calibration of Modern Neural Networks" (ICML 2017)](https://arxiv.org/abs/1706.04599)
+- [Kadavath et al., "Language Models (Mostly) Know What They Know"](https://arxiv.org/abs/2207.05221)
+- [scikit-learn, probability calibration](https://scikit-learn.org/stable/modules/calibration.html)

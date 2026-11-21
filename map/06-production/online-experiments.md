@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: stats
 prerequisites: [statistical-inference, online-metrics-and-user-feedback]
-tags: []
+tags: [statistics, nondeterminism]
 ---
 # A/B tests and online experiments
 
@@ -26,7 +26,7 @@ _Researched 2026-11-20; full notes in [research/06-production.md](../../research
 - LLM-specific: nondeterministic outputs add per-request variance; user-level randomisation and variance reduction needed (design/inference; no primary source found on LLM-specific A/B).
 - Interference/shared state across variants (also cited for canaries in [SRE workbook](https://sre.google/workbook/canarying-releases/)).
 
-## Practice exercise
+## Practice exercise (3 h)
 (design)
 - Simulate an A/B test with a binary success metric (base 40%, +2pt effect) with 1) fixed-horizon test, 2) daily peeking at p<0.05, measure false-positive rate over 2,000 A/A runs. Then apply CUPED with a correlated pre-period metric and measure variance reduction and a chi-square SRM check with a deliberately buggy 52/48 split.
 

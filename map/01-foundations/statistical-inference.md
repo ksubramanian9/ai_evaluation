@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: stats
 prerequisites: [ml-metrics]
-tags: [nondeterminism]
+tags: [nondeterminism, statistics]
 ---
 # Statistical inference for evaluation
 
@@ -37,9 +37,9 @@ Take two models' per-question 0/1 results on about 500 questions. Compute: a nai
 4. What does a bootstrap assume that can fail?
 
 ## Sources
-- Miller: https://arxiv.org/abs/2411.00640
-- Dror et al., ACL 2018: https://aclanthology.org/P18-1128/
-- Card et al., EMNLP 2020: https://aclanthology.org/2020.emnlp-main.745
-- Dietterich 1998 and Demsar 2006 (see [classical-ml-validation](classical-ml-validation.md))
-- SciPy bootstrap: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html
-- statsmodels power: https://www.statsmodels.org/stable/generated/statsmodels.stats.power.TTestIndPower.html
+- [Miller](https://arxiv.org/abs/2411.00640)
+- [Dror et al., ACL 2018](https://aclanthology.org/P18-1128/)
+- [Card et al., EMNLP 2020](https://aclanthology.org/2020.emnlp-main.745)
+- [Dietterich, Neural Computation 1998](https://doi.org/10.1162/089976698300017197) and [Demsar, JMLR 2006](https://www.jmlr.org/papers/v7/demsar06a.html) (see [classical-ml-validation](classical-ml-validation.md))
+- [SciPy bootstrap](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html)
+- [statsmodels power](https://www.statsmodels.org/stable/generated/statsmodels.stats.power.TTestIndPower.html)

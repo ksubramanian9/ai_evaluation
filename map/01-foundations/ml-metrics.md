@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: stats
 prerequisites: []
-tags: []
+tags: [statistics]
 ---
 # Core ML metrics
 
@@ -34,5 +34,5 @@ Use sklearn on a dataset with about 2% positives (`fetch_openml` credit-card fra
 3. Which metric fits a ranked-list task where only the top 5 matter? (Verify NDCG/MRR definitions in the sklearn docs.)
 
 ## Sources
-- scikit-learn, model evaluation: https://scikit-learn.org/stable/modules/model_evaluation.html
-- Saito & Rehmsmeier, PLOS ONE 2015: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432
+- [scikit-learn, model evaluation](https://scikit-learn.org/stable/modules/model_evaluation.html)
+- [Saito & Rehmsmeier, PLOS ONE 2015](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432)

@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: none
 prerequisites: [confidence-intervals-for-evals]
-tags: []
+tags: [statistics]
 ---
 # Eval reporting and communication
 
@@ -29,7 +29,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Reporting a benchmark score as capability without construct validity (Bean et al.).
 - Reporting only pass rate, not what was *not* tested (limits section).
 
-## Practice exercise
+## Practice exercise (2 h)
 Take two prompt versions on a 200-item eval. Compute paired difference with 95% CI (bootstrap and analytic), a power calculation for the item count needed to detect a 3-point gap, and write a one-page decision memo: recommendation, effect size with interval, slices, cost, known gaps, residual risk.
 
 ## Mastery check
@@ -38,5 +38,7 @@ Take two prompt versions on a 200-item eval. Compute paired difference with 95% 
 3. Write the "limits of this evaluation" paragraph for your memo.
 
 ## Sources
-- https://arxiv.org/abs/2411.00640 ; https://arxiv.org/abs/2411.12990 ; https://arxiv.org/abs/2511.04703
-- https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
+- [Miller, Adding Error Bars to Evals, arXiv 2411.00640](https://arxiv.org/abs/2411.00640)
+- [BetterBench, arXiv 2411.12990](https://arxiv.org/abs/2411.12990)
+- [Construct validity review, arXiv 2511.04703](https://arxiv.org/abs/2511.04703)
+- [NIST AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)

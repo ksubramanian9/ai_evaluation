@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: none
 prerequisites: [llm-as-judge, confidence-intervals-for-evals]
-tags: [cost]
+tags: [cost, statistics]
 ---
 # Eval cost management
 
@@ -28,7 +28,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Counting only API cost, not human grading time or engineer time (inference).
 - Not logging cost per eval run, so spend is invisible.
 
-## Practice exercise
+## Practice exercise (4 h)
 Instrument an eval run to record tokens and cost per item and per judge call. Compare: sync full run, batch full run, cached-prefix run, and cascade (cheap judge, escalate low-confidence to strong judge) on 300 items. Report cost, wall time, and agreement with a 50-item human gold set.
 
 ## Mastery check
@@ -37,5 +37,10 @@ Instrument an eval run to record tokens and cost per item and per judge call. Co
 3. How do you prove a cheaper judge is acceptable?
 
 ## Sources
-- https://platform.claude.com/docs/en/build-with-claude/batch-processing ; .../prompt-caching ; https://developers.openai.com/api/docs/guides/batch
-- https://arxiv.org/abs/2305.05176 ; https://arxiv.org/abs/2411.00640
+- [Anthropic, batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+- [Anthropic, prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+- [OpenAI, Batch API](https://developers.openai.com/api/docs/guides/batch)
+- [Anthropic, develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)
+- [Chen, Zaharia, Zou, FrugalGPT, arXiv 2305.05176](https://arxiv.org/abs/2305.05176)
+- [Miller, Adding Error Bars to Evals, arXiv 2411.00640](https://arxiv.org/abs/2411.00640)
+- [Shankar et al., arXiv 2404.12272](https://arxiv.org/abs/2404.12272)

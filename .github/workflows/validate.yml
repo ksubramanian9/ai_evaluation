@@ -1,0 +1,16 @@
+name: Validate
+on:
+  pull_request:
+  push:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate nodes and landscape (no dependencies)
+        run: python tools/build_views.py
+      - name: Build site
+        run: pip install -r requirements.txt && python tools/build_site.py

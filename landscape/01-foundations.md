@@ -2,7 +2,7 @@
 
 Volatile items for this branch. One entry per line, format:
 
-- <item> (type: tool|benchmark|model|standard) as-of: YYYY-MM-DD | <source URL>
+- <item> (type: tool|benchmark|model|standard|regulation|docs) as-of: YYYY-MM-DD | <source URL, or `URL not recorded`>
 
 ## Entries
 

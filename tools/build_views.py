@@ -17,6 +17,12 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MAP = ROOT / "map"
 STATUSES = ["not-started", "learning", "practiced", "mastered"]
+DEPTHS = ["L1", "L2", "L3"]
+BRIDGES = ["stats", "testing", "none"]
+TAGS = ["nondeterminism", "statistics", "human-labels", "llm-judge", "rag", "agents",
+        "safety", "security", "fairness", "privacy", "cost"]
+REQUIRED_HEADINGS = ["## Why it matters", "## Common failure modes", "## Practice exercise",
+                     "## Mastery check", "## Sources"]
 
 
 def parse(path):
@@ -52,6 +58,24 @@ def validate(nodes):
     for n in nodes.values():
         if n["status"] not in STATUSES:
             errs.append(f"{n['id']}: bad status {n['status']}")
+        stem = pathlib.PurePosixPath(n["path"]).stem
+        if n["id"] != stem:
+            errs.append(f"{n['id']}: id does not match filename stem {stem}")
+        if n.get("depth") not in DEPTHS:
+            errs.append(f"{n['id']}: bad depth {n.get('depth')!r} (expected one of {DEPTHS})")
+        if n.get("bridge") not in BRIDGES:
+            errs.append(f"{n['id']}: bad bridge {n.get('bridge')!r} (expected one of {BRIDGES})")
+        tags = n.get("tags", [])
+        if not isinstance(tags, list):
+            tags = [tags]
+        bad = [t for t in tags if t not in TAGS]
+        if bad:
+            errs.append(f"{n['id']}: tags not in controlled vocabulary: {', '.join(bad)}")
+        body = (ROOT / n["path"]).read_text(encoding="utf-8")
+        heads = [l.strip() for l in body.splitlines() if l.startswith("## ")]
+        for req in REQUIRED_HEADINGS:
+            if not any(h == req or h.startswith(req + " ") or (req.endswith("exercise") and h.startswith(req)) for h in heads):
+                errs.append(f"{n['id']}: missing required heading '{req}'")
         for q in n["prerequisites"]:
             if q not in nodes:
                 errs.append(f"{n['id']}: unknown prerequisite {q}")
@@ -144,6 +168,20 @@ def stale(days):
     return out
 
 
+def landscape_warnings():
+    """Non-fatal: entries should carry '(type: ...)' and a URL or 'URL not recorded'."""
+    out = []
+    for p in sorted((ROOT / "landscape").glob("*.md")):
+        for i, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.startswith("- ") or "(none yet)" in line or line.startswith("- <item>"):
+                continue
+            if "(type:" not in line:
+                out.append(f"{p.name}:{i} missing '(type: ...)'")
+            if not re.search(r"https?://", line) and "URL not recorded" not in line:
+                out.append(f"{p.name}:{i} missing URL or 'URL not recorded'")
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--stale-days", type=int, default=90)
@@ -158,6 +196,8 @@ def main():
     print(f"{len(nodes)} nodes OK; wrote map/00-overview.md and progress.md")
     for s in stale(a.stale_days):
         print("STALE:", s)
+    for w in landscape_warnings():
+        print("WARN:", w)
 
 
 if __name__ == "__main__":

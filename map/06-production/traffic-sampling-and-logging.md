@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: none
 prerequisites: [observability-and-tracing]
-tags: []
+tags: [privacy, statistics, cost]
 ---
 # Traffic sampling and logging
 
@@ -16,7 +16,7 @@ _Researched 2026-11-20; full notes in [research/06-production.md](../../research
 
 ## Why it matters
 - Head sampling decides early (e.g. consistent probability by trace ID); simple and cheap but cannot keep "every error trace". Tail sampling decides on the whole trace (errors, latency, attributes) but is stateful and harder to operate; the docs say it is "almost always necessary" for larger systems and suggest combining both for very high volume ([OTel sampling](https://opentelemetry.io/docs/concepts/sampling/)).
-- Eval cost: online LLM judging costs about $0.01-0.10 per assessment (Langfuse estimate) so you must sample ([Langfuse docs](https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge), practitioner/vendor, [vol]).
+- Eval cost: online LLM judging costs about $0.01-0.10 per assessment (Langfuse estimate) so you must sample ([Langfuse docs](https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge), practitioner/vendor; as of release; volatile).
 - Privacy: GDPR Art. 5 requires data "limited to what is necessary" (minimisation) and kept identifiable "no longer than is necessary" (storage limitation) ([GDPR Art. 5 text](https://gdpr-info.eu/art-5-gdpr/), unofficial reproduction of the regulation; official text at EUR-Lex not fetched).
 
 ## Common failure modes
@@ -25,7 +25,7 @@ _Researched 2026-11-20; full notes in [research/06-production.md](../../research
 - Automated PII scrubbing is incomplete: Presidio itself states "there is no guarantee that Presidio will find all sensitive information" ([Presidio docs](https://presidio.dataprivacystack.org/)).
 - Sampling bias into datasets: sampling only thumbs-down or only flagged traces biases evals (design; see online-metrics).
 
-## Practice exercise
+## Practice exercise (4 h)
 (design)
 - Take 5k synthetic or public chat logs (e.g. a public chat dataset). Implement (a) 2% uniform sample, (b) stratified sample keeping all errors/long/low-confidence plus 1% of the rest with inverse-probability weights.
 - Estimate a known metric (e.g. refusal rate) from each; compare bias/variance over 200 repeats.

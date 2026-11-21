@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: testing
 prerequisites: [observability-and-tracing]
-tags: []
+tags: [safety, nondeterminism]
 ---
 # Incident response and postmortems
 
@@ -25,7 +25,7 @@ _Researched 2026-11-20; full notes in [research/06-production.md](../../research
 - AI-specific: no deterministic repro because of non-determinism and provider-side change (Chen et al.: [arXiv 2307.09009](https://arxiv.org/abs/2307.09009)); no stored traces to replay (see observability); action items that do not become regression tests (design).
 - Org liability for chatbot output (Moffatt, see runtime-guardrails).
 
-## Practice exercise
+## Practice exercise (3 h)
 (design)
 - Pick a public AI incident from the AI Incident Database. Write a blameless postmortem (timeline, impact, contributing factors, detection gap, mitigation) and derive 3 concrete action items, at least one a new eval case and one a monitor/guardrail. Run a tabletop drill with a self-written scenario (e.g. provider silently changes model behaviour).
 

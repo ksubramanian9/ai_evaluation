@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: none
 prerequisites: [eval-driven-development]
-tags: []
+tags: [human-labels, llm-judge]
 ---
 # Team roles and process
 
@@ -28,7 +28,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Whack-a-mole prompt fixing without regression evals (practitioner: Husain).
 - Judge never validated against human labels (Shankar; Husain).
 
-## Practice exercise
+## Practice exercise (3 h)
 Write a RACI for your eval lifecycle (dataset curation, rubric, judge calibration, release gate, incident review, periodic re-audit). Then run a 30-example rubric session with one other person grading blind, record disagreements, revise rubric, report agreement.
 
 ## Mastery check
@@ -37,5 +37,8 @@ Write a RACI for your eval lifecycle (dataset curation, rubric, judge calibratio
 3. What cadence for refreshing test sets, recalibrating judges, and re-reviewing thresholds, and what triggers an unscheduled review?
 
 ## Sources
-- https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf ; https://arxiv.org/abs/2404.12272 ; https://platform.claude.com/docs/en/test-and-evaluate/develop-tests
-- practitioner: https://hamel.dev/blog/posts/evals/
+- [NIST AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
+- [Shankar et al., Who Validates the Validators, arXiv 2404.12272](https://arxiv.org/abs/2404.12272)
+- [Anthropic, develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)
+- [EU AI Act Annex IV](https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4)
+- practitioner: [Hamel Husain, evals](https://hamel.dev/blog/posts/evals/)

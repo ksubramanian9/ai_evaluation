@@ -189,7 +189,7 @@ Several exercises/mastery items are my own design (not sourced claims); they are
 
 **Failure modes**
 - Detecting statistical shift that is harmless (alert fatigue); Rabanser et al. frame assessing harm as separate from detection ([abstract](https://arxiv.org/abs/1810.11953)).
-- Per-column tests with default thresholds: Evidently docs differ across versions on defaults (Wasserstein/K-S/PSI, threshold 0.1, drift_share 50%) - check your version ([Evidently docs](https://docs.evidentlyai.com/user-guide/customization/options-for-statistical-tests), practitioner/OSS, [vol]).
+- Per-column tests with default thresholds: Evidently docs differ across versions on defaults (Wasserstein/K-S/PSI, threshold 0.1, drift_share 50%) - check your version ([Evidently docs](https://docs.evidentlyai.com/user-guide/customization/options-for-statistical-tests) (link 404 as of 2026-11-21), practitioner/OSS, [vol]).
 - Provider-side silent model changes need output/quality drift checks, not only input checks (Chen et al.).
 - Applying tabular-drift tests to text without embeddings: UNVERIFIED (no primary source found on embedding-drift validity).
 
@@ -205,7 +205,7 @@ Several exercises/mastery items are my own design (not sourced claims); they are
 - [Rabanser et al. Failing Loudly](https://arxiv.org/abs/1810.11953)
 - [Chen et al. How is ChatGPT's behavior changing](https://arxiv.org/abs/2307.09009)
 - [Gama et al. survey](https://eprints.bournemouth.ac.uk/22491/)
-- (practitioner/OSS) [Evidently drift options](https://docs.evidentlyai.com/user-guide/customization/options-for-statistical-tests)
+- (practitioner/OSS) [Evidently drift options](https://docs.evidentlyai.com/user-guide/customization/options-for-statistical-tests) (link 404 as of 2026-11-21)
 
 ---
 
@@ -338,7 +338,7 @@ Several exercises/mastery items are my own design (not sourced claims); they are
 - Anthropic deprecation table: Sonnet 4.5 retires 2026-11-30; Haiku 4.5 not sooner than 2026-10-15; `temperature/top_p/top_k` removed in API version 2026-10-21 - https://platform.claude.com/docs/en/about-claude/model-deprecations
 - OpenAI deprecations: `gpt-5` family shutdown 2026-12-11; whisper-1 2027-02-26 - https://developers.openai.com/api/docs/deprecations
 - Langfuse online LLM-as-judge (sampling rules, ~$0.01-0.10 per eval) - https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge
-- Evidently drift defaults vary by version - https://docs.evidentlyai.com/user-guide/customization/options-for-statistical-tests
+- Evidently drift defaults vary by version - https://docs.evidentlyai.com/user-guide/customization/options-for-statistical-tests (link 404 as of 2026-11-21)
 - Presidio (PII detection; moved to presidio.dataprivacystack.org) - https://presidio.dataprivacystack.org/
 - Llama Guard, NeMo Guardrails, Constitutional Classifiers (guardrail models/toolkits) - links in runtime-guardrails
 - AWS SageMaker shadow tests - https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html

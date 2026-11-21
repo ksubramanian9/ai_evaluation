@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: stats
 prerequisites: [ml-metrics, evaluation-mindset]
-tags: []
+tags: [llm-judge, human-labels]
 ---
 # Error analysis
 
@@ -35,7 +35,7 @@ Take 100 failures from a classifier or LLM task. Without predefined labels, writ
 3. How do you keep error analysis from overfitting your eval set?
 
 ## Sources
-- Ribeiro et al., "Beyond Accuracy: Behavioral Testing of NLP Models with CheckList" (ACL 2020): https://arxiv.org/abs/2005.04118
-- Shankar et al., "Who Validates the Validators?": https://arxiv.org/abs/2404.12272
-- Practitioner: Ng, Machine Learning Yearning: https://home-wordpress.deeplearning.ai/wp-content/uploads/2022/03/andrew-ng-machine-learning-yearning.pdf
-- Practitioner: Husain, "Your AI Product Needs Evals": https://hamel.dev/blog/posts/evals/
+- [Ribeiro et al., "Beyond Accuracy: Behavioral Testing of NLP Models with CheckList" (ACL 2020)](https://arxiv.org/abs/2005.04118)
+- [Shankar et al., "Who Validates the Validators?"](https://arxiv.org/abs/2404.12272)
+- practitioner: [Ng, Machine Learning Yearning](https://home-wordpress.deeplearning.ai/wp-content/uploads/2022/03/andrew-ng-machine-learning-yearning.pdf)
+- practitioner: [Husain, "Your AI Product Needs Evals"](https://hamel.dev/blog/posts/evals/)

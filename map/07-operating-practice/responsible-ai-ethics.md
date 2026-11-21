@@ -27,7 +27,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Evaluating with crowdworkers/red-teamers without consent, compensation or exposure safeguards (AI 600-1 above).
 - Evaluating only majority-user performance.
 
-## Practice exercise
+## Practice exercise (2 h)
 Run a mini impact assessment for your app: list affected stakeholders (users, non-users), map to Weidinger risk areas, choose which ones you will not evaluate and write down why, and define one eval or monitor per accepted risk.
 
 ## Mastery check
@@ -36,7 +36,9 @@ Run a mini impact assessment for your app: list affected stakeholders (users, no
 3. When do evaluation procedures themselves need ethics review?
 
 ## Sources
-- https://oecd.ai/en/ai-principles ; https://arxiv.org/abs/2112.04359
-- NIST AI 100-1 / 600-1 (above)
-- Microsoft RAI Standard v2 PDF (corporate practice; read via search summary only)
-- UNESCO Recommendation on the Ethics of AI (2021): NOT researched; add if wanted.
+- [OECD AI Principles](https://oecd.ai/en/ai-principles)
+- [Weidinger et al., arXiv 2112.04359](https://arxiv.org/abs/2112.04359)
+- [NIST AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf); [NIST AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
+- [Microsoft Responsible AI Standard v2 (PDF)](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf) (corporate practice; read via search summary only)
+- [EU AI Act Annex IV](https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4)
+- UNESCO Recommendation on the Ethics of AI (2021): NOT researched; add if wanted (URL not recorded).

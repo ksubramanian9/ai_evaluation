@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: testing
 prerequisites: [golden-datasets, baselines-and-thresholds, statistical-inference]
-tags: []
+tags: [statistics]
 ---
 # Eval-driven development
 
@@ -14,17 +14,31 @@ Writing evals first and iterating on the system against them, the analogue of te
 
 _Researched 2026-11-20; full notes in [research/02-eval-design.md](../../research/02-eval-design.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
-_Source key (reused): [CLAUDE-EVAL] https://platform.claude.com/docs/en/test-and-evaluate/develop-tests ; [OAI-BP] https://developers.openai.com/api/docs/guides/evaluation-best-practices ; [ANTH-AGENT] https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents ; [HELM] https://arxiv.org/abs/2211.09110_
-
 **Shared concept:** confidence intervals, power and paired comparisons are owned by [statistical-inference](../01-foundations/statistical-inference.md) and [confidence-intervals-for-evals](../03-measurement-methods/confidence-intervals-for-evals.md).
 
 ## Why it matters
-OpenAI: "Adopt eval-driven development: Evaluate early and often" because outputs vary; anti-patterns include vibe-based evals [OAI-BP]. Anthropic: write evals for planned capabilities before agents can do them, iterate to the bar; promote saturated capability evals to regression suites; read transcripts [ANTH-AGENT]. Anthropic recommends success criteria first, volume over per-item quality with automated grading [CLAUDE-EVAL].
+- OpenAI: "Adopt eval-driven development: Evaluate early and often" because outputs vary; anti-patterns include vibe-based evals ([OpenAI, evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices)).
+- Anthropic: write evals for planned capabilities before agents can do them, iterate to the bar; promote saturated capability evals to regression suites; read transcripts ([Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)).
+- Anthropic recommends success criteria first, volume over per-item quality with automated grading ([Anthropic, develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)).
+
 ## Common failure modes
-Evals added after shipping [OAI-BP]; overfitting to the dev eval (UNVERIFIED in sources; relates to contamination/Goodhart); grader bugs mistaken for model failures [ANTH-AGENT]; criteria change mid-loop [Shankar](https://arxiv.org/abs/2404.12272); no holdout.
-## Practice exercise
+- Evals added after shipping ([OpenAI, evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices)).
+- Overfitting to the dev eval (UNVERIFIED in sources; relates to contamination/Goodhart).
+- Grader bugs mistaken for model failures ([Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)).
+- Criteria change mid-loop ([Shankar](https://arxiv.org/abs/2404.12272)).
+- No holdout.
+
+## Practice exercise (2-3 h)
 Start with 20 failing cases for a prompt task before editing the prompt; iterate prompt versions, logging pass rate with CI; keep a hidden holdout of 20 and check dev vs holdout divergence at the end.
+
 ## Mastery check
-(1) Show the red-green loop for a prompt change. (2) How do you tell prompt overfitting from real improvement? (3) When to promote a case to regression?
+1. Show the red-green loop for a prompt change.
+2. How do you tell prompt overfitting from real improvement?
+3. When to promote a case to regression?
+
 ## Sources
-[OAI-BP]; [ANTH-AGENT]; [CLAUDE-EVAL]; https://arxiv.org/abs/2404.12272. Practitioner not collected.
+- [OpenAI, evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices)
+- [Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)
+- [Anthropic, develop tests](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests)
+- [Shankar et al. 2024, Who Validates the Validators?](https://arxiv.org/abs/2404.12272)
+- Practitioner source: not collected.

@@ -2,4 +2,7 @@
 
 Topics that might deserve a node. Promote one only when it matters to your learning.
 
-- See the "Gaps and uncertainties" section of research/02-eval-design.md for suggested candidate topics, and its "Landscape items" list for volatile items to add to landscape/02-eval-design.md.
+- Eval-set maintenance, versioning and saturation (source: research/02-eval-design.md)
+- Dynamic and adversarial benchmark construction (source: research/02-eval-design.md)
+- Human baseline estimation (source: research/02-eval-design.md)
+- Privacy handling of production data in golden sets (source: research/02-eval-design.md)

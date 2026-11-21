@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: none
 prerequisites: [metric-selection]
-tags: []
+tags: [human-labels, statistics]
 ---
 # Online metrics and user feedback
 
@@ -24,7 +24,7 @@ _Researched 2026-11-20; full notes in [research/06-production.md](../../research
 - Feedback conflated with quality: users may click or thumb based on tone/length, which mirrors judge verbosity bias ([Zheng et al. 2023](https://arxiv.org/abs/2306.05685)).
 - Hidden feedback loops: system outputs shape the data later used to train/evaluate it ([Sculley et al.](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html), abstract lists "hidden feedback loops").
 
-## Practice exercise
+## Practice exercise (4 h)
 (design)
 - Use a public click or preference dataset (e.g. a public search click log or pairwise preference data). Compute naive CTR per position, then an inverse-propensity-weighted estimate with propensities estimated from a randomised slice (or simulate clicks with a known position-bias model and recover true relevance).
 - For an LLM app: define 3 implicit signals (regenerate rate, edit distance, abandonment), compute them on a logged sample, and correlate each with a small human-labelled quality set.

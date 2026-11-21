@@ -6,7 +6,7 @@ depth: L3
 status: not-started
 bridge: none
 prerequisites: [team-roles-and-process]
-tags: []
+tags: [human-labels, llm-judge]
 ---
 # Eval maturity model
 
@@ -26,7 +26,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Treating maturity levels as universal rather than per risk tier (inference).
 - Stuck at "vibe checks" (practitioner: Husain).
 
-## Practice exercise
+## Practice exercise (3 h)
 Draft a 4-5 level rubric along dimensions (datasets, metrics validity, judge calibration, automation/CI gates, monitoring, ownership, documentation, reporting with uncertainty). Anchor each level to a verifiable artifact and a cited source above. Score your capstone and name the next-level step with highest risk reduction.
 
 ## Mastery check
@@ -35,6 +35,9 @@ Draft a 4-5 level rubric along dimensions (datasets, metrics validity, judge cal
 3. Which levels are mandatory for a high-risk EU use case versus a prototype?
 
 ## Sources
-- https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning
-- https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf ; https://arxiv.org/abs/2411.12990
-- practitioner: https://hamel.dev/blog/posts/evals/
+- [Google Cloud, MLOps continuous delivery and automation pipelines](https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
+- [NIST AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
+- [ISO/IEC 42001](https://committee.iso.org/standard/42001)
+- [BetterBench, arXiv 2411.12990](https://arxiv.org/abs/2411.12990)
+- [Construct validity review, arXiv 2511.04703](https://arxiv.org/abs/2511.04703)
+- practitioner: [Hamel Husain, evals](https://hamel.dev/blog/posts/evals/)

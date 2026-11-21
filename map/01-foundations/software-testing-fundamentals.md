@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: testing
 prerequisites: []
-tags: []
+tags: [nondeterminism]
 ---
 # Software testing fundamentals
 
@@ -17,7 +17,7 @@ _Researched 2026-11-20 from the sources below; full notes in [research/01-founda
 - The test pyramid (credited to Mike Cohn) says many small fast unit tests, fewer coarse tests, very few end-to-end tests. The inverted "ice-cream cone" is slow and flaky, and tests should check observable behavior, not implementation ([Vocke on martinfowler.com, practitioner](https://martinfowler.com/articles/practical-test-pyramid.html)).
 - Google's ML Test Score is a rubric of 28 tests for ML production readiness ([Breck et al. 2017](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)). One reproduction says the score is the minimum across four sections; that is secondary, so confirm in the paper.
 - Behavioral testing for NLP carries over test-design ideas (see [error-analysis](error-analysis.md)).
-- UNVERIFIED: formal definitions of oracle, regression testing and coverage. The ISTQB glossary fetch returned empty. Use https://glossary.istqb.org or SWEBOK.
+- UNVERIFIED: formal definitions of oracle, regression testing and coverage. The ISTQB glossary fetch returned empty. Use the [ISTQB glossary](https://glossary.istqb.org) or SWEBOK (SWEBOK URL not recorded).
 
 ## Common failure modes
 - Inverted pyramid: end-to-end-heavy suites.
@@ -34,6 +34,6 @@ Take a small LLM function, such as a classifier-prompt wrapper. Write unit tests
 3. Give a regression test design for a prompt change.
 
 ## Sources
-- Breck et al., "The ML Test Score": https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/
-- ISTQB glossary (to fetch): https://glossary.istqb.org
-- Practitioner: Vocke, "The Practical Test Pyramid": https://martinfowler.com/articles/practical-test-pyramid.html
+- [Breck et al., "The ML Test Score"](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)
+- [ISTQB glossary (to fetch)](https://glossary.istqb.org)
+- practitioner: [Vocke, "The Practical Test Pyramid"](https://martinfowler.com/articles/practical-test-pyramid.html)

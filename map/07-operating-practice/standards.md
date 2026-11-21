@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: none
 prerequisites: [risk-and-governance-frameworks]
-tags: []
+tags: [safety]
 ---
 # Standards
 
@@ -25,7 +25,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Citing a standard from titles without reading it (all content here UNVERIFIED).
 - Assuming ISO conformance gives EU AI Act presumption of conformity; only harmonised standards cited in the OJ do (general EU law principle; AI Act Art. 40 text not fetched: UNVERIFIED).
 
-## Practice exercise
+## Practice exercise (3 h)
 Build a catalogue table (number, title, year, status, purchasable price, what evidence an eval team could produce for it) from the SC 42 catalogue; pick two (25058, 42119-2) and read the free preview/scope pages; note what you cannot verify without purchase.
 
 ## Mastery check
@@ -34,7 +34,10 @@ Build a catalogue table (number, title, year, status, purchasable price, what ev
 3. What can and cannot a 42001 certificate tell a customer about your eval quality?
 
 ## Sources
-- https://committee.iso.org/standard/42001 ; https://committee.iso.org/standard/42005 ; https://committee.iso.org/committee/6794475/x/catalogue/
-- https://www.iso.org/standard/77304.html (23894 catalogue)
-- https://www.iso.org/insights/iso-42001-explained
-(All catalogue-level; standard contents not verified.)
+- [ISO/IEC 42001](https://committee.iso.org/standard/42001)
+- [ISO/IEC 42005](https://committee.iso.org/standard/42005)
+- [ISO/IEC JTC 1/SC 42 catalogue](https://committee.iso.org/committee/6794475/x/catalogue/)
+- [ISO/IEC 23894 catalogue entry](https://www.iso.org/standard/77304.html)
+- [ISO, ISO 42001 explained](https://www.iso.org/insights/iso-42001-explained)
+- [Commission, AI Act policy page](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
+- (All catalogue-level; standard contents not verified.)

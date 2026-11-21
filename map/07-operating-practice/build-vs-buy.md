@@ -25,7 +25,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Underestimating maintenance of in-house harnesses (inference).
 - Vendor/tool volatility: tools change ownership, pricing, and license; verify at decision time (as-of 2026-11-20 for tool facts above).
 
-## Practice exercise
+## Practice exercise (2 h)
 Write a one-page decision record for your capstone: weighted criteria, three options (in-house thin harness on an open-source runner; open-source platform self-hosted; commercial platform), evidence from docs for each criterion, exit plan, review date.
 
 ## Mastery check
@@ -34,6 +34,8 @@ Write a one-page decision record for your capstone: weighted criteria, three opt
 3. How would you test a vendor's built-in metric before trusting it?
 
 ## Sources
-- Tool docs as in eval-tooling-landscape; https://platform.claude.com/docs/en/build-with-claude/batch-processing
-- practitioner: https://hamel.dev/blog/posts/evals/
+- Tool docs as in [eval-tooling-landscape](eval-tooling-landscape.md)
+- [Anthropic, batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+- [EU AI Act Annex IV](https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4); [EU AI Act Art. 72](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72)
+- practitioner: [Hamel Husain, evals](https://hamel.dev/blog/posts/evals/)
 - GAP: no primary source for decision criteria. Suggest candidate sources: vendor license files and data processing terms (not researched).

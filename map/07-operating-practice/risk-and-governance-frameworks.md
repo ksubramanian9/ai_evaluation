@@ -29,7 +29,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Using GAI Profile actions without a context profile: AI 600-1 itself says its list is "not exhaustive" and use-case profiles are implementations of the Core ([AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf), Sec. 6 Profiles; [AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf), App. A).
 - Relying on lab benchmarks as evidence of deployment risk (explicitly warned against, A.1.4 above).
 
-## Practice exercise
+## Practice exercise (3 h)
 Pick a small LLM app (e.g. a RAG helper). Build a one-page crosswalk: list its top 5 risks from AI 600-1 Sec. 2, and for each name one MAP/MEASURE/MANAGE subcategory and one concrete eval or monitor that would produce evidence (test set, metric, threshold, owner). Mark gaps where no eval exists.
 
 ## Mastery check
@@ -38,7 +38,7 @@ Pick a small LLM app (e.g. a RAG helper). Build a one-page crosswalk: list its t
 3. Why does AI 600-1 say benchmark and exam performance do not establish validity, and what does it propose in addition?
 
 ## Sources
-- https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf (read in full text)
-- https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf (read in full text)
-- https://oecd.ai/en/ai-principles
-- https://www.iso.org/standard/77304.html (catalogue; not verified in content)
+- [NIST AI 100-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf) (read in full text)
+- [NIST AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf) (read in full text)
+- [OECD AI Principles](https://oecd.ai/en/ai-principles)
+- [ISO/IEC 23894 catalogue entry](https://www.iso.org/standard/77304.html) (catalogue; not verified in content)

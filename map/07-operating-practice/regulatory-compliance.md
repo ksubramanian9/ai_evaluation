@@ -34,9 +34,9 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Using pre-omnibus dates (2 Aug 2026 for high-risk) in plans.
 - Assuming a model provider's compliance covers the deployer's duties; role (provider vs deployer vs downstream modifier) decides obligations (GPAI scope guidelines above; detail UNVERIFIED).
 - Treating internal eval logs as compliance evidence without dated sign-off, pre-defined thresholds and group-level metrics (Art. 9(8), Annex IV above).
-- Assuming a high-risk classification absent from a generic LLM app; classification depends on Annex III use case (Annex III page: https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-3, not read in detail).
+- Assuming a high-risk classification absent from a generic LLM app; classification depends on Annex III use case ([Annex III page](https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-3), not read in detail).
 
-## Practice exercise
+## Practice exercise (3 h)
 Take your capstone app. (1) Decide role and risk class using the Commission page and Annex III. (2) Build a table mapping each applicable obligation (Art. 9, Annex IV 2(g), Art. 72) to an eval artifact you already produce, with missing items flagged. (3) Record the date you checked status.
 
 ## Mastery check
@@ -46,12 +46,12 @@ Take your capstone app. (1) Decide role and risk class using the Commission page
 4. Why can a company be compliant under the EU Act yet affected differently by US state law (Colorado example)?
 
 ## Sources
-- https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai (as-of page update 2026-10-19)
-- https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9, /article-51, /article-55, /article-72, /article-99, /article-113, /annex-4
-- https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689 (official text; not fetched)
-- https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai
-- https://digital-strategy.ec.europa.eu/en/library/guidelines-scope-obligations-providers-general-purpose-ai-models-under-ai-act
-- https://leg.colorado.gov/bills/sb26-189
+- [Commission, AI Act policy page](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) (as-of page update 2026-10-19)
+- EU AI Act articles via Service Desk: [Art. 9](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9), [Art. 51](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-51), [Art. 55](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-55), [Art. 72](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72), [Art. 99](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-99), [Art. 113](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113), [Annex IV](https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4)
+- [EUR-Lex, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689) (official text; not fetched)
+- [Commission, GPAI Code of Practice](https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai)
+- [Commission, GPAI scope guidelines](https://digital-strategy.ec.europa.eu/en/library/guidelines-scope-obligations-providers-general-purpose-ai-models-under-ai-act)
+- [Colorado SB 26-189](https://leg.colorado.gov/bills/sb26-189)
 
 ## Verification log (2026-11-20)
 Checked against official pages by a follow-up pass. The EUR-Lex Official Journal text could not be read (empty response), so article wording remains unverified.

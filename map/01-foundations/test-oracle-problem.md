@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: testing
 prerequisites: [software-testing-fundamentals]
-tags: [nondeterminism]
+tags: [nondeterminism, llm-judge]
 ---
 # The test oracle problem
 
@@ -34,7 +34,7 @@ For a summarization or QA task, build three oracle types: (a) reference/exact-ma
 3. When is a partial oracle (properties) preferable to a reference answer?
 
 ## Sources
-- Barr et al., "The Oracle Problem in Software Testing: A Survey" (IEEE TSE 2015): https://discovery-pp.ucl.ac.uk/id/eprint/1471263
-- Segura et al., metamorphic testing survey (IEEE TSE 2016): https://eprints.whiterose.ac.uk/110335/
-- Zheng et al., MT-Bench / LLM-as-a-judge: https://arxiv.org/abs/2306.05685
-- Ribeiro et al., CheckList (ACL 2020): https://arxiv.org/abs/2005.04118
+- [Barr et al., "The Oracle Problem in Software Testing: A Survey" (IEEE TSE 2015)](https://discovery-pp.ucl.ac.uk/id/eprint/1471263)
+- [Segura et al., metamorphic testing survey (IEEE TSE 2016)](https://eprints.whiterose.ac.uk/110335/)
+- [Zheng et al., MT-Bench / LLM-as-a-judge](https://arxiv.org/abs/2306.05685)
+- [Ribeiro et al., CheckList (ACL 2020)](https://arxiv.org/abs/2005.04118)

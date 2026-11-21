@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: testing
 prerequisites: [eval-harness-design]
-tags: []
+tags: [privacy, rag, agents]
 ---
 # Observability and tracing
 
@@ -15,8 +15,8 @@ Capturing traces of prompts, retrievals, tool calls, and outputs for debugging a
 _Researched 2026-11-20; full notes in [research/06-production.md](../../research/06-production.md). Items marked UNVERIFIED were not confirmed from a fetched primary page. Most paper claims were read at abstract level; check numbers against the papers before relying on them. Exercises and mastery checks are proposed designs, not sourced claims._
 
 ## Why it matters
-- OpenTelemetry has GenAI semantic conventions that standardise spans for model calls, retrieval, tool execution and agents. Well-known `gen_ai.operation.name` values include `chat`, `embeddings`, `retrieval`, `execute_tool`, `invoke_agent`, `plan`, `search_memory` ([OTel GenAI spans](https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-spans.md)). A shared schema lets eval tooling and backends consume traces from any instrumented stack. [vol]
-- The conventions moved out of the core semconv site into a separate repo ([OTel moved notice](https://opentelemetry.io/docs/specs/semconv/gen-ai/)); spans and most attributes are marked Development (unstable) ([spans spec](https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-spans.md)). [vol, as-of 2026-11-20]
+- OpenTelemetry has GenAI semantic conventions that standardise spans for model calls, retrieval, tool execution and agents. Well-known `gen_ai.operation.name` values include `chat`, `embeddings`, `retrieval`, `execute_tool`, `invoke_agent`, `plan`, `search_memory` ([OTel GenAI spans](https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-spans.md)). A shared schema lets eval tooling and backends consume traces from any instrumented stack. (as of release; volatile)
+- The conventions moved out of the core semconv site into a separate repo ([OTel moved notice](https://opentelemetry.io/docs/specs/semconv/gen-ai/)); spans and most attributes are marked Development (unstable) ([spans spec](https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-spans.md)). (volatile; as of 2026-11-20)
 - Traces are the raw material for later nodes (sampling, judges, dataset mining, incident debugging). Sculley et al. note ML systems carry ongoing maintenance cost from data dependencies and external-world change ([Hidden Technical Debt, NIPS 2015](https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html)); traces are how you see them.
 
 ## Common failure modes
@@ -25,7 +25,7 @@ _Researched 2026-11-20; full notes in [research/06-production.md](../../research
 - Traces missing the retrieval and tool steps, so RAG/agent failures cannot be localised (design).
 - Sampling decisions that drop error traces (see traffic-sampling-and-logging).
 
-## Practice exercise
+## Practice exercise (4 h)
 (design)
 - Build a small RAG or tool-calling script. Instrument it with the OTel SDK (or an OTel-GenAI instrumentation library), emitting `chat`, `retrieval` and `execute_tool` spans, and export to a local backend (Jaeger or an OTel Collector file exporter).
 - Run 20 queries, then write a script that reads the exported spans and finds the slowest and the most token-expensive request, plus the span where a deliberately injected bad retrieval occurred.

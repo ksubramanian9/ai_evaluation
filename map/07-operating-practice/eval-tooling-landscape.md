@@ -6,7 +6,7 @@ depth: L1
 status: not-started
 bridge: none
 prerequisites: [eval-harness-design]
-tags: []
+tags: [agents, llm-judge]
 ---
 # Eval tooling landscape
 
@@ -24,7 +24,7 @@ _Researched 2026-11-20; full notes in [research/07-operating-practice.md](../../
 - Relying on experimental semantic conventions that may change (stability UNVERIFIED).
 - Treating tool availability as maturity.
 
-## Practice exercise
+## Practice exercise (4 h)
 Implement the same 20-item eval in two tools (e.g. Inspect and promptfoo). Record: setup time, how datasets and scorers are defined, log format/exportability, CI integration, judge configuration, cost visibility, and what a migration would require.
 
 ## Mastery check
@@ -33,4 +33,9 @@ Implement the same 20-item eval in two tools (e.g. Inspect and promptfoo). Recor
 3. Which tool features replace human review, and which only organize it?
 
 ## Sources
-- https://inspect.aisi.org.uk/ ; https://www.promptfoo.dev/docs/intro/ ; https://langfuse.com/docs ; https://github.com/open-telemetry/semantic-conventions-genai
+- [Inspect](https://inspect.aisi.org.uk/)
+- [promptfoo](https://www.promptfoo.dev/docs/intro/)
+- [Langfuse](https://langfuse.com/docs)
+- [OpenTelemetry GenAI semantic conventions repo](https://github.com/open-telemetry/semantic-conventions-genai)
+- [Hugging Face model cards](https://huggingface.co/docs/hub/model-cards)
+- practitioner: [Hamel Husain, evals](https://hamel.dev/blog/posts/evals/)

@@ -42,9 +42,33 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
+BARE_URL = re.compile(r"https?://[^\s<>\"')\]]+[^\s<>\"')\].,;:!?]")
+TAG_SPLIT = re.compile(r"(<[^>]+>)")
+
+
+def autolink(h):
+    """Turn bare http(s) URLs in HTML text nodes into links.
+
+    Skips anything inside tags/attributes, <a>, <code>, <pre>. python-markdown
+    does not autolink bare URLs on its own.
+    """
+    out, skip = [], 0
+    for part in TAG_SPLIT.split(h):
+        if part.startswith("<"):
+            m = re.match(r"<(/?)(a|code|pre)(?=[\s>/])", part, re.I)
+            if m and not part.endswith("/>"):
+                skip = max(0, skip + (-1 if m.group(1) else 1))
+            out.append(part)
+        elif skip:
+            out.append(part)
+        else:
+            out.append(BARE_URL.sub(lambda u: f'<a href="{u.group(0)}">{u.group(0)}</a>', part))
+    return "".join(out)
+
+
 def render(text):
     m = markdown.Markdown(extensions=MD_EXT)
-    out = m.convert(text)
+    out = autolink(m.convert(text))
     return out, m.toc_tokens
 
 
@@ -308,11 +332,12 @@ def build(out, stale_days):
         n["tags"] = n["tags"] if isinstance(n.get("tags"), list) else []
         n["layer"] = lay[n["id"]]
 
+    # Clear old output but tolerate locked folders (OneDrive/Explorer on Windows hold
+    # directory handles); files are overwritten below anyway.
     if out.exists():
-        shutil.rmtree(out)
-    (out / "assets").mkdir(parents=True)
-    for d in ("nodes", "branches", "research"):
-        (out / d).mkdir()
+        shutil.rmtree(out, ignore_errors=True)
+    for d in ("assets", "nodes", "branches", "research"):
+        (out / d).mkdir(parents=True, exist_ok=True)
     for f in ASSETS.iterdir():
         shutil.copy(f, out / "assets" / f.name)
     (out / ".nojekyll").write_text("")

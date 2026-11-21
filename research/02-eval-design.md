@@ -1,7 +1,7 @@
 # Research: 02-eval-design (as-of 2026-11-20)
 
 Convention: claims carry inline URLs. Sources read at abstract/landing-page level unless noted; "UNVERIFIED" = not confirmed from a fetched source. "practitioner" = non-primary.
-Source key (reused): [CLAUDE-EVAL] https://platform.claude.com/docs/en/test-and-evaluate/develop-tests ; [OAI-BP] https://developers.openai.com/api/docs/guides/evaluation-best-practices ; [ANTH-AGENT] https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents ; [HELM] https://arxiv.org/abs/2211.09110
+Source key (reused): [CLAUDE-EVAL] https://platform.claude.com/docs/en/test-and-evaluate/develop-tests ; [OAI-BP] https://developers.openai.com/api/docs/guides/evaluation-best-practices ; [ANTH-AGENT] https://www.anthropic.com/research/demystifying-evals-for-ai-agents ; [HELM] https://arxiv.org/abs/2211.09110
 
 ## task-definition-and-success-criteria
 **Why it matters.** Anthropic's docs say to define success criteria before building evals; good criteria are specific, measurable, achievable, relevant, and most use cases need multidimensional criteria (example: F1 >= 0.85, 99.5% non-toxic, 95% of responses < 200ms) [CLAUDE-EVAL]. OpenAI's workflow starts with "Define eval objective" [OAI-BP]. Measurement-theory framing: unobservable constructs must be inferred via a measurement model whose assumptions can diverge from the intended concept [Jacobs & Wallach](https://arxiv.org/abs/1912.05511). Evaluation should be grounded in real human needs/context (socio-technical gap) [Liao & Xiao](https://arxiv.org/abs/2306.03100).

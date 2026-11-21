@@ -6,7 +6,7 @@ depth: L2
 status: not-started
 bridge: stats
 prerequisites: []
-tags: []
+tags: [statistics]
 ---
 # Data splits and leakage
 
@@ -34,6 +34,6 @@ Reproduce the sklearn random-data experiment (random X, random y). Leak via `Sel
 3. Name three leakage types that "split before preprocessing" does not catch.
 
 ## Sources
-- scikit-learn, common pitfalls: https://scikit-learn.org/stable/common_pitfalls.html
-- scikit-learn, cross-validation: https://scikit-learn.org/stable/modules/cross_validation.html
-- Kapoor & Narayanan, "Leakage and the Reproducibility Crisis in ML-based Science": https://arxiv.org/abs/2207.07048
+- [scikit-learn, common pitfalls](https://scikit-learn.org/stable/common_pitfalls.html)
+- [scikit-learn, cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html)
+- [Kapoor & Narayanan, "Leakage and the Reproducibility Crisis in ML-based Science"](https://arxiv.org/abs/2207.07048)

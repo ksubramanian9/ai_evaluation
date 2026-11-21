@@ -6,7 +6,7 @@ depth: L1
 status: not-started
 bridge: none
 prerequisites: []
-tags: [nondeterminism]
+tags: [nondeterminism, statistics]
 ---
 # Evaluation mindset for probabilistic systems
 
@@ -34,7 +34,7 @@ Take a 100-question multiple-choice set (a subset of an open benchmark) and a mo
 3. List four configuration choices that can move a reported score without changing the model.
 
 ## Sources
-- Miller, "Adding Error Bars to Evals": https://arxiv.org/abs/2411.00640
-- Raji et al., "AI and the Everything in the Whole Wide World Benchmark" (NeurIPS 2021 D&B): https://arxiv.org/abs/2111.15366
-- Hochlehnert et al., "A Sober Look at Progress in Language Model Reasoning" (COLM 2025): https://arxiv.org/abs/2504.07086
-- Shankar et al., "Who Validates the Validators?": https://arxiv.org/abs/2404.12272
+- [Miller, "Adding Error Bars to Evals"](https://arxiv.org/abs/2411.00640)
+- [Raji et al., "AI and the Everything in the Whole Wide World Benchmark" (NeurIPS 2021 D&B)](https://arxiv.org/abs/2111.15366)
+- [Hochlehnert et al., "A Sober Look at Progress in Language Model Reasoning" (COLM 2025)](https://arxiv.org/abs/2504.07086)
+- [Shankar et al., "Who Validates the Validators?"](https://arxiv.org/abs/2404.12272)
